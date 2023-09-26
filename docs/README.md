@@ -9,3 +9,5 @@ https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-ge
 
 Open API Server Implementation Using OpenAPI Generator
 https://www.baeldung.com/java-openapi-generator-server
+
+https://petstore.swagger.io
