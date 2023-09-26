@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RetryingOAuth.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo</a> &gt; <a href="index.source.html" class="el_package">org.openapitools.client.auth</a> &gt; <span class="el_source">RetryingOAuth.java</span></div><h1>RetryingOAuth.java</h1><pre class="source lang-java linenums">package org.openapitools.client.auth;
+
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Pair;
+
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
+import org.apache.oltu.oauth2.client.OAuthClient;
+import org.apache.oltu.oauth2.client.request.OAuthBearerClientRequest;
+import org.apache.oltu.oauth2.client.request.OAuthClientRequest;
+import org.apache.oltu.oauth2.client.request.OAuthClientRequest.TokenRequestBuilder;
+import org.apache.oltu.oauth2.client.response.OAuthJSONAccessTokenResponse;
+import org.apache.oltu.oauth2.common.exception.OAuthProblemException;
+import org.apache.oltu.oauth2.common.exception.OAuthSystemException;
+import org.apache.oltu.oauth2.common.message.types.GrantType;
+
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URI;
+import java.util.Map;
+import java.util.List;
+
+public class RetryingOAuth extends OAuth implements Interceptor {
+    private OAuthClient oAuthClient;
+
+    private TokenRequestBuilder tokenRequestBuilder;
+
+    /**
+     * @param client An OkHttp client
+     * @param tokenRequestBuilder A token request builder
+     */
+<span class="nc" id="L35">    public RetryingOAuth(OkHttpClient client, TokenRequestBuilder tokenRequestBuilder) {</span>
+<span class="nc" id="L36">        this.oAuthClient = new OAuthClient(new OAuthOkHttpClient(client));</span>
+<span class="nc" id="L37">        this.tokenRequestBuilder = tokenRequestBuilder;</span>
+<span class="nc" id="L38">    }</span>
+
+    /**
+     * @param tokenRequestBuilder A token request builder
+     */
+    public RetryingOAuth(TokenRequestBuilder tokenRequestBuilder) {
+<span class="nc" id="L44">        this(new OkHttpClient(), tokenRequestBuilder);</span>
+<span class="nc" id="L45">    }</span>
+
+    /**
+     * @param tokenUrl The token URL to be used for this OAuth2 flow.
+     *   Applicable to the following OAuth2 flows: &quot;password&quot;, &quot;clientCredentials&quot; and &quot;authorizationCode&quot;.
+     *   The value must be an absolute URL.
+     * @param clientId The OAuth2 client ID for the &quot;clientCredentials&quot; flow.
+     * @param flow OAuth flow.
+     * @param clientSecret The OAuth2 client secret for the &quot;clientCredentials&quot; flow.
+     * @param parameters A map of string.
+     */
+    public RetryingOAuth(
+            String tokenUrl,
+            String clientId,
+            OAuthFlow flow,
+            String clientSecret,
+            Map&lt;String, String&gt; parameters
+    ) {
+<span class="nc" id="L63">        this(OAuthClientRequest.tokenLocation(tokenUrl)</span>
+<span class="nc" id="L64">                .setClientId(clientId)</span>
+<span class="nc" id="L65">                .setClientSecret(clientSecret));</span>
+<span class="nc" id="L66">        setFlow(flow);</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">        if (parameters != null) {</span>
+<span class="nc bnc" id="L68" title="All 2 branches missed.">            for (Map.Entry&lt;String, String&gt; entry : parameters.entrySet()) {</span>
+<span class="nc" id="L69">                tokenRequestBuilder.setParameter(entry.getKey(), entry.getValue());</span>
+<span class="nc" id="L70">            }</span>
+        }
+<span class="nc" id="L72">    }</span>
+
+    /**
+     * Set the OAuth flow
+     *
+     * @param flow The OAuth flow.
+     */
+    public void setFlow(OAuthFlow flow) {
+<span class="nc bnc" id="L80" title="All 5 branches missed.">        switch(flow) {</span>
+            case ACCESS_CODE:
+<span class="nc" id="L82">                tokenRequestBuilder.setGrantType(GrantType.AUTHORIZATION_CODE);</span>
+<span class="nc" id="L83">                break;</span>
+            case IMPLICIT:
+<span class="nc" id="L85">                tokenRequestBuilder.setGrantType(GrantType.IMPLICIT);</span>
+<span class="nc" id="L86">                break;</span>
+            case PASSWORD:
+<span class="nc" id="L88">                tokenRequestBuilder.setGrantType(GrantType.PASSWORD);</span>
+<span class="nc" id="L89">                break;</span>
+            case APPLICATION:
+<span class="nc" id="L91">                tokenRequestBuilder.setGrantType(GrantType.CLIENT_CREDENTIALS);</span>
+<span class="nc" id="L92">                break;</span>
+            default:
+                break;
+        }
+<span class="nc" id="L96">    }</span>
+
+    @Override
+    public Response intercept(Chain chain) throws IOException {
+<span class="nc" id="L100">        return retryingIntercept(chain, true);</span>
+    }
+
+    private Response retryingIntercept(Chain chain, boolean updateTokenAndRetryOnAuthorizationFailure) throws IOException {
+<span class="nc" id="L104">        Request request = chain.request();</span>
+
+        // If the request already has an authorization (e.g. Basic auth), proceed with the request as is
+<span class="nc bnc" id="L107" title="All 2 branches missed.">        if (request.header(&quot;Authorization&quot;) != null) {</span>
+<span class="nc" id="L108">            return chain.proceed(request);</span>
+        }
+
+        // Get the token if it has not yet been acquired
+<span class="nc bnc" id="L112" title="All 2 branches missed.">        if (getAccessToken() == null) {</span>
+<span class="nc" id="L113">            updateAccessToken(null);</span>
+        }
+
+        OAuthClientRequest oAuthRequest;
+<span class="nc bnc" id="L117" title="All 2 branches missed.">        if (getAccessToken() != null) {</span>
+            // Build the request
+<span class="nc" id="L119">            Request.Builder requestBuilder = request.newBuilder();</span>
+
+<span class="nc" id="L121">            String requestAccessToken = getAccessToken();</span>
+            try {
+<span class="nc" id="L123">                oAuthRequest =</span>
+<span class="nc" id="L124">                        new OAuthBearerClientRequest(request.url().toString()).</span>
+<span class="nc" id="L125">                                setAccessToken(requestAccessToken).</span>
+<span class="nc" id="L126">                                buildHeaderMessage();</span>
+<span class="nc" id="L127">            } catch (OAuthSystemException e) {</span>
+<span class="nc" id="L128">                throw new IOException(e);</span>
+<span class="nc" id="L129">            }</span>
+
+<span class="nc" id="L131">            Map&lt;String, String&gt; headers = oAuthRequest.getHeaders();</span>
+<span class="nc bnc" id="L132" title="All 2 branches missed.">            for (Map.Entry&lt;String, String&gt; entry : headers.entrySet()) {</span>
+<span class="nc" id="L133">                requestBuilder.addHeader(entry.getKey(), entry.getValue());</span>
+<span class="nc" id="L134">            }</span>
+<span class="nc" id="L135">            requestBuilder.url(oAuthRequest.getLocationUri());</span>
+
+            // Execute the request
+<span class="nc" id="L138">            Response response = chain.proceed(requestBuilder.build());</span>
+
+            // 401/403 response codes most likely indicate an expired access token, unless it happens two times in a row
+<span class="nc bnc" id="L141" title="All 2 branches missed.">            if (</span>
+                    response != null &amp;&amp;
+<span class="nc bnc" id="L143" title="All 2 branches missed.">                            (   response.code() == HttpURLConnection.HTTP_UNAUTHORIZED ||</span>
+<span class="nc bnc" id="L144" title="All 4 branches missed.">                                    response.code() == HttpURLConnection.HTTP_FORBIDDEN     ) &amp;&amp;</span>
+                            updateTokenAndRetryOnAuthorizationFailure
+            ) {
+                try {
+<span class="nc bnc" id="L148" title="All 2 branches missed.">                    if (updateAccessToken(requestAccessToken)) {</span>
+<span class="nc" id="L149">                        response.body().close();</span>
+<span class="nc" id="L150">                        return retryingIntercept(chain, false);</span>
+                    }
+<span class="nc" id="L152">                } catch (Exception e) {</span>
+<span class="nc" id="L153">                    response.body().close();</span>
+<span class="nc" id="L154">                    throw e;</span>
+<span class="nc" id="L155">                }</span>
+            }
+<span class="nc" id="L157">            return response;</span>
+        }
+        else {
+<span class="nc" id="L160">            return chain.proceed(chain.request());</span>
+        }
+    }
+
+    /**
+     * Returns true if the access token has been updated
+     *
+     * @param requestAccessToken the request access token
+     * @return True if the update is successful
+     * @throws java.io.IOException If fail to update the access token
+     */
+    public synchronized boolean updateAccessToken(String requestAccessToken) throws IOException {
+<span class="nc bnc" id="L172" title="All 4 branches missed.">        if (getAccessToken() == null || getAccessToken().equals(requestAccessToken)) {</span>
+            try {
+<span class="nc" id="L174">                OAuthJSONAccessTokenResponse accessTokenResponse =</span>
+<span class="nc" id="L175">                        oAuthClient.accessToken(tokenRequestBuilder.buildBodyMessage());</span>
+<span class="nc bnc" id="L176" title="All 4 branches missed.">                if (accessTokenResponse != null &amp;&amp; accessTokenResponse.getAccessToken() != null) {</span>
+<span class="nc" id="L177">                    setAccessToken(accessTokenResponse.getAccessToken());</span>
+                }
+<span class="nc" id="L179">            } catch (OAuthSystemException | OAuthProblemException e) {</span>
+<span class="nc" id="L180">                throw new IOException(e);</span>
+<span class="nc" id="L181">            }</span>
+        }
+<span class="nc bnc" id="L183" title="All 4 branches missed.">        return getAccessToken() == null || !getAccessToken().equals(requestAccessToken);</span>
+    }
+
+    /**
+     * Gets the token request builder
+     *
+     * @return A token request builder
+     */
+    public TokenRequestBuilder getTokenRequestBuilder() {
+<span class="nc" id="L192">        return tokenRequestBuilder;</span>
+    }
+
+    /**
+     * Sets the token request builder
+     *
+     * @param tokenRequestBuilder Token request builder
+     */
+    public void setTokenRequestBuilder(TokenRequestBuilder tokenRequestBuilder) {
+<span class="nc" id="L201">        this.tokenRequestBuilder = tokenRequestBuilder;</span>
+<span class="nc" id="L202">    }</span>
+
+    // Applying authorization to parameters is performed in the retryingIntercept method
+    @Override
+    public void applyToParams(List&lt;Pair&gt; queryParams, Map&lt;String, String&gt; headerParams, Map&lt;String, String&gt; cookieParams,
+                             String payload, String method, URI uri) throws ApiException {
+        // No implementation necessary
+<span class="nc" id="L209">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

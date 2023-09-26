@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OAuthOkHttpClient.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo</a> &gt; <a href="index.source.html" class="el_package">org.openapitools.client.auth</a> &gt; <span class="el_source">OAuthOkHttpClient.java</span></div><h1>OAuthOkHttpClient.java</h1><pre class="source lang-java linenums">package org.openapitools.client.auth;
+
+import okhttp3.OkHttpClient;
+import okhttp3.MediaType;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
+import org.apache.oltu.oauth2.client.HttpClient;
+import org.apache.oltu.oauth2.client.request.OAuthClientRequest;
+import org.apache.oltu.oauth2.client.response.OAuthClientResponse;
+import org.apache.oltu.oauth2.client.response.OAuthClientResponseFactory;
+import org.apache.oltu.oauth2.common.exception.OAuthProblemException;
+import org.apache.oltu.oauth2.common.exception.OAuthSystemException;
+
+import java.io.IOException;
+import java.util.Map;
+import java.util.Map.Entry;
+
+public class OAuthOkHttpClient implements HttpClient {
+    private OkHttpClient client;
+
+<span class="nc" id="L23">    public OAuthOkHttpClient() {</span>
+<span class="nc" id="L24">        this.client = new OkHttpClient();</span>
+<span class="nc" id="L25">    }</span>
+
+<span class="nc" id="L27">    public OAuthOkHttpClient(OkHttpClient client) {</span>
+<span class="nc" id="L28">        this.client = client;</span>
+<span class="nc" id="L29">    }</span>
+
+    @Override
+    public &lt;T extends OAuthClientResponse&gt; T execute(OAuthClientRequest request, Map&lt;String, String&gt; headers,
+                                                     String requestMethod, Class&lt;T&gt; responseClass)
+            throws OAuthSystemException, OAuthProblemException {
+
+<span class="nc" id="L36">        MediaType mediaType = MediaType.parse(&quot;application/json&quot;);</span>
+<span class="nc" id="L37">        Request.Builder requestBuilder = new Request.Builder().url(request.getLocationUri());</span>
+
+<span class="nc bnc" id="L39" title="All 2 branches missed.">        if(headers != null) {</span>
+<span class="nc bnc" id="L40" title="All 2 branches missed.">            for (Entry&lt;String, String&gt; entry : headers.entrySet()) {</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">                if (entry.getKey().equalsIgnoreCase(&quot;Content-Type&quot;)) {</span>
+<span class="nc" id="L42">                    mediaType = MediaType.parse(entry.getValue());</span>
+                } else {
+<span class="nc" id="L44">                    requestBuilder.addHeader(entry.getKey(), entry.getValue());</span>
+                }
+<span class="nc" id="L46">            }</span>
+        }
+
+<span class="nc bnc" id="L49" title="All 2 branches missed.">        RequestBody body = request.getBody() != null ? RequestBody.create(request.getBody(), mediaType) : null;</span>
+<span class="nc" id="L50">        requestBuilder.method(requestMethod, body);</span>
+
+        try {
+<span class="nc" id="L53">            Response response = client.newCall(requestBuilder.build()).execute();</span>
+<span class="nc" id="L54">            return OAuthClientResponseFactory.createCustomResponse(</span>
+<span class="nc" id="L55">                    response.body().string(),</span>
+<span class="nc" id="L56">                    response.body().contentType().toString(),</span>
+<span class="nc" id="L57">                    response.code(),</span>
+<span class="nc" id="L58">                    response.headers().toMultimap(),</span>
+                    responseClass);
+<span class="nc" id="L60">        } catch (IOException e) {</span>
+<span class="nc" id="L61">            throw new OAuthSystemException(e);</span>
+        }
+    }
+
+    @Override
+    public void shutdown() {
+        // Nothing to do here
+<span class="nc" id="L68">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
