@@ -1,5 +1,8 @@
 # Docs
 
+- [Reports](REPORTS.md)
+- [Errors](ERRORS.md)
+
 https://start.spring.io
 
 https://maven.apache.org

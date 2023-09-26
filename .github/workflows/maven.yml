@@ -64,13 +64,13 @@ jobs:
     #     destination_dir: tests
     #     enable_jekyll: true
   
-    # - name: Deploy Code Coverage Report
-    #   uses: peaceiris/actions-gh-pages@v3
-    #   # if: github.event_name == 'push'
-    #   with:
-    #     github_token: ${{ secrets.GITHUB_TOKEN }}
-    #     user_name: 'github-actions[bot]'
-    #     user_email: 'github-actions[bot]@users.noreply.github.com'
-    #     publish_dir: ./src/build/jacocoHtml/
-    #     destination_dir: codecoverage
-    #     enable_jekyll: true
+    - name: Deploy Code Coverage Report
+      uses: peaceiris/actions-gh-pages@v3
+      # if: github.event_name == 'push'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
+        publish_dir: ./src/target/site/jacoco
+        destination_dir: codecoverage
+        enable_jekyll: true
