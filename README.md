@@ -7,6 +7,11 @@
 [![Java CI with Maven](https://github.com/alex-hedley/java-springboot-maven/actions/workflows/maven.yml/badge.svg)](https://github.com/alex-hedley/java-springboot-maven/actions/workflows/maven.yml)
 [![pages-build-deployment](https://github.com/alex-hedley/java-springboot-maven/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/alex-hedley/java-springboot-maven/actions/workflows/pages/pages-build-deployment)
 
+## Reports
+
+- [Site](https://alex-hedley.github.io/java-springboot-maven/)
+  - [Code Coverage](https://alex-hedley.github.io/java-springboot-maven/codecoverage/)
+
 ## src
 
 - [src](src/)
