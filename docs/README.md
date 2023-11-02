@@ -2,6 +2,7 @@
 
 - [Reports](REPORTS.md)
 - [Errors](ERRORS.md)
+- [Controllers](CONTROLLERS.md)
 
 https://start.spring.io
 
