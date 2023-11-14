@@ -44,11 +44,11 @@ jobs:
       run: mvn -B package --file pom.xml
       working-directory: src/
 
-    # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
-    # https://github.com/advanced-security/maven-dependency-submission-action
-    # https://github.com/marketplace/actions/maven-dependency-tree-dependency-submission
-    - name: Update dependency graph
-      uses: advanced-security/maven-dependency-submission-action@v3.0.3
+    # # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
+    # # https://github.com/advanced-security/maven-dependency-submission-action
+    # # https://github.com/marketplace/actions/maven-dependency-tree-dependency-submission
+    # - name: Update dependency graph
+    #   uses: advanced-security/maven-dependency-submission-action@v3.0.3
       # with:
       #   directory: src/
             
