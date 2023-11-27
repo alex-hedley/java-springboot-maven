@@ -13,8 +13,8 @@ demo,org.openapitools.client,JSON.OffsetDateTimeTypeAdapter,59,0,6,0,18,0,8,0,5,
 demo,org.openapitools.client,GzipRequestInterceptor,57,0,4,0,13,0,6,0,4,0
 demo,org.openapitools.client,ProgressRequestBody.new ForwardingSink() {...},51,0,4,0,9,0,4,0,2,0
 demo,org.openapitools.client,Pair,45,0,6,0,19,0,9,0,6,0
-demo,org.openapitools.client,ProgressResponseBody.new ForwardingSource() {...},46,0,4,0,6,0,4,0,2,0
 demo,org.openapitools.client,Configuration,13,0,0,0,5,0,4,0,4,0
+demo,org.openapitools.client,ProgressResponseBody.new ForwardingSource() {...},46,0,4,0,6,0,4,0,2,0
 demo,org.openapitools.client,ApiResponse,27,0,0,0,10,0,5,0,5,0
 demo,org.openapitools.client,GzipRequestInterceptor.new RequestBody() {...},28,0,0,0,7,0,4,0,4,0
 demo,org.openapitools.client,GzipRequestInterceptor.new RequestBody() {...},27,0,0,0,5,0,4,0,4,0
@@ -73,7 +73,7 @@ demo,org.openapitools.client.api,PetApi.new TypeToken() {...},6,0,0,0,1,0,1,0,1,
 demo,org.openapitools.client.api,UserApi.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
 demo,org.openapitools.client.api,UserApi.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
 demo,org.openapitools.client.api,UserApi.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
-demo,org.openapitools.client.api,UserApi.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
 demo,org.openapitools.client.api,StoreApi,649,0,38,0,156,0,47,0,28,0
+demo,org.openapitools.client.api,UserApi.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
 demo,org.openapitools.client.api,UserApi,1221,0,86,0,299,0,91,0,48,0
 demo,org.openapitools.client.api,PetApi,1363,0,94,0,312,0,95,0,48,0
