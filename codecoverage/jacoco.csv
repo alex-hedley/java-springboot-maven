@@ -31,8 +31,8 @@ demo,org.openapitools.client,ApiClient.new X509TrustManager() {...},11,0,0,0,4,0
 demo,org.openapitools.client,ApiClient.new Interceptor() {...},34,0,2,0,9,0,3,0,2,0
 demo,org.openapitools.client,ProgressRequestBody,35,0,0,0,11,0,5,0,5,0
 demo,org.openapitools.client,ApiClient.new Callback() {...},65,0,0,0,13,0,3,0,3,0
-demo,org.openapitools.client,JSON.SqlDateTypeAdapter,78,0,8,0,22,0,9,0,5,0
 demo,org.openapitools.client,StringUtil,101,0,18,0,22,0,13,0,4,0
+demo,org.openapitools.client,JSON.SqlDateTypeAdapter,78,0,8,0,22,0,9,0,5,0
 demo,org.openapitools.client.model,Pet.CustomTypeAdapterFactory.new TypeAdapter() {...},39,0,0,0,7,0,3,0,3,0
 demo,org.openapitools.client.model,AbstractOpenApiSchema,171,0,20,0,35,0,21,0,11,0
 demo,org.openapitools.client.model,Order.StatusEnum,68,0,4,0,13,0,7,0,5,0
@@ -73,7 +73,7 @@ demo,org.openapitools.client.api,PetApi.new TypeToken() {...},6,0,0,0,1,0,1,0,1,
 demo,org.openapitools.client.api,UserApi.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
 demo,org.openapitools.client.api,UserApi.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
 demo,org.openapitools.client.api,UserApi.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
-demo,org.openapitools.client.api,StoreApi,649,0,38,0,156,0,47,0,28,0
 demo,org.openapitools.client.api,UserApi.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+demo,org.openapitools.client.api,StoreApi,649,0,38,0,156,0,47,0,28,0
 demo,org.openapitools.client.api,UserApi,1221,0,86,0,299,0,91,0,48,0
 demo,org.openapitools.client.api,PetApi,1363,0,94,0,312,0,95,0,48,0
