@@ -14,13 +14,13 @@
 package org.openapitools.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -32,13 +32,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.client.JSON;
@@ -46,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * User
  */
-@javax.annotation.Generated(value = &quot;org.openapitools.codegen.languages.JavaClientCodegen&quot;, date = &quot;2024-02-19T03:38:56.430514387Z[Etc/UTC]&quot;)
+@javax.annotation.Generated(value = &quot;org.openapitools.codegen.languages.JavaClientCodegen&quot;, date = &quot;2024-02-19T03:39:03.411378106Z[Etc/UTC]&quot;)
 public class User {
   public static final String SERIALIZED_NAME_ID = &quot;id&quot;;
   @SerializedName(SERIALIZED_NAME_ID)
@@ -80,13 +83,12 @@ public class User {
   @SerializedName(SERIALIZED_NAME_USER_STATUS)
   private Integer userStatus;
 
-<span class="nc" id="L83">  public User() {</span>
-<span class="nc" id="L84">  }</span>
+<span class="nc" id="L86">  public User() {</span>
+<span class="nc" id="L87">  }</span>
 
   public User id(Long id) {
-    
-<span class="nc" id="L88">    this.id = id;</span>
-<span class="nc" id="L89">    return this;</span>
+<span class="nc" id="L90">    this.id = id;</span>
+<span class="nc" id="L91">    return this;</span>
   }
 
    /**
@@ -94,11 +96,9 @@ public class User {
    * @return id
   **/
   @javax.annotation.Nullable
-
   public Long getId() {
-<span class="nc" id="L99">    return id;</span>
+<span class="nc" id="L100">    return id;</span>
   }
-
 
   public void setId(Long id) {
 <span class="nc" id="L104">    this.id = id;</span>
@@ -106,9 +106,8 @@ public class User {
 
 
   public User username(String username) {
-    
-<span class="nc" id="L110">    this.username = username;</span>
-<span class="nc" id="L111">    return this;</span>
+<span class="nc" id="L109">    this.username = username;</span>
+<span class="nc" id="L110">    return this;</span>
   }
 
    /**
@@ -116,21 +115,18 @@ public class User {
    * @return username
   **/
   @javax.annotation.Nullable
-
   public String getUsername() {
-<span class="nc" id="L121">    return username;</span>
+<span class="nc" id="L119">    return username;</span>
   }
 
-
   public void setUsername(String username) {
-<span class="nc" id="L126">    this.username = username;</span>
-<span class="nc" id="L127">  }</span>
+<span class="nc" id="L123">    this.username = username;</span>
+<span class="nc" id="L124">  }</span>
 
 
   public User firstName(String firstName) {
-    
-<span class="nc" id="L132">    this.firstName = firstName;</span>
-<span class="nc" id="L133">    return this;</span>
+<span class="nc" id="L128">    this.firstName = firstName;</span>
+<span class="nc" id="L129">    return this;</span>
   }
 
    /**
@@ -138,21 +134,18 @@ public class User {
    * @return firstName
   **/
   @javax.annotation.Nullable
-
   public String getFirstName() {
-<span class="nc" id="L143">    return firstName;</span>
+<span class="nc" id="L138">    return firstName;</span>
   }
 
-
   public void setFirstName(String firstName) {
-<span class="nc" id="L148">    this.firstName = firstName;</span>
-<span class="nc" id="L149">  }</span>
+<span class="nc" id="L142">    this.firstName = firstName;</span>
+<span class="nc" id="L143">  }</span>
 
 
   public User lastName(String lastName) {
-    
-<span class="nc" id="L154">    this.lastName = lastName;</span>
-<span class="nc" id="L155">    return this;</span>
+<span class="nc" id="L147">    this.lastName = lastName;</span>
+<span class="nc" id="L148">    return this;</span>
   }
 
    /**
@@ -160,21 +153,18 @@ public class User {
    * @return lastName
   **/
   @javax.annotation.Nullable
-
   public String getLastName() {
-<span class="nc" id="L165">    return lastName;</span>
+<span class="nc" id="L157">    return lastName;</span>
   }
 
-
   public void setLastName(String lastName) {
-<span class="nc" id="L170">    this.lastName = lastName;</span>
-<span class="nc" id="L171">  }</span>
+<span class="nc" id="L161">    this.lastName = lastName;</span>
+<span class="nc" id="L162">  }</span>
 
 
   public User email(String email) {
-    
-<span class="nc" id="L176">    this.email = email;</span>
-<span class="nc" id="L177">    return this;</span>
+<span class="nc" id="L166">    this.email = email;</span>
+<span class="nc" id="L167">    return this;</span>
   }
 
    /**
@@ -182,21 +172,18 @@ public class User {
    * @return email
   **/
   @javax.annotation.Nullable
-
   public String getEmail() {
-<span class="nc" id="L187">    return email;</span>
+<span class="nc" id="L176">    return email;</span>
   }
 
-
   public void setEmail(String email) {
-<span class="nc" id="L192">    this.email = email;</span>
-<span class="nc" id="L193">  }</span>
+<span class="nc" id="L180">    this.email = email;</span>
+<span class="nc" id="L181">  }</span>
 
 
   public User password(String password) {
-    
-<span class="nc" id="L198">    this.password = password;</span>
-<span class="nc" id="L199">    return this;</span>
+<span class="nc" id="L185">    this.password = password;</span>
+<span class="nc" id="L186">    return this;</span>
   }
 
    /**
@@ -204,21 +191,18 @@ public class User {
    * @return password
   **/
   @javax.annotation.Nullable
-
   public String getPassword() {
-<span class="nc" id="L209">    return password;</span>
+<span class="nc" id="L195">    return password;</span>
   }
 
-
   public void setPassword(String password) {
-<span class="nc" id="L214">    this.password = password;</span>
-<span class="nc" id="L215">  }</span>
+<span class="nc" id="L199">    this.password = password;</span>
+<span class="nc" id="L200">  }</span>
 
 
   public User phone(String phone) {
-    
-<span class="nc" id="L220">    this.phone = phone;</span>
-<span class="nc" id="L221">    return this;</span>
+<span class="nc" id="L204">    this.phone = phone;</span>
+<span class="nc" id="L205">    return this;</span>
   }
 
    /**
@@ -226,21 +210,18 @@ public class User {
    * @return phone
   **/
   @javax.annotation.Nullable
-
   public String getPhone() {
-<span class="nc" id="L231">    return phone;</span>
+<span class="nc" id="L214">    return phone;</span>
   }
 
-
   public void setPhone(String phone) {
-<span class="nc" id="L236">    this.phone = phone;</span>
-<span class="nc" id="L237">  }</span>
+<span class="nc" id="L218">    this.phone = phone;</span>
+<span class="nc" id="L219">  }</span>
 
 
   public User userStatus(Integer userStatus) {
-    
-<span class="nc" id="L242">    this.userStatus = userStatus;</span>
-<span class="nc" id="L243">    return this;</span>
+<span class="nc" id="L223">    this.userStatus = userStatus;</span>
+<span class="nc" id="L224">    return this;</span>
   }
 
    /**
@@ -248,56 +229,54 @@ public class User {
    * @return userStatus
   **/
   @javax.annotation.Nullable
-
   public Integer getUserStatus() {
-<span class="nc" id="L253">    return userStatus;</span>
+<span class="nc" id="L233">    return userStatus;</span>
   }
 
-
   public void setUserStatus(Integer userStatus) {
-<span class="nc" id="L258">    this.userStatus = userStatus;</span>
-<span class="nc" id="L259">  }</span>
+<span class="nc" id="L237">    this.userStatus = userStatus;</span>
+<span class="nc" id="L238">  }</span>
 
 
 
   @Override
   public boolean equals(Object o) {
-<span class="nc bnc" id="L265" title="All 2 branches missed.">    if (this == o) {</span>
-<span class="nc" id="L266">      return true;</span>
+<span class="nc bnc" id="L244" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L245">      return true;</span>
     }
-<span class="nc bnc" id="L268" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
-<span class="nc" id="L269">      return false;</span>
+<span class="nc bnc" id="L247" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L248">      return false;</span>
     }
-<span class="nc" id="L271">    User user = (User) o;</span>
-<span class="nc bnc" id="L272" title="All 2 branches missed.">    return Objects.equals(this.id, user.id) &amp;&amp;</span>
-<span class="nc bnc" id="L273" title="All 2 branches missed.">        Objects.equals(this.username, user.username) &amp;&amp;</span>
-<span class="nc bnc" id="L274" title="All 2 branches missed.">        Objects.equals(this.firstName, user.firstName) &amp;&amp;</span>
-<span class="nc bnc" id="L275" title="All 2 branches missed.">        Objects.equals(this.lastName, user.lastName) &amp;&amp;</span>
-<span class="nc bnc" id="L276" title="All 2 branches missed.">        Objects.equals(this.email, user.email) &amp;&amp;</span>
-<span class="nc bnc" id="L277" title="All 2 branches missed.">        Objects.equals(this.password, user.password) &amp;&amp;</span>
-<span class="nc bnc" id="L278" title="All 2 branches missed.">        Objects.equals(this.phone, user.phone) &amp;&amp;</span>
-<span class="nc bnc" id="L279" title="All 2 branches missed.">        Objects.equals(this.userStatus, user.userStatus);</span>
+<span class="nc" id="L250">    User user = (User) o;</span>
+<span class="nc bnc" id="L251" title="All 2 branches missed.">    return Objects.equals(this.id, user.id) &amp;&amp;</span>
+<span class="nc bnc" id="L252" title="All 2 branches missed.">        Objects.equals(this.username, user.username) &amp;&amp;</span>
+<span class="nc bnc" id="L253" title="All 2 branches missed.">        Objects.equals(this.firstName, user.firstName) &amp;&amp;</span>
+<span class="nc bnc" id="L254" title="All 2 branches missed.">        Objects.equals(this.lastName, user.lastName) &amp;&amp;</span>
+<span class="nc bnc" id="L255" title="All 2 branches missed.">        Objects.equals(this.email, user.email) &amp;&amp;</span>
+<span class="nc bnc" id="L256" title="All 2 branches missed.">        Objects.equals(this.password, user.password) &amp;&amp;</span>
+<span class="nc bnc" id="L257" title="All 2 branches missed.">        Objects.equals(this.phone, user.phone) &amp;&amp;</span>
+<span class="nc bnc" id="L258" title="All 2 branches missed.">        Objects.equals(this.userStatus, user.userStatus);</span>
   }
 
   @Override
   public int hashCode() {
-<span class="nc" id="L284">    return Objects.hash(id, username, firstName, lastName, email, password, phone, userStatus);</span>
+<span class="nc" id="L263">    return Objects.hash(id, username, firstName, lastName, email, password, phone, userStatus);</span>
   }
 
   @Override
   public String toString() {
-<span class="nc" id="L289">    StringBuilder sb = new StringBuilder();</span>
-<span class="nc" id="L290">    sb.append(&quot;class User {\n&quot;);</span>
-<span class="nc" id="L291">    sb.append(&quot;    id: &quot;).append(toIndentedString(id)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L292">    sb.append(&quot;    username: &quot;).append(toIndentedString(username)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L293">    sb.append(&quot;    firstName: &quot;).append(toIndentedString(firstName)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L294">    sb.append(&quot;    lastName: &quot;).append(toIndentedString(lastName)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L295">    sb.append(&quot;    email: &quot;).append(toIndentedString(email)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L296">    sb.append(&quot;    password: &quot;).append(toIndentedString(password)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L297">    sb.append(&quot;    phone: &quot;).append(toIndentedString(phone)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L298">    sb.append(&quot;    userStatus: &quot;).append(toIndentedString(userStatus)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L299">    sb.append(&quot;}&quot;);</span>
-<span class="nc" id="L300">    return sb.toString();</span>
+<span class="nc" id="L268">    StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L269">    sb.append(&quot;class User {\n&quot;);</span>
+<span class="nc" id="L270">    sb.append(&quot;    id: &quot;).append(toIndentedString(id)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L271">    sb.append(&quot;    username: &quot;).append(toIndentedString(username)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L272">    sb.append(&quot;    firstName: &quot;).append(toIndentedString(firstName)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L273">    sb.append(&quot;    lastName: &quot;).append(toIndentedString(lastName)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L274">    sb.append(&quot;    email: &quot;).append(toIndentedString(email)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L275">    sb.append(&quot;    password: &quot;).append(toIndentedString(password)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L276">    sb.append(&quot;    phone: &quot;).append(toIndentedString(phone)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L277">    sb.append(&quot;    userStatus: &quot;).append(toIndentedString(userStatus)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L278">    sb.append(&quot;}&quot;);</span>
+<span class="nc" id="L279">    return sb.toString();</span>
   }
 
   /**
@@ -305,10 +284,10 @@ public class User {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-<span class="nc bnc" id="L308" title="All 2 branches missed.">    if (o == null) {</span>
-<span class="nc" id="L309">      return &quot;null&quot;;</span>
+<span class="nc bnc" id="L287" title="All 2 branches missed.">    if (o == null) {</span>
+<span class="nc" id="L288">      return &quot;null&quot;;</span>
     }
-<span class="nc" id="L311">    return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</span>
+<span class="nc" id="L290">    return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</span>
   }
 
 
@@ -317,86 +296,87 @@ public class User {
 
   static {
     // a set of all properties/fields (JSON key names)
-<span class="nc" id="L320">    openapiFields = new HashSet&lt;String&gt;();</span>
-<span class="nc" id="L321">    openapiFields.add(&quot;id&quot;);</span>
-<span class="nc" id="L322">    openapiFields.add(&quot;username&quot;);</span>
-<span class="nc" id="L323">    openapiFields.add(&quot;firstName&quot;);</span>
-<span class="nc" id="L324">    openapiFields.add(&quot;lastName&quot;);</span>
-<span class="nc" id="L325">    openapiFields.add(&quot;email&quot;);</span>
-<span class="nc" id="L326">    openapiFields.add(&quot;password&quot;);</span>
-<span class="nc" id="L327">    openapiFields.add(&quot;phone&quot;);</span>
-<span class="nc" id="L328">    openapiFields.add(&quot;userStatus&quot;);</span>
+<span class="nc" id="L299">    openapiFields = new HashSet&lt;String&gt;();</span>
+<span class="nc" id="L300">    openapiFields.add(&quot;id&quot;);</span>
+<span class="nc" id="L301">    openapiFields.add(&quot;username&quot;);</span>
+<span class="nc" id="L302">    openapiFields.add(&quot;firstName&quot;);</span>
+<span class="nc" id="L303">    openapiFields.add(&quot;lastName&quot;);</span>
+<span class="nc" id="L304">    openapiFields.add(&quot;email&quot;);</span>
+<span class="nc" id="L305">    openapiFields.add(&quot;password&quot;);</span>
+<span class="nc" id="L306">    openapiFields.add(&quot;phone&quot;);</span>
+<span class="nc" id="L307">    openapiFields.add(&quot;userStatus&quot;);</span>
 
     // a set of required properties/fields (JSON key names)
-<span class="nc" id="L331">    openapiRequiredFields = new HashSet&lt;String&gt;();</span>
-<span class="nc" id="L332">  }</span>
+<span class="nc" id="L310">    openapiRequiredFields = new HashSet&lt;String&gt;();</span>
+<span class="nc" id="L311">  }</span>
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to User
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to User
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-<span class="nc bnc" id="L341" title="All 2 branches missed.">      if (jsonObj == null) {</span>
-<span class="nc bnc" id="L342" title="All 2 branches missed.">        if (!User.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null</span>
-<span class="nc" id="L343">          throw new IllegalArgumentException(String.format(&quot;The required field(s) %s in User is not found in the empty JSON string&quot;, User.openapiRequiredFields.toString()));</span>
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+<span class="nc bnc" id="L320" title="All 2 branches missed.">      if (jsonElement == null) {</span>
+<span class="nc bnc" id="L321" title="All 2 branches missed.">        if (!User.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null</span>
+<span class="nc" id="L322">          throw new IllegalArgumentException(String.format(&quot;The required field(s) %s in User is not found in the empty JSON string&quot;, User.openapiRequiredFields.toString()));</span>
         }
       }
 
-<span class="nc" id="L347">      Set&lt;Entry&lt;String, JsonElement&gt;&gt; entries = jsonObj.entrySet();</span>
+<span class="nc" id="L326">      Set&lt;Map.Entry&lt;String, JsonElement&gt;&gt; entries = jsonElement.getAsJsonObject().entrySet();</span>
       // check to see if the JSON string contains additional fields
-<span class="nc bnc" id="L349" title="All 2 branches missed.">      for (Entry&lt;String, JsonElement&gt; entry : entries) {</span>
-<span class="nc bnc" id="L350" title="All 2 branches missed.">        if (!User.openapiFields.contains(entry.getKey())) {</span>
-<span class="nc" id="L351">          throw new IllegalArgumentException(String.format(&quot;The field `%s` in the JSON string is not defined in the `User` properties. JSON: %s&quot;, entry.getKey(), jsonObj.toString()));</span>
+<span class="nc bnc" id="L328" title="All 2 branches missed.">      for (Map.Entry&lt;String, JsonElement&gt; entry : entries) {</span>
+<span class="nc bnc" id="L329" title="All 2 branches missed.">        if (!User.openapiFields.contains(entry.getKey())) {</span>
+<span class="nc" id="L330">          throw new IllegalArgumentException(String.format(&quot;The field `%s` in the JSON string is not defined in the `User` properties. JSON: %s&quot;, entry.getKey(), jsonElement.toString()));</span>
         }
-<span class="nc" id="L353">      }</span>
-<span class="nc bnc" id="L354" title="All 6 branches missed.">      if ((jsonObj.get(&quot;username&quot;) != null &amp;&amp; !jsonObj.get(&quot;username&quot;).isJsonNull()) &amp;&amp; !jsonObj.get(&quot;username&quot;).isJsonPrimitive()) {</span>
-<span class="nc" id="L355">        throw new IllegalArgumentException(String.format(&quot;Expected the field `username` to be a primitive type in the JSON string but got `%s`&quot;, jsonObj.get(&quot;username&quot;).toString()));</span>
+<span class="nc" id="L332">      }</span>
+<span class="nc" id="L333">        JsonObject jsonObj = jsonElement.getAsJsonObject();</span>
+<span class="nc bnc" id="L334" title="All 6 branches missed.">      if ((jsonObj.get(&quot;username&quot;) != null &amp;&amp; !jsonObj.get(&quot;username&quot;).isJsonNull()) &amp;&amp; !jsonObj.get(&quot;username&quot;).isJsonPrimitive()) {</span>
+<span class="nc" id="L335">        throw new IllegalArgumentException(String.format(&quot;Expected the field `username` to be a primitive type in the JSON string but got `%s`&quot;, jsonObj.get(&quot;username&quot;).toString()));</span>
       }
-<span class="nc bnc" id="L357" title="All 6 branches missed.">      if ((jsonObj.get(&quot;firstName&quot;) != null &amp;&amp; !jsonObj.get(&quot;firstName&quot;).isJsonNull()) &amp;&amp; !jsonObj.get(&quot;firstName&quot;).isJsonPrimitive()) {</span>
-<span class="nc" id="L358">        throw new IllegalArgumentException(String.format(&quot;Expected the field `firstName` to be a primitive type in the JSON string but got `%s`&quot;, jsonObj.get(&quot;firstName&quot;).toString()));</span>
+<span class="nc bnc" id="L337" title="All 6 branches missed.">      if ((jsonObj.get(&quot;firstName&quot;) != null &amp;&amp; !jsonObj.get(&quot;firstName&quot;).isJsonNull()) &amp;&amp; !jsonObj.get(&quot;firstName&quot;).isJsonPrimitive()) {</span>
+<span class="nc" id="L338">        throw new IllegalArgumentException(String.format(&quot;Expected the field `firstName` to be a primitive type in the JSON string but got `%s`&quot;, jsonObj.get(&quot;firstName&quot;).toString()));</span>
       }
-<span class="nc bnc" id="L360" title="All 6 branches missed.">      if ((jsonObj.get(&quot;lastName&quot;) != null &amp;&amp; !jsonObj.get(&quot;lastName&quot;).isJsonNull()) &amp;&amp; !jsonObj.get(&quot;lastName&quot;).isJsonPrimitive()) {</span>
-<span class="nc" id="L361">        throw new IllegalArgumentException(String.format(&quot;Expected the field `lastName` to be a primitive type in the JSON string but got `%s`&quot;, jsonObj.get(&quot;lastName&quot;).toString()));</span>
+<span class="nc bnc" id="L340" title="All 6 branches missed.">      if ((jsonObj.get(&quot;lastName&quot;) != null &amp;&amp; !jsonObj.get(&quot;lastName&quot;).isJsonNull()) &amp;&amp; !jsonObj.get(&quot;lastName&quot;).isJsonPrimitive()) {</span>
+<span class="nc" id="L341">        throw new IllegalArgumentException(String.format(&quot;Expected the field `lastName` to be a primitive type in the JSON string but got `%s`&quot;, jsonObj.get(&quot;lastName&quot;).toString()));</span>
       }
-<span class="nc bnc" id="L363" title="All 6 branches missed.">      if ((jsonObj.get(&quot;email&quot;) != null &amp;&amp; !jsonObj.get(&quot;email&quot;).isJsonNull()) &amp;&amp; !jsonObj.get(&quot;email&quot;).isJsonPrimitive()) {</span>
-<span class="nc" id="L364">        throw new IllegalArgumentException(String.format(&quot;Expected the field `email` to be a primitive type in the JSON string but got `%s`&quot;, jsonObj.get(&quot;email&quot;).toString()));</span>
+<span class="nc bnc" id="L343" title="All 6 branches missed.">      if ((jsonObj.get(&quot;email&quot;) != null &amp;&amp; !jsonObj.get(&quot;email&quot;).isJsonNull()) &amp;&amp; !jsonObj.get(&quot;email&quot;).isJsonPrimitive()) {</span>
+<span class="nc" id="L344">        throw new IllegalArgumentException(String.format(&quot;Expected the field `email` to be a primitive type in the JSON string but got `%s`&quot;, jsonObj.get(&quot;email&quot;).toString()));</span>
       }
-<span class="nc bnc" id="L366" title="All 6 branches missed.">      if ((jsonObj.get(&quot;password&quot;) != null &amp;&amp; !jsonObj.get(&quot;password&quot;).isJsonNull()) &amp;&amp; !jsonObj.get(&quot;password&quot;).isJsonPrimitive()) {</span>
-<span class="nc" id="L367">        throw new IllegalArgumentException(String.format(&quot;Expected the field `password` to be a primitive type in the JSON string but got `%s`&quot;, jsonObj.get(&quot;password&quot;).toString()));</span>
+<span class="nc bnc" id="L346" title="All 6 branches missed.">      if ((jsonObj.get(&quot;password&quot;) != null &amp;&amp; !jsonObj.get(&quot;password&quot;).isJsonNull()) &amp;&amp; !jsonObj.get(&quot;password&quot;).isJsonPrimitive()) {</span>
+<span class="nc" id="L347">        throw new IllegalArgumentException(String.format(&quot;Expected the field `password` to be a primitive type in the JSON string but got `%s`&quot;, jsonObj.get(&quot;password&quot;).toString()));</span>
       }
-<span class="nc bnc" id="L369" title="All 6 branches missed.">      if ((jsonObj.get(&quot;phone&quot;) != null &amp;&amp; !jsonObj.get(&quot;phone&quot;).isJsonNull()) &amp;&amp; !jsonObj.get(&quot;phone&quot;).isJsonPrimitive()) {</span>
-<span class="nc" id="L370">        throw new IllegalArgumentException(String.format(&quot;Expected the field `phone` to be a primitive type in the JSON string but got `%s`&quot;, jsonObj.get(&quot;phone&quot;).toString()));</span>
+<span class="nc bnc" id="L349" title="All 6 branches missed.">      if ((jsonObj.get(&quot;phone&quot;) != null &amp;&amp; !jsonObj.get(&quot;phone&quot;).isJsonNull()) &amp;&amp; !jsonObj.get(&quot;phone&quot;).isJsonPrimitive()) {</span>
+<span class="nc" id="L350">        throw new IllegalArgumentException(String.format(&quot;Expected the field `phone` to be a primitive type in the JSON string but got `%s`&quot;, jsonObj.get(&quot;phone&quot;).toString()));</span>
       }
-<span class="nc" id="L372">  }</span>
+<span class="nc" id="L352">  }</span>
 
-<span class="nc" id="L374">  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {</span>
+<span class="nc" id="L354">  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {</span>
     @SuppressWarnings(&quot;unchecked&quot;)
     @Override
     public &lt;T&gt; TypeAdapter&lt;T&gt; create(Gson gson, TypeToken&lt;T&gt; type) {
-<span class="nc bnc" id="L378" title="All 2 branches missed.">       if (!User.class.isAssignableFrom(type.getRawType())) {</span>
-<span class="nc" id="L379">         return null; // this class only serializes 'User' and its subtypes</span>
+<span class="nc bnc" id="L358" title="All 2 branches missed.">       if (!User.class.isAssignableFrom(type.getRawType())) {</span>
+<span class="nc" id="L359">         return null; // this class only serializes 'User' and its subtypes</span>
        }
-<span class="nc" id="L381">       final TypeAdapter&lt;JsonElement&gt; elementAdapter = gson.getAdapter(JsonElement.class);</span>
-<span class="nc" id="L382">       final TypeAdapter&lt;User&gt; thisAdapter</span>
-<span class="nc" id="L383">                        = gson.getDelegateAdapter(this, TypeToken.get(User.class));</span>
+<span class="nc" id="L361">       final TypeAdapter&lt;JsonElement&gt; elementAdapter = gson.getAdapter(JsonElement.class);</span>
+<span class="nc" id="L362">       final TypeAdapter&lt;User&gt; thisAdapter</span>
+<span class="nc" id="L363">                        = gson.getDelegateAdapter(this, TypeToken.get(User.class));</span>
 
-<span class="nc" id="L385">       return (TypeAdapter&lt;T&gt;) new TypeAdapter&lt;User&gt;() {</span>
+<span class="nc" id="L365">       return (TypeAdapter&lt;T&gt;) new TypeAdapter&lt;User&gt;() {</span>
            @Override
            public void write(JsonWriter out, User value) throws IOException {
-<span class="nc" id="L388">             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();</span>
-<span class="nc" id="L389">             elementAdapter.write(out, obj);</span>
-<span class="nc" id="L390">           }</span>
+<span class="nc" id="L368">             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();</span>
+<span class="nc" id="L369">             elementAdapter.write(out, obj);</span>
+<span class="nc" id="L370">           }</span>
 
            @Override
            public User read(JsonReader in) throws IOException {
-<span class="nc" id="L394">             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();</span>
-<span class="nc" id="L395">             validateJsonObject(jsonObj);</span>
-<span class="nc" id="L396">             return thisAdapter.fromJsonTree(jsonObj);</span>
+<span class="nc" id="L374">             JsonElement jsonElement = elementAdapter.read(in);</span>
+<span class="nc" id="L375">             validateJsonElement(jsonElement);</span>
+<span class="nc" id="L376">             return thisAdapter.fromJsonTree(jsonElement);</span>
            }
 
-<span class="nc" id="L399">       }.nullSafe();</span>
+<span class="nc" id="L379">       }.nullSafe();</span>
     }
   }
 
@@ -408,7 +388,7 @@ public class User {
   * @throws IOException if the JSON string is invalid with respect to User
   */
   public static User fromJson(String jsonString) throws IOException {
-<span class="nc" id="L411">    return JSON.getGson().fromJson(jsonString, User.class);</span>
+<span class="nc" id="L391">    return JSON.getGson().fromJson(jsonString, User.class);</span>
   }
 
  /**
@@ -417,7 +397,7 @@ public class User {
   * @return JSON string
   */
   public String toJson() {
-<span class="nc" id="L420">    return JSON.getGson().toJson(this);</span>
+<span class="nc" id="L400">    return JSON.getGson().toJson(this);</span>
   }
 }
 
