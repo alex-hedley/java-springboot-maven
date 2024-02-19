@@ -110,7 +110,7 @@
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-api</artifactId>
-			<version>5.10.0</version>
+			<version>5.10.2</version>
 <!--			<scope>test</scope>-->
 		</dependency>
 
@@ -129,7 +129,7 @@
 		<jakarta-annotation-version>2.1.1</jakarta-annotation-version>
 		<junit-version>5.10.2</junit-version>
 		<junit-platform-runner.version>1.9.1</junit-platform-runner.version>
-		<mockito-core-version>5.7.0</mockito-core-version>
+		<mockito-core-version>5.10.0</mockito-core-version>
 		<javax.ws.rs-api-version>2.1.1</javax.ws.rs-api-version>
 		<jsr311-api-version>1.1.1</jsr311-api-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -147,7 +147,7 @@
 				<groupId>org.openapitools</groupId>
 				<artifactId>openapi-generator-maven-plugin</artifactId>
 				<!-- RELEASE_VERSION -->
-				<version>6.3.0</version>
+				<version>7.3.0</version>
 				<!-- /RELEASE_VERSION -->
 				<executions>
 					<execution>
