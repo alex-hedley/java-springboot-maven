@@ -3,7 +3,7 @@ demo,com.alexhedley.demo,DemoApplication,8,0,0,0,3,0,2,0,2,0
 demo,com.alexhedley.demo,Palindrome,38,0,6,0,7,0,5,0,2,0
 demo,org.openapitools.client.auth,OAuth,21,0,2,0,7,0,5,0,4,0
 demo,org.openapitools.client.auth,OAuthFlow,27,0,0,0,5,0,1,0,1,0
-demo,org.openapitools.client.auth,HttpBearerAuth,58,0,6,0,14,0,10,0,7,0
+demo,org.openapitools.client.auth,HttpBearerAuth,42,0,6,0,11,0,8,0,5,0
 demo,org.openapitools.client.auth,RetryingOAuth,260,0,39,0,72,0,31,0,10,0
 demo,org.openapitools.client.auth,HttpBasicAuth,44,0,8,0,13,0,10,0,6,0
 demo,org.openapitools.client.auth,OAuthOkHttpClient,103,0,8,0,25,0,8,0,4,0
@@ -21,40 +21,40 @@ demo,org.openapitools.client,GzipRequestInterceptor.new RequestBody() {...},27,0
 demo,org.openapitools.client,JSON.DateTypeAdapter,77,0,8,0,24,0,9,0,5,0
 demo,org.openapitools.client,ServerVariable,15,0,0,0,6,0,1,0,1,0
 demo,org.openapitools.client,JSON.ByteArrayAdapter,35,0,4,0,11,0,5,0,3,0
-demo,org.openapitools.client,ApiClient,2373,0,266,0,509,0,221,0,88,0
+demo,org.openapitools.client,ApiClient,2355,0,262,0,505,0,219,0,88,0
 demo,org.openapitools.client,JSON.LocalDateTypeAdapter,46,0,4,0,16,0,7,0,5,0
 demo,org.openapitools.client,ServerConfiguration,78,0,10,0,18,0,8,0,3,0
 demo,org.openapitools.client,ProgressResponseBody,37,0,2,0,10,0,6,0,5,0
-demo,org.openapitools.client,JSON,205,0,8,0,59,0,18,0,14,0
+demo,org.openapitools.client,JSON,194,0,8,0,55,0,18,0,14,0
 demo,org.openapitools.client,ApiClient.new HostnameVerifier() {...},8,0,0,0,2,0,2,0,2,0
 demo,org.openapitools.client,ApiClient.new X509TrustManager() {...},11,0,0,0,4,0,4,0,4,0
 demo,org.openapitools.client,ApiClient.new Interceptor() {...},34,0,2,0,9,0,3,0,2,0
 demo,org.openapitools.client,ApiClient.new Callback() {...},65,0,0,0,13,0,3,0,3,0
 demo,org.openapitools.client,ProgressRequestBody,35,0,0,0,11,0,5,0,5,0
 demo,org.openapitools.client,StringUtil,101,0,18,0,22,0,13,0,4,0
-demo,org.openapitools.client,JSON.SqlDateTypeAdapter,75,0,8,0,22,0,9,0,5,0
-demo,org.openapitools.client.model,Pet.CustomTypeAdapterFactory.new TypeAdapter() {...},38,0,0,0,7,0,3,0,3,0
+demo,org.openapitools.client,JSON.SqlDateTypeAdapter,78,0,8,0,22,0,9,0,5,0
+demo,org.openapitools.client.model,Pet.CustomTypeAdapterFactory.new TypeAdapter() {...},39,0,0,0,7,0,3,0,3,0
 demo,org.openapitools.client.model,AbstractOpenApiSchema,171,0,20,0,35,0,21,0,11,0
-demo,org.openapitools.client.model,Order.StatusEnum,75,0,4,0,16,0,8,0,6,0
-demo,org.openapitools.client.model,User.CustomTypeAdapterFactory.new TypeAdapter() {...},38,0,0,0,7,0,3,0,3,0
-demo,org.openapitools.client.model,Pet,587,0,66,0,112,0,62,0,29,0
-demo,org.openapitools.client.model,Tag,237,0,26,0,48,0,28,0,15,0
+demo,org.openapitools.client.model,Order.StatusEnum,68,0,4,0,13,0,7,0,5,0
+demo,org.openapitools.client.model,User.CustomTypeAdapterFactory.new TypeAdapter() {...},39,0,0,0,7,0,3,0,3,0
+demo,org.openapitools.client.model,Pet,565,0,60,0,108,0,59,0,29,0
+demo,org.openapitools.client.model,Tag,233,0,26,0,47,0,28,0,15,0
 demo,org.openapitools.client.model,Pet.StatusEnum.Adapter,15,0,0,0,5,0,3,0,3,0
-demo,org.openapitools.client.model,Category.CustomTypeAdapterFactory.new TypeAdapter() {...},38,0,0,0,7,0,3,0,3,0
-demo,org.openapitools.client.model,Order,402,0,38,0,82,0,46,0,27,0
+demo,org.openapitools.client.model,Category.CustomTypeAdapterFactory.new TypeAdapter() {...},39,0,0,0,7,0,3,0,3,0
+demo,org.openapitools.client.model,Order,385,0,34,0,79,0,44,0,27,0
 demo,org.openapitools.client.model,Order.StatusEnum.Adapter,15,0,0,0,5,0,3,0,3,0
-demo,org.openapitools.client.model,Category,237,0,26,0,48,0,28,0,15,0
-demo,org.openapitools.client.model,Tag.CustomTypeAdapterFactory.new TypeAdapter() {...},38,0,0,0,7,0,3,0,3,0
+demo,org.openapitools.client.model,Category,233,0,26,0,47,0,28,0,15,0
+demo,org.openapitools.client.model,Tag.CustomTypeAdapterFactory.new TypeAdapter() {...},39,0,0,0,7,0,3,0,3,0
 demo,org.openapitools.client.model,Order.CustomTypeAdapterFactory,28,0,2,0,8,0,3,0,2,0
 demo,org.openapitools.client.model,User.CustomTypeAdapterFactory,28,0,2,0,8,0,3,0,2,0
-demo,org.openapitools.client.model,Pet.StatusEnum,75,0,4,0,16,0,8,0,6,0
-demo,org.openapitools.client.model,ModelApiResponse,304,0,34,0,58,0,35,0,18,0
-demo,org.openapitools.client.model,ModelApiResponse.CustomTypeAdapterFactory.new TypeAdapter() {...},38,0,0,0,7,0,3,0,3,0
+demo,org.openapitools.client.model,Pet.StatusEnum,68,0,4,0,13,0,7,0,5,0
+demo,org.openapitools.client.model,ModelApiResponse,300,0,34,0,57,0,35,0,18,0
+demo,org.openapitools.client.model,ModelApiResponse.CustomTypeAdapterFactory.new TypeAdapter() {...},39,0,0,0,7,0,3,0,3,0
 demo,org.openapitools.client.model,Category.CustomTypeAdapterFactory,28,0,2,0,8,0,3,0,2,0
 demo,org.openapitools.client.model,Tag.CustomTypeAdapterFactory,28,0,2,0,8,0,3,0,2,0
-demo,org.openapitools.client.model,Order.CustomTypeAdapterFactory.new TypeAdapter() {...},38,0,0,0,7,0,3,0,3,0
+demo,org.openapitools.client.model,Order.CustomTypeAdapterFactory.new TypeAdapter() {...},39,0,0,0,7,0,3,0,3,0
 demo,org.openapitools.client.model,Pet.CustomTypeAdapterFactory,28,0,2,0,8,0,3,0,2,0
-demo,org.openapitools.client.model,User,610,0,68,0,106,0,67,0,33,0
+demo,org.openapitools.client.model,User,606,0,68,0,105,0,67,0,33,0
 demo,org.openapitools.client.model,ModelApiResponse.CustomTypeAdapterFactory,28,0,2,0,8,0,3,0,2,0
 demo,org.openapitools.client.api,StoreApi.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
 demo,org.openapitools.client.api,StoreApi.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0

@@ -14,6 +14,7 @@
 package org.openapitools.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +22,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -33,16 +33,13 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.client.JSON;
@@ -50,7 +47,7 @@ import org.openapitools.client.JSON;
 /**
  * Order
  */
-@javax.annotation.Generated(value = &quot;org.openapitools.codegen.languages.JavaClientCodegen&quot;, date = &quot;2024-02-19T03:39:03.411378106Z[Etc/UTC]&quot;)
+@javax.annotation.Generated(value = &quot;org.openapitools.codegen.languages.JavaClientCodegen&quot;, date = &quot;2024-02-19T03:39:09.828076453Z[Etc/UTC]&quot;)
 public class Order {
   public static final String SERIALIZED_NAME_ID = &quot;id&quot;;
   @SerializedName(SERIALIZED_NAME_ID)
@@ -71,55 +68,50 @@ public class Order {
   /**
    * Order Status
    */
-<span class="nc" id="L74">  @JsonAdapter(StatusEnum.Adapter.class)</span>
+<span class="nc" id="L71">  @JsonAdapter(StatusEnum.Adapter.class)</span>
   public enum StatusEnum {
-<span class="nc" id="L76">    PLACED(&quot;placed&quot;),</span>
+<span class="nc" id="L73">    PLACED(&quot;placed&quot;),</span>
     
-<span class="nc" id="L78">    APPROVED(&quot;approved&quot;),</span>
+<span class="nc" id="L75">    APPROVED(&quot;approved&quot;),</span>
     
-<span class="nc" id="L80">    DELIVERED(&quot;delivered&quot;);</span>
+<span class="nc" id="L77">    DELIVERED(&quot;delivered&quot;);</span>
 
     private String value;
 
-<span class="nc" id="L84">    StatusEnum(String value) {</span>
-<span class="nc" id="L85">      this.value = value;</span>
-<span class="nc" id="L86">    }</span>
+<span class="nc" id="L81">    StatusEnum(String value) {</span>
+<span class="nc" id="L82">      this.value = value;</span>
+<span class="nc" id="L83">    }</span>
 
     public String getValue() {
-<span class="nc" id="L89">      return value;</span>
+<span class="nc" id="L86">      return value;</span>
     }
 
     @Override
     public String toString() {
-<span class="nc" id="L94">      return String.valueOf(value);</span>
+<span class="nc" id="L91">      return String.valueOf(value);</span>
     }
 
     public static StatusEnum fromValue(String value) {
-<span class="nc bnc" id="L98" title="All 2 branches missed.">      for (StatusEnum b : StatusEnum.values()) {</span>
-<span class="nc bnc" id="L99" title="All 2 branches missed.">        if (b.value.equals(value)) {</span>
-<span class="nc" id="L100">          return b;</span>
+<span class="nc bnc" id="L95" title="All 2 branches missed.">      for (StatusEnum b : StatusEnum.values()) {</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">        if (b.value.equals(value)) {</span>
+<span class="nc" id="L97">          return b;</span>
         }
       }
-<span class="nc" id="L103">      throw new IllegalArgumentException(&quot;Unexpected value '&quot; + value + &quot;'&quot;);</span>
+<span class="nc" id="L100">      throw new IllegalArgumentException(&quot;Unexpected value '&quot; + value + &quot;'&quot;);</span>
     }
 
-<span class="nc" id="L106">    public static class Adapter extends TypeAdapter&lt;StatusEnum&gt; {</span>
+<span class="nc" id="L103">    public static class Adapter extends TypeAdapter&lt;StatusEnum&gt; {</span>
       @Override
       public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-<span class="nc" id="L109">        jsonWriter.value(enumeration.getValue());</span>
-<span class="nc" id="L110">      }</span>
+<span class="nc" id="L106">        jsonWriter.value(enumeration.getValue());</span>
+<span class="nc" id="L107">      }</span>
 
       @Override
       public StatusEnum read(final JsonReader jsonReader) throws IOException {
-<span class="nc" id="L114">        String value =  jsonReader.nextString();</span>
-<span class="nc" id="L115">        return StatusEnum.fromValue(value);</span>
+<span class="nc" id="L111">        String value =  jsonReader.nextString();</span>
+<span class="nc" id="L112">        return StatusEnum.fromValue(value);</span>
       }
     }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-<span class="nc" id="L120">      String value = jsonElement.getAsString();</span>
-<span class="nc" id="L121">      StatusEnum.fromValue(value);</span>
-<span class="nc" id="L122">    }</span>
   }
 
   public static final String SERIALIZED_NAME_STATUS = &quot;status&quot;;
@@ -130,12 +122,13 @@ public class Order {
   @SerializedName(SERIALIZED_NAME_COMPLETE)
   private Boolean complete;
 
-<span class="nc" id="L133">  public Order() {</span>
-<span class="nc" id="L134">  }</span>
+<span class="nc" id="L125">  public Order() {</span>
+<span class="nc" id="L126">  }</span>
 
   public Order id(Long id) {
-<span class="nc" id="L137">    this.id = id;</span>
-<span class="nc" id="L138">    return this;</span>
+    
+<span class="nc" id="L130">    this.id = id;</span>
+<span class="nc" id="L131">    return this;</span>
   }
 
    /**
@@ -143,18 +136,21 @@ public class Order {
    * @return id
   **/
   @javax.annotation.Nullable
+
   public Long getId() {
-<span class="nc" id="L147">    return id;</span>
+<span class="nc" id="L141">    return id;</span>
   }
 
+
   public void setId(Long id) {
-<span class="nc" id="L151">    this.id = id;</span>
-<span class="nc" id="L152">  }</span>
+<span class="nc" id="L146">    this.id = id;</span>
+<span class="nc" id="L147">  }</span>
 
 
   public Order petId(Long petId) {
-<span class="nc" id="L156">    this.petId = petId;</span>
-<span class="nc" id="L157">    return this;</span>
+    
+<span class="nc" id="L152">    this.petId = petId;</span>
+<span class="nc" id="L153">    return this;</span>
   }
 
    /**
@@ -162,18 +158,21 @@ public class Order {
    * @return petId
   **/
   @javax.annotation.Nullable
+
   public Long getPetId() {
-<span class="nc" id="L166">    return petId;</span>
+<span class="nc" id="L163">    return petId;</span>
   }
 
+
   public void setPetId(Long petId) {
-<span class="nc" id="L170">    this.petId = petId;</span>
-<span class="nc" id="L171">  }</span>
+<span class="nc" id="L168">    this.petId = petId;</span>
+<span class="nc" id="L169">  }</span>
 
 
   public Order quantity(Integer quantity) {
-<span class="nc" id="L175">    this.quantity = quantity;</span>
-<span class="nc" id="L176">    return this;</span>
+    
+<span class="nc" id="L174">    this.quantity = quantity;</span>
+<span class="nc" id="L175">    return this;</span>
   }
 
    /**
@@ -181,18 +180,21 @@ public class Order {
    * @return quantity
   **/
   @javax.annotation.Nullable
+
   public Integer getQuantity() {
 <span class="nc" id="L185">    return quantity;</span>
   }
 
+
   public void setQuantity(Integer quantity) {
-<span class="nc" id="L189">    this.quantity = quantity;</span>
-<span class="nc" id="L190">  }</span>
+<span class="nc" id="L190">    this.quantity = quantity;</span>
+<span class="nc" id="L191">  }</span>
 
 
   public Order shipDate(OffsetDateTime shipDate) {
-<span class="nc" id="L194">    this.shipDate = shipDate;</span>
-<span class="nc" id="L195">    return this;</span>
+    
+<span class="nc" id="L196">    this.shipDate = shipDate;</span>
+<span class="nc" id="L197">    return this;</span>
   }
 
    /**
@@ -200,18 +202,21 @@ public class Order {
    * @return shipDate
   **/
   @javax.annotation.Nullable
+
   public OffsetDateTime getShipDate() {
-<span class="nc" id="L204">    return shipDate;</span>
+<span class="nc" id="L207">    return shipDate;</span>
   }
 
+
   public void setShipDate(OffsetDateTime shipDate) {
-<span class="nc" id="L208">    this.shipDate = shipDate;</span>
-<span class="nc" id="L209">  }</span>
+<span class="nc" id="L212">    this.shipDate = shipDate;</span>
+<span class="nc" id="L213">  }</span>
 
 
   public Order status(StatusEnum status) {
-<span class="nc" id="L213">    this.status = status;</span>
-<span class="nc" id="L214">    return this;</span>
+    
+<span class="nc" id="L218">    this.status = status;</span>
+<span class="nc" id="L219">    return this;</span>
   }
 
    /**
@@ -219,18 +224,21 @@ public class Order {
    * @return status
   **/
   @javax.annotation.Nullable
+
   public StatusEnum getStatus() {
-<span class="nc" id="L223">    return status;</span>
+<span class="nc" id="L229">    return status;</span>
   }
 
+
   public void setStatus(StatusEnum status) {
-<span class="nc" id="L227">    this.status = status;</span>
-<span class="nc" id="L228">  }</span>
+<span class="nc" id="L234">    this.status = status;</span>
+<span class="nc" id="L235">  }</span>
 
 
   public Order complete(Boolean complete) {
-<span class="nc" id="L232">    this.complete = complete;</span>
-<span class="nc" id="L233">    return this;</span>
+    
+<span class="nc" id="L240">    this.complete = complete;</span>
+<span class="nc" id="L241">    return this;</span>
   }
 
    /**
@@ -238,50 +246,52 @@ public class Order {
    * @return complete
   **/
   @javax.annotation.Nullable
+
   public Boolean getComplete() {
-<span class="nc" id="L242">    return complete;</span>
+<span class="nc" id="L251">    return complete;</span>
   }
 
+
   public void setComplete(Boolean complete) {
-<span class="nc" id="L246">    this.complete = complete;</span>
-<span class="nc" id="L247">  }</span>
+<span class="nc" id="L256">    this.complete = complete;</span>
+<span class="nc" id="L257">  }</span>
 
 
 
   @Override
   public boolean equals(Object o) {
-<span class="nc bnc" id="L253" title="All 2 branches missed.">    if (this == o) {</span>
-<span class="nc" id="L254">      return true;</span>
+<span class="nc bnc" id="L263" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L264">      return true;</span>
     }
-<span class="nc bnc" id="L256" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
-<span class="nc" id="L257">      return false;</span>
+<span class="nc bnc" id="L266" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L267">      return false;</span>
     }
-<span class="nc" id="L259">    Order order = (Order) o;</span>
-<span class="nc bnc" id="L260" title="All 2 branches missed.">    return Objects.equals(this.id, order.id) &amp;&amp;</span>
-<span class="nc bnc" id="L261" title="All 2 branches missed.">        Objects.equals(this.petId, order.petId) &amp;&amp;</span>
-<span class="nc bnc" id="L262" title="All 2 branches missed.">        Objects.equals(this.quantity, order.quantity) &amp;&amp;</span>
-<span class="nc bnc" id="L263" title="All 2 branches missed.">        Objects.equals(this.shipDate, order.shipDate) &amp;&amp;</span>
-<span class="nc bnc" id="L264" title="All 2 branches missed.">        Objects.equals(this.status, order.status) &amp;&amp;</span>
-<span class="nc bnc" id="L265" title="All 2 branches missed.">        Objects.equals(this.complete, order.complete);</span>
+<span class="nc" id="L269">    Order order = (Order) o;</span>
+<span class="nc bnc" id="L270" title="All 2 branches missed.">    return Objects.equals(this.id, order.id) &amp;&amp;</span>
+<span class="nc bnc" id="L271" title="All 2 branches missed.">        Objects.equals(this.petId, order.petId) &amp;&amp;</span>
+<span class="nc bnc" id="L272" title="All 2 branches missed.">        Objects.equals(this.quantity, order.quantity) &amp;&amp;</span>
+<span class="nc bnc" id="L273" title="All 2 branches missed.">        Objects.equals(this.shipDate, order.shipDate) &amp;&amp;</span>
+<span class="nc bnc" id="L274" title="All 2 branches missed.">        Objects.equals(this.status, order.status) &amp;&amp;</span>
+<span class="nc bnc" id="L275" title="All 2 branches missed.">        Objects.equals(this.complete, order.complete);</span>
   }
 
   @Override
   public int hashCode() {
-<span class="nc" id="L270">    return Objects.hash(id, petId, quantity, shipDate, status, complete);</span>
+<span class="nc" id="L280">    return Objects.hash(id, petId, quantity, shipDate, status, complete);</span>
   }
 
   @Override
   public String toString() {
-<span class="nc" id="L275">    StringBuilder sb = new StringBuilder();</span>
-<span class="nc" id="L276">    sb.append(&quot;class Order {\n&quot;);</span>
-<span class="nc" id="L277">    sb.append(&quot;    id: &quot;).append(toIndentedString(id)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L278">    sb.append(&quot;    petId: &quot;).append(toIndentedString(petId)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L279">    sb.append(&quot;    quantity: &quot;).append(toIndentedString(quantity)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L280">    sb.append(&quot;    shipDate: &quot;).append(toIndentedString(shipDate)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L281">    sb.append(&quot;    status: &quot;).append(toIndentedString(status)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L282">    sb.append(&quot;    complete: &quot;).append(toIndentedString(complete)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L283">    sb.append(&quot;}&quot;);</span>
-<span class="nc" id="L284">    return sb.toString();</span>
+<span class="nc" id="L285">    StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L286">    sb.append(&quot;class Order {\n&quot;);</span>
+<span class="nc" id="L287">    sb.append(&quot;    id: &quot;).append(toIndentedString(id)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L288">    sb.append(&quot;    petId: &quot;).append(toIndentedString(petId)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L289">    sb.append(&quot;    quantity: &quot;).append(toIndentedString(quantity)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L290">    sb.append(&quot;    shipDate: &quot;).append(toIndentedString(shipDate)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L291">    sb.append(&quot;    status: &quot;).append(toIndentedString(status)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L292">    sb.append(&quot;    complete: &quot;).append(toIndentedString(complete)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L293">    sb.append(&quot;}&quot;);</span>
+<span class="nc" id="L294">    return sb.toString();</span>
   }
 
   /**
@@ -289,10 +299,10 @@ public class Order {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-<span class="nc bnc" id="L292" title="All 2 branches missed.">    if (o == null) {</span>
-<span class="nc" id="L293">      return &quot;null&quot;;</span>
+<span class="nc bnc" id="L302" title="All 2 branches missed.">    if (o == null) {</span>
+<span class="nc" id="L303">      return &quot;null&quot;;</span>
     }
-<span class="nc" id="L295">    return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</span>
+<span class="nc" id="L305">    return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</span>
   }
 
 
@@ -301,74 +311,69 @@ public class Order {
 
   static {
     // a set of all properties/fields (JSON key names)
-<span class="nc" id="L304">    openapiFields = new HashSet&lt;String&gt;();</span>
-<span class="nc" id="L305">    openapiFields.add(&quot;id&quot;);</span>
-<span class="nc" id="L306">    openapiFields.add(&quot;petId&quot;);</span>
-<span class="nc" id="L307">    openapiFields.add(&quot;quantity&quot;);</span>
-<span class="nc" id="L308">    openapiFields.add(&quot;shipDate&quot;);</span>
-<span class="nc" id="L309">    openapiFields.add(&quot;status&quot;);</span>
-<span class="nc" id="L310">    openapiFields.add(&quot;complete&quot;);</span>
+<span class="nc" id="L314">    openapiFields = new HashSet&lt;String&gt;();</span>
+<span class="nc" id="L315">    openapiFields.add(&quot;id&quot;);</span>
+<span class="nc" id="L316">    openapiFields.add(&quot;petId&quot;);</span>
+<span class="nc" id="L317">    openapiFields.add(&quot;quantity&quot;);</span>
+<span class="nc" id="L318">    openapiFields.add(&quot;shipDate&quot;);</span>
+<span class="nc" id="L319">    openapiFields.add(&quot;status&quot;);</span>
+<span class="nc" id="L320">    openapiFields.add(&quot;complete&quot;);</span>
 
     // a set of required properties/fields (JSON key names)
-<span class="nc" id="L313">    openapiRequiredFields = new HashSet&lt;String&gt;();</span>
-<span class="nc" id="L314">  }</span>
+<span class="nc" id="L323">    openapiRequiredFields = new HashSet&lt;String&gt;();</span>
+<span class="nc" id="L324">  }</span>
 
  /**
-  * Validates the JSON Element and throws an exception if issues found
+  * Validates the JSON Object and throws an exception if issues found
   *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to Order
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to Order
   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-<span class="nc bnc" id="L323" title="All 2 branches missed.">      if (jsonElement == null) {</span>
-<span class="nc bnc" id="L324" title="All 2 branches missed.">        if (!Order.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null</span>
-<span class="nc" id="L325">          throw new IllegalArgumentException(String.format(&quot;The required field(s) %s in Order is not found in the empty JSON string&quot;, Order.openapiRequiredFields.toString()));</span>
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+<span class="nc bnc" id="L333" title="All 2 branches missed.">      if (jsonObj == null) {</span>
+<span class="nc bnc" id="L334" title="All 2 branches missed.">        if (!Order.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null</span>
+<span class="nc" id="L335">          throw new IllegalArgumentException(String.format(&quot;The required field(s) %s in Order is not found in the empty JSON string&quot;, Order.openapiRequiredFields.toString()));</span>
         }
       }
 
-<span class="nc" id="L329">      Set&lt;Map.Entry&lt;String, JsonElement&gt;&gt; entries = jsonElement.getAsJsonObject().entrySet();</span>
+<span class="nc" id="L339">      Set&lt;Entry&lt;String, JsonElement&gt;&gt; entries = jsonObj.entrySet();</span>
       // check to see if the JSON string contains additional fields
-<span class="nc bnc" id="L331" title="All 2 branches missed.">      for (Map.Entry&lt;String, JsonElement&gt; entry : entries) {</span>
-<span class="nc bnc" id="L332" title="All 2 branches missed.">        if (!Order.openapiFields.contains(entry.getKey())) {</span>
-<span class="nc" id="L333">          throw new IllegalArgumentException(String.format(&quot;The field `%s` in the JSON string is not defined in the `Order` properties. JSON: %s&quot;, entry.getKey(), jsonElement.toString()));</span>
+<span class="nc bnc" id="L341" title="All 2 branches missed.">      for (Entry&lt;String, JsonElement&gt; entry : entries) {</span>
+<span class="nc bnc" id="L342" title="All 2 branches missed.">        if (!Order.openapiFields.contains(entry.getKey())) {</span>
+<span class="nc" id="L343">          throw new IllegalArgumentException(String.format(&quot;The field `%s` in the JSON string is not defined in the `Order` properties. JSON: %s&quot;, entry.getKey(), jsonObj.toString()));</span>
         }
-<span class="nc" id="L335">      }</span>
-<span class="nc" id="L336">        JsonObject jsonObj = jsonElement.getAsJsonObject();</span>
-<span class="nc bnc" id="L337" title="All 6 branches missed.">      if ((jsonObj.get(&quot;status&quot;) != null &amp;&amp; !jsonObj.get(&quot;status&quot;).isJsonNull()) &amp;&amp; !jsonObj.get(&quot;status&quot;).isJsonPrimitive()) {</span>
-<span class="nc" id="L338">        throw new IllegalArgumentException(String.format(&quot;Expected the field `status` to be a primitive type in the JSON string but got `%s`&quot;, jsonObj.get(&quot;status&quot;).toString()));</span>
+<span class="nc" id="L345">      }</span>
+<span class="nc bnc" id="L346" title="All 6 branches missed.">      if ((jsonObj.get(&quot;status&quot;) != null &amp;&amp; !jsonObj.get(&quot;status&quot;).isJsonNull()) &amp;&amp; !jsonObj.get(&quot;status&quot;).isJsonPrimitive()) {</span>
+<span class="nc" id="L347">        throw new IllegalArgumentException(String.format(&quot;Expected the field `status` to be a primitive type in the JSON string but got `%s`&quot;, jsonObj.get(&quot;status&quot;).toString()));</span>
       }
-      // validate the optional field `status`
-<span class="nc bnc" id="L341" title="All 4 branches missed.">      if (jsonObj.get(&quot;status&quot;) != null &amp;&amp; !jsonObj.get(&quot;status&quot;).isJsonNull()) {</span>
-<span class="nc" id="L342">        StatusEnum.validateJsonElement(jsonObj.get(&quot;status&quot;));</span>
-      }
-<span class="nc" id="L344">  }</span>
+<span class="nc" id="L349">  }</span>
 
-<span class="nc" id="L346">  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {</span>
+<span class="nc" id="L351">  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {</span>
     @SuppressWarnings(&quot;unchecked&quot;)
     @Override
     public &lt;T&gt; TypeAdapter&lt;T&gt; create(Gson gson, TypeToken&lt;T&gt; type) {
-<span class="nc bnc" id="L350" title="All 2 branches missed.">       if (!Order.class.isAssignableFrom(type.getRawType())) {</span>
-<span class="nc" id="L351">         return null; // this class only serializes 'Order' and its subtypes</span>
+<span class="nc bnc" id="L355" title="All 2 branches missed.">       if (!Order.class.isAssignableFrom(type.getRawType())) {</span>
+<span class="nc" id="L356">         return null; // this class only serializes 'Order' and its subtypes</span>
        }
-<span class="nc" id="L353">       final TypeAdapter&lt;JsonElement&gt; elementAdapter = gson.getAdapter(JsonElement.class);</span>
-<span class="nc" id="L354">       final TypeAdapter&lt;Order&gt; thisAdapter</span>
-<span class="nc" id="L355">                        = gson.getDelegateAdapter(this, TypeToken.get(Order.class));</span>
+<span class="nc" id="L358">       final TypeAdapter&lt;JsonElement&gt; elementAdapter = gson.getAdapter(JsonElement.class);</span>
+<span class="nc" id="L359">       final TypeAdapter&lt;Order&gt; thisAdapter</span>
+<span class="nc" id="L360">                        = gson.getDelegateAdapter(this, TypeToken.get(Order.class));</span>
 
-<span class="nc" id="L357">       return (TypeAdapter&lt;T&gt;) new TypeAdapter&lt;Order&gt;() {</span>
+<span class="nc" id="L362">       return (TypeAdapter&lt;T&gt;) new TypeAdapter&lt;Order&gt;() {</span>
            @Override
            public void write(JsonWriter out, Order value) throws IOException {
-<span class="nc" id="L360">             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();</span>
-<span class="nc" id="L361">             elementAdapter.write(out, obj);</span>
-<span class="nc" id="L362">           }</span>
+<span class="nc" id="L365">             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();</span>
+<span class="nc" id="L366">             elementAdapter.write(out, obj);</span>
+<span class="nc" id="L367">           }</span>
 
            @Override
            public Order read(JsonReader in) throws IOException {
-<span class="nc" id="L366">             JsonElement jsonElement = elementAdapter.read(in);</span>
-<span class="nc" id="L367">             validateJsonElement(jsonElement);</span>
-<span class="nc" id="L368">             return thisAdapter.fromJsonTree(jsonElement);</span>
+<span class="nc" id="L371">             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();</span>
+<span class="nc" id="L372">             validateJsonObject(jsonObj);</span>
+<span class="nc" id="L373">             return thisAdapter.fromJsonTree(jsonObj);</span>
            }
 
-<span class="nc" id="L371">       }.nullSafe();</span>
+<span class="nc" id="L376">       }.nullSafe();</span>
     }
   }
 
@@ -380,7 +385,7 @@ public class Order {
   * @throws IOException if the JSON string is invalid with respect to Order
   */
   public static Order fromJson(String jsonString) throws IOException {
-<span class="nc" id="L383">    return JSON.getGson().fromJson(jsonString, Order.class);</span>
+<span class="nc" id="L388">    return JSON.getGson().fromJson(jsonString, Order.class);</span>
   }
 
  /**
@@ -389,7 +394,7 @@ public class Order {
   * @return JSON string
   */
   public String toJson() {
-<span class="nc" id="L392">    return JSON.getGson().toJson(this);</span>
+<span class="nc" id="L397">    return JSON.getGson().toJson(this);</span>
   }
 }
 

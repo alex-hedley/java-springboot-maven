@@ -17,11 +17,14 @@ import org.openapitools.client.ApiException;
 import java.util.Objects;
 import java.lang.reflect.Type;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
+
+//import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * Abstract class for oneOf,anyOf schemas defined in OpenAPI spec
  */
-@javax.annotation.Generated(value = &quot;org.openapitools.codegen.languages.JavaClientCodegen&quot;, date = &quot;2024-02-19T03:39:03.411378106Z[Etc/UTC]&quot;)
+@javax.annotation.Generated(value = &quot;org.openapitools.codegen.languages.JavaClientCodegen&quot;, date = &quot;2024-02-19T03:39:09.828076453Z[Etc/UTC]&quot;)
 public abstract class AbstractOpenApiSchema {
 
     // store the actual instance of the schema/object
@@ -33,17 +36,17 @@ public abstract class AbstractOpenApiSchema {
     // schema type (e.g. oneOf, anyOf)
     private final String schemaType;
 
-<span class="nc" id="L36">    public AbstractOpenApiSchema(String schemaType, Boolean isNullable) {</span>
-<span class="nc" id="L37">        this.schemaType = schemaType;</span>
-<span class="nc" id="L38">        this.isNullable = isNullable;</span>
-<span class="nc" id="L39">    }</span>
+<span class="nc" id="L39">    public AbstractOpenApiSchema(String schemaType, Boolean isNullable) {</span>
+<span class="nc" id="L40">        this.schemaType = schemaType;</span>
+<span class="nc" id="L41">        this.isNullable = isNullable;</span>
+<span class="nc" id="L42">    }</span>
 
     /**
      * Get the list of oneOf/anyOf composed schemas allowed to be stored in this object
      *
      * @return an instance of the actual schema/object
      */
-    public abstract Map&lt;String, Class&lt;?&gt;&gt; getSchemas();
+    public abstract Map&lt;String, GenericType&gt; getSchemas();
 
     /**
      * Get the actual instance
@@ -51,14 +54,14 @@ public abstract class AbstractOpenApiSchema {
      * @return an instance of the actual schema/object
      */
     //@JsonValue
-<span class="nc" id="L54">    public Object getActualInstance() {return instance;}</span>
+<span class="nc" id="L57">    public Object getActualInstance() {return instance;}</span>
 
     /**
      * Set the actual instance
      *
      * @param instance the actual instance of the schema/object
      */
-<span class="nc" id="L61">    public void setActualInstance(Object instance) {this.instance = instance;}</span>
+<span class="nc" id="L64">    public void setActualInstance(Object instance) {this.instance = instance;}</span>
 
     /**
      * Get the instant recursively when the schemas defined in oneOf/anyof happen to be oneOf/anyOf schema as well
@@ -66,16 +69,16 @@ public abstract class AbstractOpenApiSchema {
      * @return an instance of the actual schema/object
      */
     public Object getActualInstanceRecursively() {
-<span class="nc" id="L69">        return getActualInstanceRecursively(this);</span>
+<span class="nc" id="L72">        return getActualInstanceRecursively(this);</span>
     }
 
     private Object getActualInstanceRecursively(AbstractOpenApiSchema object) {
-<span class="nc bnc" id="L73" title="All 2 branches missed.">        if (object.getActualInstance() == null) {</span>
-<span class="nc" id="L74">            return null;</span>
-<span class="nc bnc" id="L75" title="All 2 branches missed.">        } else if (object.getActualInstance() instanceof AbstractOpenApiSchema) {</span>
-<span class="nc" id="L76">            return getActualInstanceRecursively((AbstractOpenApiSchema)object.getActualInstance());</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">        if (object.getActualInstance() == null) {</span>
+<span class="nc" id="L77">            return null;</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">        } else if (object.getActualInstance() instanceof AbstractOpenApiSchema) {</span>
+<span class="nc" id="L79">            return getActualInstanceRecursively((AbstractOpenApiSchema)object.getActualInstance());</span>
         } else {
-<span class="nc" id="L78">            return object.getActualInstance();</span>
+<span class="nc" id="L81">            return object.getActualInstance();</span>
         }
     }
 
@@ -85,18 +88,18 @@ public abstract class AbstractOpenApiSchema {
      * @return the schema type
      */
     public String getSchemaType() {
-<span class="nc" id="L88">        return schemaType;</span>
+<span class="nc" id="L91">        return schemaType;</span>
     }
 
     @Override
     public String toString() {
-<span class="nc" id="L93">        StringBuilder sb = new StringBuilder();</span>
-<span class="nc" id="L94">        sb.append(&quot;class &quot;).append(getClass()).append(&quot; {\n&quot;);</span>
-<span class="nc" id="L95">        sb.append(&quot;    instance: &quot;).append(toIndentedString(instance)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L96">        sb.append(&quot;    isNullable: &quot;).append(toIndentedString(isNullable)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L97">        sb.append(&quot;    schemaType: &quot;).append(toIndentedString(schemaType)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L98">        sb.append(&quot;}&quot;);</span>
-<span class="nc" id="L99">        return sb.toString();</span>
+<span class="nc" id="L96">        StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L97">        sb.append(&quot;class &quot;).append(getClass()).append(&quot; {\n&quot;);</span>
+<span class="nc" id="L98">        sb.append(&quot;    instance: &quot;).append(toIndentedString(instance)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L99">        sb.append(&quot;    isNullable: &quot;).append(toIndentedString(isNullable)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L100">        sb.append(&quot;    schemaType: &quot;).append(toIndentedString(schemaType)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L101">        sb.append(&quot;}&quot;);</span>
+<span class="nc" id="L102">        return sb.toString();</span>
     }
 
     /**
@@ -104,28 +107,28 @@ public abstract class AbstractOpenApiSchema {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-<span class="nc bnc" id="L107" title="All 2 branches missed.">        if (o == null) {</span>
-<span class="nc" id="L108">            return &quot;null&quot;;</span>
+<span class="nc bnc" id="L110" title="All 2 branches missed.">        if (o == null) {</span>
+<span class="nc" id="L111">            return &quot;null&quot;;</span>
         }
-<span class="nc" id="L110">        return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</span>
+<span class="nc" id="L113">        return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</span>
     }
 
     public boolean equals(Object o) {
-<span class="nc bnc" id="L114" title="All 2 branches missed.">        if (this == o) {</span>
-<span class="nc" id="L115">            return true;</span>
+<span class="nc bnc" id="L117" title="All 2 branches missed.">        if (this == o) {</span>
+<span class="nc" id="L118">            return true;</span>
         }
-<span class="nc bnc" id="L117" title="All 4 branches missed.">        if (o == null || getClass() != o.getClass()) {</span>
-<span class="nc" id="L118">            return false;</span>
+<span class="nc bnc" id="L120" title="All 4 branches missed.">        if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L121">            return false;</span>
         }
-<span class="nc" id="L120">        AbstractOpenApiSchema a = (AbstractOpenApiSchema) o;</span>
-<span class="nc bnc" id="L121" title="All 2 branches missed.">        return Objects.equals(this.instance, a.instance) &amp;&amp;</span>
-<span class="nc bnc" id="L122" title="All 2 branches missed.">            Objects.equals(this.isNullable, a.isNullable) &amp;&amp;</span>
-<span class="nc bnc" id="L123" title="All 2 branches missed.">            Objects.equals(this.schemaType, a.schemaType);</span>
+<span class="nc" id="L123">        AbstractOpenApiSchema a = (AbstractOpenApiSchema) o;</span>
+<span class="nc bnc" id="L124" title="All 2 branches missed.">        return Objects.equals(this.instance, a.instance) &amp;&amp;</span>
+<span class="nc bnc" id="L125" title="All 2 branches missed.">            Objects.equals(this.isNullable, a.isNullable) &amp;&amp;</span>
+<span class="nc bnc" id="L126" title="All 2 branches missed.">            Objects.equals(this.schemaType, a.schemaType);</span>
     }
 
     @Override
     public int hashCode() {
-<span class="nc" id="L128">        return Objects.hash(instance, isNullable, schemaType);</span>
+<span class="nc" id="L131">        return Objects.hash(instance, isNullable, schemaType);</span>
     }
 
     /**
@@ -134,10 +137,10 @@ public abstract class AbstractOpenApiSchema {
      * @return true if it's nullable
      */
     public Boolean isNullable() {
-<span class="nc bnc" id="L137" title="All 2 branches missed.">        if (Boolean.TRUE.equals(isNullable)) {</span>
-<span class="nc" id="L138">            return Boolean.TRUE;</span>
+<span class="nc bnc" id="L140" title="All 2 branches missed.">        if (Boolean.TRUE.equals(isNullable)) {</span>
+<span class="nc" id="L141">            return Boolean.TRUE;</span>
         } else {
-<span class="nc" id="L140">            return Boolean.FALSE;</span>
+<span class="nc" id="L143">            return Boolean.FALSE;</span>
         }
     }
 
