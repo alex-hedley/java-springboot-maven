@@ -14,13 +14,13 @@
 package org.openapitools.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -32,13 +32,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.client.JSON;
@@ -46,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Category
  */
-@javax.annotation.Generated(value = &quot;org.openapitools.codegen.languages.JavaClientCodegen&quot;, date = &quot;2024-02-19T11:36:44.592680082Z[Etc/UTC]&quot;)
+@javax.annotation.Generated(value = &quot;org.openapitools.codegen.languages.JavaClientCodegen&quot;, date = &quot;2024-02-19T11:37:05.420124797Z[Etc/UTC]&quot;)
 public class Category {
   public static final String SERIALIZED_NAME_ID = &quot;id&quot;;
   @SerializedName(SERIALIZED_NAME_ID)
@@ -56,13 +59,12 @@ public class Category {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-<span class="nc" id="L59">  public Category() {</span>
-<span class="nc" id="L60">  }</span>
+<span class="nc" id="L62">  public Category() {</span>
+<span class="nc" id="L63">  }</span>
 
   public Category id(Long id) {
-    
-<span class="nc" id="L64">    this.id = id;</span>
-<span class="nc" id="L65">    return this;</span>
+<span class="nc" id="L66">    this.id = id;</span>
+<span class="nc" id="L67">    return this;</span>
   }
 
    /**
@@ -70,11 +72,9 @@ public class Category {
    * @return id
   **/
   @javax.annotation.Nullable
-
   public Long getId() {
-<span class="nc" id="L75">    return id;</span>
+<span class="nc" id="L76">    return id;</span>
   }
-
 
   public void setId(Long id) {
 <span class="nc" id="L80">    this.id = id;</span>
@@ -82,9 +82,8 @@ public class Category {
 
 
   public Category name(String name) {
-    
-<span class="nc" id="L86">    this.name = name;</span>
-<span class="nc" id="L87">    return this;</span>
+<span class="nc" id="L85">    this.name = name;</span>
+<span class="nc" id="L86">    return this;</span>
   }
 
    /**
@@ -92,44 +91,42 @@ public class Category {
    * @return name
   **/
   @javax.annotation.Nullable
-
   public String getName() {
-<span class="nc" id="L97">    return name;</span>
+<span class="nc" id="L95">    return name;</span>
   }
 
-
   public void setName(String name) {
-<span class="nc" id="L102">    this.name = name;</span>
-<span class="nc" id="L103">  }</span>
+<span class="nc" id="L99">    this.name = name;</span>
+<span class="nc" id="L100">  }</span>
 
 
 
   @Override
   public boolean equals(Object o) {
-<span class="nc bnc" id="L109" title="All 2 branches missed.">    if (this == o) {</span>
-<span class="nc" id="L110">      return true;</span>
+<span class="nc bnc" id="L106" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L107">      return true;</span>
     }
-<span class="nc bnc" id="L112" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
-<span class="nc" id="L113">      return false;</span>
+<span class="nc bnc" id="L109" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L110">      return false;</span>
     }
-<span class="nc" id="L115">    Category category = (Category) o;</span>
-<span class="nc bnc" id="L116" title="All 2 branches missed.">    return Objects.equals(this.id, category.id) &amp;&amp;</span>
-<span class="nc bnc" id="L117" title="All 2 branches missed.">        Objects.equals(this.name, category.name);</span>
+<span class="nc" id="L112">    Category category = (Category) o;</span>
+<span class="nc bnc" id="L113" title="All 2 branches missed.">    return Objects.equals(this.id, category.id) &amp;&amp;</span>
+<span class="nc bnc" id="L114" title="All 2 branches missed.">        Objects.equals(this.name, category.name);</span>
   }
 
   @Override
   public int hashCode() {
-<span class="nc" id="L122">    return Objects.hash(id, name);</span>
+<span class="nc" id="L119">    return Objects.hash(id, name);</span>
   }
 
   @Override
   public String toString() {
-<span class="nc" id="L127">    StringBuilder sb = new StringBuilder();</span>
-<span class="nc" id="L128">    sb.append(&quot;class Category {\n&quot;);</span>
-<span class="nc" id="L129">    sb.append(&quot;    id: &quot;).append(toIndentedString(id)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L130">    sb.append(&quot;    name: &quot;).append(toIndentedString(name)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L131">    sb.append(&quot;}&quot;);</span>
-<span class="nc" id="L132">    return sb.toString();</span>
+<span class="nc" id="L124">    StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L125">    sb.append(&quot;class Category {\n&quot;);</span>
+<span class="nc" id="L126">    sb.append(&quot;    id: &quot;).append(toIndentedString(id)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L127">    sb.append(&quot;    name: &quot;).append(toIndentedString(name)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L128">    sb.append(&quot;}&quot;);</span>
+<span class="nc" id="L129">    return sb.toString();</span>
   }
 
   /**
@@ -137,10 +134,10 @@ public class Category {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-<span class="nc bnc" id="L140" title="All 2 branches missed.">    if (o == null) {</span>
-<span class="nc" id="L141">      return &quot;null&quot;;</span>
+<span class="nc bnc" id="L137" title="All 2 branches missed.">    if (o == null) {</span>
+<span class="nc" id="L138">      return &quot;null&quot;;</span>
     }
-<span class="nc" id="L143">    return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</span>
+<span class="nc" id="L140">    return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</span>
   }
 
 
@@ -149,65 +146,66 @@ public class Category {
 
   static {
     // a set of all properties/fields (JSON key names)
-<span class="nc" id="L152">    openapiFields = new HashSet&lt;String&gt;();</span>
-<span class="nc" id="L153">    openapiFields.add(&quot;id&quot;);</span>
-<span class="nc" id="L154">    openapiFields.add(&quot;name&quot;);</span>
+<span class="nc" id="L149">    openapiFields = new HashSet&lt;String&gt;();</span>
+<span class="nc" id="L150">    openapiFields.add(&quot;id&quot;);</span>
+<span class="nc" id="L151">    openapiFields.add(&quot;name&quot;);</span>
 
     // a set of required properties/fields (JSON key names)
-<span class="nc" id="L157">    openapiRequiredFields = new HashSet&lt;String&gt;();</span>
-<span class="nc" id="L158">  }</span>
+<span class="nc" id="L154">    openapiRequiredFields = new HashSet&lt;String&gt;();</span>
+<span class="nc" id="L155">  }</span>
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Category
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to Category
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-<span class="nc bnc" id="L167" title="All 2 branches missed.">      if (jsonObj == null) {</span>
-<span class="nc bnc" id="L168" title="All 2 branches missed.">        if (!Category.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null</span>
-<span class="nc" id="L169">          throw new IllegalArgumentException(String.format(&quot;The required field(s) %s in Category is not found in the empty JSON string&quot;, Category.openapiRequiredFields.toString()));</span>
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+<span class="nc bnc" id="L164" title="All 2 branches missed.">      if (jsonElement == null) {</span>
+<span class="nc bnc" id="L165" title="All 2 branches missed.">        if (!Category.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null</span>
+<span class="nc" id="L166">          throw new IllegalArgumentException(String.format(&quot;The required field(s) %s in Category is not found in the empty JSON string&quot;, Category.openapiRequiredFields.toString()));</span>
         }
       }
 
-<span class="nc" id="L173">      Set&lt;Entry&lt;String, JsonElement&gt;&gt; entries = jsonObj.entrySet();</span>
+<span class="nc" id="L170">      Set&lt;Map.Entry&lt;String, JsonElement&gt;&gt; entries = jsonElement.getAsJsonObject().entrySet();</span>
       // check to see if the JSON string contains additional fields
-<span class="nc bnc" id="L175" title="All 2 branches missed.">      for (Entry&lt;String, JsonElement&gt; entry : entries) {</span>
-<span class="nc bnc" id="L176" title="All 2 branches missed.">        if (!Category.openapiFields.contains(entry.getKey())) {</span>
-<span class="nc" id="L177">          throw new IllegalArgumentException(String.format(&quot;The field `%s` in the JSON string is not defined in the `Category` properties. JSON: %s&quot;, entry.getKey(), jsonObj.toString()));</span>
+<span class="nc bnc" id="L172" title="All 2 branches missed.">      for (Map.Entry&lt;String, JsonElement&gt; entry : entries) {</span>
+<span class="nc bnc" id="L173" title="All 2 branches missed.">        if (!Category.openapiFields.contains(entry.getKey())) {</span>
+<span class="nc" id="L174">          throw new IllegalArgumentException(String.format(&quot;The field `%s` in the JSON string is not defined in the `Category` properties. JSON: %s&quot;, entry.getKey(), jsonElement.toString()));</span>
         }
-<span class="nc" id="L179">      }</span>
-<span class="nc bnc" id="L180" title="All 6 branches missed.">      if ((jsonObj.get(&quot;name&quot;) != null &amp;&amp; !jsonObj.get(&quot;name&quot;).isJsonNull()) &amp;&amp; !jsonObj.get(&quot;name&quot;).isJsonPrimitive()) {</span>
-<span class="nc" id="L181">        throw new IllegalArgumentException(String.format(&quot;Expected the field `name` to be a primitive type in the JSON string but got `%s`&quot;, jsonObj.get(&quot;name&quot;).toString()));</span>
+<span class="nc" id="L176">      }</span>
+<span class="nc" id="L177">        JsonObject jsonObj = jsonElement.getAsJsonObject();</span>
+<span class="nc bnc" id="L178" title="All 6 branches missed.">      if ((jsonObj.get(&quot;name&quot;) != null &amp;&amp; !jsonObj.get(&quot;name&quot;).isJsonNull()) &amp;&amp; !jsonObj.get(&quot;name&quot;).isJsonPrimitive()) {</span>
+<span class="nc" id="L179">        throw new IllegalArgumentException(String.format(&quot;Expected the field `name` to be a primitive type in the JSON string but got `%s`&quot;, jsonObj.get(&quot;name&quot;).toString()));</span>
       }
-<span class="nc" id="L183">  }</span>
+<span class="nc" id="L181">  }</span>
 
-<span class="nc" id="L185">  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {</span>
+<span class="nc" id="L183">  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {</span>
     @SuppressWarnings(&quot;unchecked&quot;)
     @Override
     public &lt;T&gt; TypeAdapter&lt;T&gt; create(Gson gson, TypeToken&lt;T&gt; type) {
-<span class="nc bnc" id="L189" title="All 2 branches missed.">       if (!Category.class.isAssignableFrom(type.getRawType())) {</span>
-<span class="nc" id="L190">         return null; // this class only serializes 'Category' and its subtypes</span>
+<span class="nc bnc" id="L187" title="All 2 branches missed.">       if (!Category.class.isAssignableFrom(type.getRawType())) {</span>
+<span class="nc" id="L188">         return null; // this class only serializes 'Category' and its subtypes</span>
        }
-<span class="nc" id="L192">       final TypeAdapter&lt;JsonElement&gt; elementAdapter = gson.getAdapter(JsonElement.class);</span>
-<span class="nc" id="L193">       final TypeAdapter&lt;Category&gt; thisAdapter</span>
-<span class="nc" id="L194">                        = gson.getDelegateAdapter(this, TypeToken.get(Category.class));</span>
+<span class="nc" id="L190">       final TypeAdapter&lt;JsonElement&gt; elementAdapter = gson.getAdapter(JsonElement.class);</span>
+<span class="nc" id="L191">       final TypeAdapter&lt;Category&gt; thisAdapter</span>
+<span class="nc" id="L192">                        = gson.getDelegateAdapter(this, TypeToken.get(Category.class));</span>
 
-<span class="nc" id="L196">       return (TypeAdapter&lt;T&gt;) new TypeAdapter&lt;Category&gt;() {</span>
+<span class="nc" id="L194">       return (TypeAdapter&lt;T&gt;) new TypeAdapter&lt;Category&gt;() {</span>
            @Override
            public void write(JsonWriter out, Category value) throws IOException {
-<span class="nc" id="L199">             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();</span>
-<span class="nc" id="L200">             elementAdapter.write(out, obj);</span>
-<span class="nc" id="L201">           }</span>
+<span class="nc" id="L197">             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();</span>
+<span class="nc" id="L198">             elementAdapter.write(out, obj);</span>
+<span class="nc" id="L199">           }</span>
 
            @Override
            public Category read(JsonReader in) throws IOException {
-<span class="nc" id="L205">             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();</span>
-<span class="nc" id="L206">             validateJsonObject(jsonObj);</span>
-<span class="nc" id="L207">             return thisAdapter.fromJsonTree(jsonObj);</span>
+<span class="nc" id="L203">             JsonElement jsonElement = elementAdapter.read(in);</span>
+<span class="nc" id="L204">             validateJsonElement(jsonElement);</span>
+<span class="nc" id="L205">             return thisAdapter.fromJsonTree(jsonElement);</span>
            }
 
-<span class="nc" id="L210">       }.nullSafe();</span>
+<span class="nc" id="L208">       }.nullSafe();</span>
     }
   }
 
@@ -219,7 +217,7 @@ public class Category {
   * @throws IOException if the JSON string is invalid with respect to Category
   */
   public static Category fromJson(String jsonString) throws IOException {
-<span class="nc" id="L222">    return JSON.getGson().fromJson(jsonString, Category.class);</span>
+<span class="nc" id="L220">    return JSON.getGson().fromJson(jsonString, Category.class);</span>
   }
 
  /**
@@ -228,7 +226,7 @@ public class Category {
   * @return JSON string
   */
   public String toJson() {
-<span class="nc" id="L231">    return JSON.getGson().toJson(this);</span>
+<span class="nc" id="L229">    return JSON.getGson().toJson(this);</span>
   }
 }
 
