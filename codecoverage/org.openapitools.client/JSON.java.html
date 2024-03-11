@@ -93,7 +93,7 @@ import java.util.TimeZone;
 <span class="nc" id="L93">        return clazz;</span>
     }
 
-    {
+    static {
 <span class="nc" id="L97">        GsonBuilder gsonBuilder = createGson();</span>
 <span class="nc" id="L98">        gsonBuilder.registerTypeAdapter(Date.class, dateTypeAdapter);</span>
 <span class="nc" id="L99">        gsonBuilder.registerTypeAdapter(java.sql.Date.class, sqlDateTypeAdapter);</span>
