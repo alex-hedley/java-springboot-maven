@@ -54,7 +54,7 @@ jobs:
             
     # Reports
     # - name: Deploy Test Report
-    #   uses: peaceiris/actions-gh-pages@v3
+    #   uses: peaceiris/actions-gh-pages@v4
     #   # if: github.event_name == 'push'
     #   with:
     #     github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -65,7 +65,7 @@ jobs:
     #     enable_jekyll: true
   
     - name: Deploy Code Coverage Report
-      uses: peaceiris/actions-gh-pages@v3
+      uses: peaceiris/actions-gh-pages@v4
       # if: github.event_name == 'push'
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
