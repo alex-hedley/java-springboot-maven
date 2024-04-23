@@ -21,7 +21,7 @@ demo,org.openapitools.client,GzipRequestInterceptor.new RequestBody() {...},27,0
 demo,org.openapitools.client,JSON.DateTypeAdapter,77,0,8,0,24,0,9,0,5,0
 demo,org.openapitools.client,ServerVariable,15,0,0,0,6,0,1,0,1,0
 demo,org.openapitools.client,JSON.ByteArrayAdapter,35,0,4,0,11,0,5,0,3,0
-demo,org.openapitools.client,ApiClient,2378,0,266,0,510,0,222,0,89,0
+demo,org.openapitools.client,ApiClient,2373,0,266,0,509,0,221,0,88,0
 demo,org.openapitools.client,JSON.LocalDateTypeAdapter,46,0,4,0,16,0,7,0,5,0
 demo,org.openapitools.client,ServerConfiguration,78,0,10,0,18,0,8,0,3,0
 demo,org.openapitools.client,ProgressResponseBody,37,0,2,0,10,0,6,0,5,0
@@ -37,7 +37,7 @@ demo,org.openapitools.client.model,Pet.CustomTypeAdapterFactory.new TypeAdapter(
 demo,org.openapitools.client.model,AbstractOpenApiSchema,171,0,20,0,35,0,21,0,11,0
 demo,org.openapitools.client.model,Order.StatusEnum,75,0,4,0,16,0,8,0,6,0
 demo,org.openapitools.client.model,User.CustomTypeAdapterFactory.new TypeAdapter() {...},38,0,0,0,7,0,3,0,3,0
-demo,org.openapitools.client.model,Pet,592,0,66,0,113,0,62,0,29,0
+demo,org.openapitools.client.model,Pet,587,0,66,0,112,0,62,0,29,0
 demo,org.openapitools.client.model,Tag,237,0,26,0,48,0,28,0,15,0
 demo,org.openapitools.client.model,Pet.StatusEnum.Adapter,15,0,0,0,5,0,3,0,3,0
 demo,org.openapitools.client.model,Category.CustomTypeAdapterFactory.new TypeAdapter() {...},38,0,0,0,7,0,3,0,3,0
