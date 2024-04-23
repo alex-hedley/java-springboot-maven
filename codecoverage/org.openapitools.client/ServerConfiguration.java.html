@@ -5,6 +5,7 @@ import java.util.Map;
 /**
  * Representing a Server configuration.
  */
+@javax.annotation.Generated(value = &quot;org.openapitools.codegen.languages.JavaClientCodegen&quot;, date = &quot;2024-04-23T07:33:51.794409366Z[Etc/UTC]&quot;, comments = &quot;Generator version: 7.5.0&quot;)
 public class ServerConfiguration {
     public String URL;
     public String description;
@@ -15,11 +16,11 @@ public class ServerConfiguration {
      * @param description A description of the host designated by the URL.
      * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
      */
-<span class="nc" id="L18">    public ServerConfiguration(String URL, String description, Map&lt;String, ServerVariable&gt; variables) {</span>
-<span class="nc" id="L19">        this.URL = URL;</span>
-<span class="nc" id="L20">        this.description = description;</span>
-<span class="nc" id="L21">        this.variables = variables;</span>
-<span class="nc" id="L22">    }</span>
+<span class="nc" id="L19">    public ServerConfiguration(String URL, String description, Map&lt;String, ServerVariable&gt; variables) {</span>
+<span class="nc" id="L20">        this.URL = URL;</span>
+<span class="nc" id="L21">        this.description = description;</span>
+<span class="nc" id="L22">        this.variables = variables;</span>
+<span class="nc" id="L23">    }</span>
 
     /**
      * Format URL template using given variables.
@@ -28,23 +29,23 @@ public class ServerConfiguration {
      * @return Formatted URL.
      */
     public String URL(Map&lt;String, String&gt; variables) {
-<span class="nc" id="L31">        String url = this.URL;</span>
+<span class="nc" id="L32">        String url = this.URL;</span>
 
         // go through variables and replace placeholders
-<span class="nc bnc" id="L34" title="All 2 branches missed.">        for (Map.Entry&lt;String, ServerVariable&gt; variable: this.variables.entrySet()) {</span>
-<span class="nc" id="L35">            String name = variable.getKey();</span>
-<span class="nc" id="L36">            ServerVariable serverVariable = variable.getValue();</span>
-<span class="nc" id="L37">            String value = serverVariable.defaultValue;</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">        for (Map.Entry&lt;String, ServerVariable&gt; variable: this.variables.entrySet()) {</span>
+<span class="nc" id="L36">            String name = variable.getKey();</span>
+<span class="nc" id="L37">            ServerVariable serverVariable = variable.getValue();</span>
+<span class="nc" id="L38">            String value = serverVariable.defaultValue;</span>
 
-<span class="nc bnc" id="L39" title="All 4 branches missed.">            if (variables != null &amp;&amp; variables.containsKey(name)) {</span>
-<span class="nc" id="L40">                value = variables.get(name);</span>
-<span class="nc bnc" id="L41" title="All 4 branches missed.">                if (serverVariable.enumValues.size() &gt; 0 &amp;&amp; !serverVariable.enumValues.contains(value)) {</span>
-<span class="nc" id="L42">                    throw new IllegalArgumentException(&quot;The variable &quot; + name + &quot; in the server URL has invalid value &quot; + value + &quot;.&quot;);</span>
+<span class="nc bnc" id="L40" title="All 4 branches missed.">            if (variables != null &amp;&amp; variables.containsKey(name)) {</span>
+<span class="nc" id="L41">                value = variables.get(name);</span>
+<span class="nc bnc" id="L42" title="All 4 branches missed.">                if (serverVariable.enumValues.size() &gt; 0 &amp;&amp; !serverVariable.enumValues.contains(value)) {</span>
+<span class="nc" id="L43">                    throw new IllegalArgumentException(&quot;The variable &quot; + name + &quot; in the server URL has invalid value &quot; + value + &quot;.&quot;);</span>
                 }
             }
-<span class="nc" id="L45">            url = url.replace(&quot;{&quot; + name + &quot;}&quot;, value);</span>
-<span class="nc" id="L46">        }</span>
-<span class="nc" id="L47">        return url;</span>
+<span class="nc" id="L46">            url = url.replace(&quot;{&quot; + name + &quot;}&quot;, value);</span>
+<span class="nc" id="L47">        }</span>
+<span class="nc" id="L48">        return url;</span>
     }
 
     /**
@@ -53,7 +54,7 @@ public class ServerConfiguration {
      * @return Formatted URL.
      */
     public String URL() {
-<span class="nc" id="L56">        return URL(null);</span>
+<span class="nc" id="L57">        return URL(null);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
