@@ -80,63 +80,64 @@ public class UserApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 0 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public okhttp3.Call createUserCall(User body, final ApiCallback _callback) throws ApiException {
-<span class="nc" id="L89">        String basePath = null;</span>
+    public okhttp3.Call createUserCall(@javax.annotation.Nonnull User body, final ApiCallback _callback) throws ApiException {
+<span class="nc" id="L90">        String basePath = null;</span>
         // Operation Servers
-<span class="nc" id="L91">        String[] localBasePaths = new String[] {  };</span>
+<span class="nc" id="L92">        String[] localBasePaths = new String[] {  };</span>
 
         // Determine Base Path to Use
-<span class="nc bnc" id="L94" title="All 2 branches missed.">        if (localCustomBaseUrl != null){</span>
-<span class="nc" id="L95">            basePath = localCustomBaseUrl;</span>
-<span class="nc bnc" id="L96" title="All 2 branches missed.">        } else if ( localBasePaths.length &gt; 0 ) {</span>
-<span class="nc" id="L97">            basePath = localBasePaths[localHostIndex];</span>
+<span class="nc bnc" id="L95" title="All 2 branches missed.">        if (localCustomBaseUrl != null){</span>
+<span class="nc" id="L96">            basePath = localCustomBaseUrl;</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">        } else if ( localBasePaths.length &gt; 0 ) {</span>
+<span class="nc" id="L98">            basePath = localBasePaths[localHostIndex];</span>
         } else {
-<span class="nc" id="L99">            basePath = null;</span>
+<span class="nc" id="L100">            basePath = null;</span>
         }
 
-<span class="nc" id="L102">        Object localVarPostBody = body;</span>
+<span class="nc" id="L103">        Object localVarPostBody = body;</span>
 
         // create path and map variables
-<span class="nc" id="L105">        String localVarPath = &quot;/user&quot;;</span>
+<span class="nc" id="L106">        String localVarPath = &quot;/user&quot;;</span>
 
-<span class="nc" id="L107">        List&lt;Pair&gt; localVarQueryParams = new ArrayList&lt;Pair&gt;();</span>
-<span class="nc" id="L108">        List&lt;Pair&gt; localVarCollectionQueryParams = new ArrayList&lt;Pair&gt;();</span>
-<span class="nc" id="L109">        Map&lt;String, String&gt; localVarHeaderParams = new HashMap&lt;String, String&gt;();</span>
-<span class="nc" id="L110">        Map&lt;String, String&gt; localVarCookieParams = new HashMap&lt;String, String&gt;();</span>
-<span class="nc" id="L111">        Map&lt;String, Object&gt; localVarFormParams = new HashMap&lt;String, Object&gt;();</span>
+<span class="nc" id="L108">        List&lt;Pair&gt; localVarQueryParams = new ArrayList&lt;Pair&gt;();</span>
+<span class="nc" id="L109">        List&lt;Pair&gt; localVarCollectionQueryParams = new ArrayList&lt;Pair&gt;();</span>
+<span class="nc" id="L110">        Map&lt;String, String&gt; localVarHeaderParams = new HashMap&lt;String, String&gt;();</span>
+<span class="nc" id="L111">        Map&lt;String, String&gt; localVarCookieParams = new HashMap&lt;String, String&gt;();</span>
+<span class="nc" id="L112">        Map&lt;String, Object&gt; localVarFormParams = new HashMap&lt;String, Object&gt;();</span>
 
-<span class="nc" id="L113">        final String[] localVarAccepts = {</span>
+<span class="nc" id="L114">        final String[] localVarAccepts = {</span>
         };
-<span class="nc" id="L115">        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);</span>
-<span class="nc bnc" id="L116" title="All 2 branches missed.">        if (localVarAccept != null) {</span>
-<span class="nc" id="L117">            localVarHeaderParams.put(&quot;Accept&quot;, localVarAccept);</span>
+<span class="nc" id="L116">        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);</span>
+<span class="nc bnc" id="L117" title="All 2 branches missed.">        if (localVarAccept != null) {</span>
+<span class="nc" id="L118">            localVarHeaderParams.put(&quot;Accept&quot;, localVarAccept);</span>
         }
 
-<span class="nc" id="L120">        final String[] localVarContentTypes = {</span>
+<span class="nc" id="L121">        final String[] localVarContentTypes = {</span>
             &quot;application/json&quot;
         };
-<span class="nc" id="L123">        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);</span>
-<span class="nc bnc" id="L124" title="All 2 branches missed.">        if (localVarContentType != null) {</span>
-<span class="nc" id="L125">            localVarHeaderParams.put(&quot;Content-Type&quot;, localVarContentType);</span>
+<span class="nc" id="L124">        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);</span>
+<span class="nc bnc" id="L125" title="All 2 branches missed.">        if (localVarContentType != null) {</span>
+<span class="nc" id="L126">            localVarHeaderParams.put(&quot;Content-Type&quot;, localVarContentType);</span>
         }
 
-<span class="nc" id="L128">        String[] localVarAuthNames = new String[] {  };</span>
-<span class="nc" id="L129">        return localVarApiClient.buildCall(basePath, localVarPath, &quot;POST&quot;, localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);</span>
+<span class="nc" id="L129">        String[] localVarAuthNames = new String[] {  };</span>
+<span class="nc" id="L130">        return localVarApiClient.buildCall(basePath, localVarPath, &quot;POST&quot;, localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);</span>
     }
 
     @SuppressWarnings(&quot;rawtypes&quot;)
-    private okhttp3.Call createUserValidateBeforeCall(User body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createUserValidateBeforeCall(@javax.annotation.Nonnull User body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'body' is set
-<span class="nc bnc" id="L135" title="All 2 branches missed.">        if (body == null) {</span>
-<span class="nc" id="L136">            throw new ApiException(&quot;Missing the required parameter 'body' when calling createUser(Async)&quot;);</span>
+<span class="nc bnc" id="L136" title="All 2 branches missed.">        if (body == null) {</span>
+<span class="nc" id="L137">            throw new ApiException(&quot;Missing the required parameter 'body' when calling createUser(Async)&quot;);</span>
         }
 
-<span class="nc" id="L139">        return createUserCall(body, _callback);</span>
+<span class="nc" id="L140">        return createUserCall(body, _callback);</span>
 
     }
 
@@ -146,14 +147,15 @@ public class UserApi {
      * @param body Created user object (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 0 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public void createUser(User body) throws ApiException {
-<span class="nc" id="L155">        createUserWithHttpInfo(body);</span>
-<span class="nc" id="L156">    }</span>
+    public void createUser(@javax.annotation.Nonnull User body) throws ApiException {
+<span class="nc" id="L157">        createUserWithHttpInfo(body);</span>
+<span class="nc" id="L158">    }</span>
 
     /**
      * Create user
@@ -162,14 +164,15 @@ public class UserApi {
      * @return ApiResponse&amp;lt;Void&amp;gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 0 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public ApiResponse&lt;Void&gt; createUserWithHttpInfo(User body) throws ApiException {
-<span class="nc" id="L171">        okhttp3.Call localVarCall = createUserValidateBeforeCall(body, null);</span>
-<span class="nc" id="L172">        return localVarApiClient.execute(localVarCall);</span>
+    public ApiResponse&lt;Void&gt; createUserWithHttpInfo(@javax.annotation.Nonnull User body) throws ApiException {
+<span class="nc" id="L174">        okhttp3.Call localVarCall = createUserValidateBeforeCall(body, null);</span>
+<span class="nc" id="L175">        return localVarApiClient.execute(localVarCall);</span>
     }
 
     /**
@@ -180,16 +183,17 @@ public class UserApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 0 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public okhttp3.Call createUserAsync(User body, final ApiCallback&lt;Void&gt; _callback) throws ApiException {
+    public okhttp3.Call createUserAsync(@javax.annotation.Nonnull User body, final ApiCallback&lt;Void&gt; _callback) throws ApiException {
 
-<span class="nc" id="L190">        okhttp3.Call localVarCall = createUserValidateBeforeCall(body, _callback);</span>
-<span class="nc" id="L191">        localVarApiClient.executeAsync(localVarCall, _callback);</span>
-<span class="nc" id="L192">        return localVarCall;</span>
+<span class="nc" id="L194">        okhttp3.Call localVarCall = createUserValidateBeforeCall(body, _callback);</span>
+<span class="nc" id="L195">        localVarApiClient.executeAsync(localVarCall, _callback);</span>
+<span class="nc" id="L196">        return localVarCall;</span>
     }
     /**
      * Build call for createUsersWithArrayInput
@@ -198,63 +202,64 @@ public class UserApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 0 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public okhttp3.Call createUsersWithArrayInputCall(List&lt;User&gt; body, final ApiCallback _callback) throws ApiException {
-<span class="nc" id="L207">        String basePath = null;</span>
+    public okhttp3.Call createUsersWithArrayInputCall(@javax.annotation.Nonnull List&lt;User&gt; body, final ApiCallback _callback) throws ApiException {
+<span class="nc" id="L212">        String basePath = null;</span>
         // Operation Servers
-<span class="nc" id="L209">        String[] localBasePaths = new String[] {  };</span>
+<span class="nc" id="L214">        String[] localBasePaths = new String[] {  };</span>
 
         // Determine Base Path to Use
-<span class="nc bnc" id="L212" title="All 2 branches missed.">        if (localCustomBaseUrl != null){</span>
-<span class="nc" id="L213">            basePath = localCustomBaseUrl;</span>
-<span class="nc bnc" id="L214" title="All 2 branches missed.">        } else if ( localBasePaths.length &gt; 0 ) {</span>
-<span class="nc" id="L215">            basePath = localBasePaths[localHostIndex];</span>
+<span class="nc bnc" id="L217" title="All 2 branches missed.">        if (localCustomBaseUrl != null){</span>
+<span class="nc" id="L218">            basePath = localCustomBaseUrl;</span>
+<span class="nc bnc" id="L219" title="All 2 branches missed.">        } else if ( localBasePaths.length &gt; 0 ) {</span>
+<span class="nc" id="L220">            basePath = localBasePaths[localHostIndex];</span>
         } else {
-<span class="nc" id="L217">            basePath = null;</span>
+<span class="nc" id="L222">            basePath = null;</span>
         }
 
-<span class="nc" id="L220">        Object localVarPostBody = body;</span>
+<span class="nc" id="L225">        Object localVarPostBody = body;</span>
 
         // create path and map variables
-<span class="nc" id="L223">        String localVarPath = &quot;/user/createWithArray&quot;;</span>
+<span class="nc" id="L228">        String localVarPath = &quot;/user/createWithArray&quot;;</span>
 
-<span class="nc" id="L225">        List&lt;Pair&gt; localVarQueryParams = new ArrayList&lt;Pair&gt;();</span>
-<span class="nc" id="L226">        List&lt;Pair&gt; localVarCollectionQueryParams = new ArrayList&lt;Pair&gt;();</span>
-<span class="nc" id="L227">        Map&lt;String, String&gt; localVarHeaderParams = new HashMap&lt;String, String&gt;();</span>
-<span class="nc" id="L228">        Map&lt;String, String&gt; localVarCookieParams = new HashMap&lt;String, String&gt;();</span>
-<span class="nc" id="L229">        Map&lt;String, Object&gt; localVarFormParams = new HashMap&lt;String, Object&gt;();</span>
+<span class="nc" id="L230">        List&lt;Pair&gt; localVarQueryParams = new ArrayList&lt;Pair&gt;();</span>
+<span class="nc" id="L231">        List&lt;Pair&gt; localVarCollectionQueryParams = new ArrayList&lt;Pair&gt;();</span>
+<span class="nc" id="L232">        Map&lt;String, String&gt; localVarHeaderParams = new HashMap&lt;String, String&gt;();</span>
+<span class="nc" id="L233">        Map&lt;String, String&gt; localVarCookieParams = new HashMap&lt;String, String&gt;();</span>
+<span class="nc" id="L234">        Map&lt;String, Object&gt; localVarFormParams = new HashMap&lt;String, Object&gt;();</span>
 
-<span class="nc" id="L231">        final String[] localVarAccepts = {</span>
+<span class="nc" id="L236">        final String[] localVarAccepts = {</span>
         };
-<span class="nc" id="L233">        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);</span>
-<span class="nc bnc" id="L234" title="All 2 branches missed.">        if (localVarAccept != null) {</span>
-<span class="nc" id="L235">            localVarHeaderParams.put(&quot;Accept&quot;, localVarAccept);</span>
+<span class="nc" id="L238">        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);</span>
+<span class="nc bnc" id="L239" title="All 2 branches missed.">        if (localVarAccept != null) {</span>
+<span class="nc" id="L240">            localVarHeaderParams.put(&quot;Accept&quot;, localVarAccept);</span>
         }
 
-<span class="nc" id="L238">        final String[] localVarContentTypes = {</span>
+<span class="nc" id="L243">        final String[] localVarContentTypes = {</span>
             &quot;application/json&quot;
         };
-<span class="nc" id="L241">        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);</span>
-<span class="nc bnc" id="L242" title="All 2 branches missed.">        if (localVarContentType != null) {</span>
-<span class="nc" id="L243">            localVarHeaderParams.put(&quot;Content-Type&quot;, localVarContentType);</span>
+<span class="nc" id="L246">        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);</span>
+<span class="nc bnc" id="L247" title="All 2 branches missed.">        if (localVarContentType != null) {</span>
+<span class="nc" id="L248">            localVarHeaderParams.put(&quot;Content-Type&quot;, localVarContentType);</span>
         }
 
-<span class="nc" id="L246">        String[] localVarAuthNames = new String[] {  };</span>
-<span class="nc" id="L247">        return localVarApiClient.buildCall(basePath, localVarPath, &quot;POST&quot;, localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);</span>
+<span class="nc" id="L251">        String[] localVarAuthNames = new String[] {  };</span>
+<span class="nc" id="L252">        return localVarApiClient.buildCall(basePath, localVarPath, &quot;POST&quot;, localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);</span>
     }
 
     @SuppressWarnings(&quot;rawtypes&quot;)
-    private okhttp3.Call createUsersWithArrayInputValidateBeforeCall(List&lt;User&gt; body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createUsersWithArrayInputValidateBeforeCall(@javax.annotation.Nonnull List&lt;User&gt; body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'body' is set
-<span class="nc bnc" id="L253" title="All 2 branches missed.">        if (body == null) {</span>
-<span class="nc" id="L254">            throw new ApiException(&quot;Missing the required parameter 'body' when calling createUsersWithArrayInput(Async)&quot;);</span>
+<span class="nc bnc" id="L258" title="All 2 branches missed.">        if (body == null) {</span>
+<span class="nc" id="L259">            throw new ApiException(&quot;Missing the required parameter 'body' when calling createUsersWithArrayInput(Async)&quot;);</span>
         }
 
-<span class="nc" id="L257">        return createUsersWithArrayInputCall(body, _callback);</span>
+<span class="nc" id="L262">        return createUsersWithArrayInputCall(body, _callback);</span>
 
     }
 
@@ -264,14 +269,15 @@ public class UserApi {
      * @param body List of user object (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 0 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public void createUsersWithArrayInput(List&lt;User&gt; body) throws ApiException {
-<span class="nc" id="L273">        createUsersWithArrayInputWithHttpInfo(body);</span>
-<span class="nc" id="L274">    }</span>
+    public void createUsersWithArrayInput(@javax.annotation.Nonnull List&lt;User&gt; body) throws ApiException {
+<span class="nc" id="L279">        createUsersWithArrayInputWithHttpInfo(body);</span>
+<span class="nc" id="L280">    }</span>
 
     /**
      * Creates list of users with given input array
@@ -280,14 +286,15 @@ public class UserApi {
      * @return ApiResponse&amp;lt;Void&amp;gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 0 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public ApiResponse&lt;Void&gt; createUsersWithArrayInputWithHttpInfo(List&lt;User&gt; body) throws ApiException {
-<span class="nc" id="L289">        okhttp3.Call localVarCall = createUsersWithArrayInputValidateBeforeCall(body, null);</span>
-<span class="nc" id="L290">        return localVarApiClient.execute(localVarCall);</span>
+    public ApiResponse&lt;Void&gt; createUsersWithArrayInputWithHttpInfo(@javax.annotation.Nonnull List&lt;User&gt; body) throws ApiException {
+<span class="nc" id="L296">        okhttp3.Call localVarCall = createUsersWithArrayInputValidateBeforeCall(body, null);</span>
+<span class="nc" id="L297">        return localVarApiClient.execute(localVarCall);</span>
     }
 
     /**
@@ -298,16 +305,17 @@ public class UserApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 0 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public okhttp3.Call createUsersWithArrayInputAsync(List&lt;User&gt; body, final ApiCallback&lt;Void&gt; _callback) throws ApiException {
+    public okhttp3.Call createUsersWithArrayInputAsync(@javax.annotation.Nonnull List&lt;User&gt; body, final ApiCallback&lt;Void&gt; _callback) throws ApiException {
 
-<span class="nc" id="L308">        okhttp3.Call localVarCall = createUsersWithArrayInputValidateBeforeCall(body, _callback);</span>
-<span class="nc" id="L309">        localVarApiClient.executeAsync(localVarCall, _callback);</span>
-<span class="nc" id="L310">        return localVarCall;</span>
+<span class="nc" id="L316">        okhttp3.Call localVarCall = createUsersWithArrayInputValidateBeforeCall(body, _callback);</span>
+<span class="nc" id="L317">        localVarApiClient.executeAsync(localVarCall, _callback);</span>
+<span class="nc" id="L318">        return localVarCall;</span>
     }
     /**
      * Build call for createUsersWithListInput
@@ -316,63 +324,64 @@ public class UserApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 0 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public okhttp3.Call createUsersWithListInputCall(List&lt;User&gt; body, final ApiCallback _callback) throws ApiException {
-<span class="nc" id="L325">        String basePath = null;</span>
+    public okhttp3.Call createUsersWithListInputCall(@javax.annotation.Nonnull List&lt;User&gt; body, final ApiCallback _callback) throws ApiException {
+<span class="nc" id="L334">        String basePath = null;</span>
         // Operation Servers
-<span class="nc" id="L327">        String[] localBasePaths = new String[] {  };</span>
+<span class="nc" id="L336">        String[] localBasePaths = new String[] {  };</span>
 
         // Determine Base Path to Use
-<span class="nc bnc" id="L330" title="All 2 branches missed.">        if (localCustomBaseUrl != null){</span>
-<span class="nc" id="L331">            basePath = localCustomBaseUrl;</span>
-<span class="nc bnc" id="L332" title="All 2 branches missed.">        } else if ( localBasePaths.length &gt; 0 ) {</span>
-<span class="nc" id="L333">            basePath = localBasePaths[localHostIndex];</span>
+<span class="nc bnc" id="L339" title="All 2 branches missed.">        if (localCustomBaseUrl != null){</span>
+<span class="nc" id="L340">            basePath = localCustomBaseUrl;</span>
+<span class="nc bnc" id="L341" title="All 2 branches missed.">        } else if ( localBasePaths.length &gt; 0 ) {</span>
+<span class="nc" id="L342">            basePath = localBasePaths[localHostIndex];</span>
         } else {
-<span class="nc" id="L335">            basePath = null;</span>
+<span class="nc" id="L344">            basePath = null;</span>
         }
 
-<span class="nc" id="L338">        Object localVarPostBody = body;</span>
+<span class="nc" id="L347">        Object localVarPostBody = body;</span>
 
         // create path and map variables
-<span class="nc" id="L341">        String localVarPath = &quot;/user/createWithList&quot;;</span>
+<span class="nc" id="L350">        String localVarPath = &quot;/user/createWithList&quot;;</span>
 
-<span class="nc" id="L343">        List&lt;Pair&gt; localVarQueryParams = new ArrayList&lt;Pair&gt;();</span>
-<span class="nc" id="L344">        List&lt;Pair&gt; localVarCollectionQueryParams = new ArrayList&lt;Pair&gt;();</span>
-<span class="nc" id="L345">        Map&lt;String, String&gt; localVarHeaderParams = new HashMap&lt;String, String&gt;();</span>
-<span class="nc" id="L346">        Map&lt;String, String&gt; localVarCookieParams = new HashMap&lt;String, String&gt;();</span>
-<span class="nc" id="L347">        Map&lt;String, Object&gt; localVarFormParams = new HashMap&lt;String, Object&gt;();</span>
+<span class="nc" id="L352">        List&lt;Pair&gt; localVarQueryParams = new ArrayList&lt;Pair&gt;();</span>
+<span class="nc" id="L353">        List&lt;Pair&gt; localVarCollectionQueryParams = new ArrayList&lt;Pair&gt;();</span>
+<span class="nc" id="L354">        Map&lt;String, String&gt; localVarHeaderParams = new HashMap&lt;String, String&gt;();</span>
+<span class="nc" id="L355">        Map&lt;String, String&gt; localVarCookieParams = new HashMap&lt;String, String&gt;();</span>
+<span class="nc" id="L356">        Map&lt;String, Object&gt; localVarFormParams = new HashMap&lt;String, Object&gt;();</span>
 
-<span class="nc" id="L349">        final String[] localVarAccepts = {</span>
+<span class="nc" id="L358">        final String[] localVarAccepts = {</span>
         };
-<span class="nc" id="L351">        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);</span>
-<span class="nc bnc" id="L352" title="All 2 branches missed.">        if (localVarAccept != null) {</span>
-<span class="nc" id="L353">            localVarHeaderParams.put(&quot;Accept&quot;, localVarAccept);</span>
+<span class="nc" id="L360">        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);</span>
+<span class="nc bnc" id="L361" title="All 2 branches missed.">        if (localVarAccept != null) {</span>
+<span class="nc" id="L362">            localVarHeaderParams.put(&quot;Accept&quot;, localVarAccept);</span>
         }
 
-<span class="nc" id="L356">        final String[] localVarContentTypes = {</span>
+<span class="nc" id="L365">        final String[] localVarContentTypes = {</span>
             &quot;application/json&quot;
         };
-<span class="nc" id="L359">        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);</span>
-<span class="nc bnc" id="L360" title="All 2 branches missed.">        if (localVarContentType != null) {</span>
-<span class="nc" id="L361">            localVarHeaderParams.put(&quot;Content-Type&quot;, localVarContentType);</span>
+<span class="nc" id="L368">        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);</span>
+<span class="nc bnc" id="L369" title="All 2 branches missed.">        if (localVarContentType != null) {</span>
+<span class="nc" id="L370">            localVarHeaderParams.put(&quot;Content-Type&quot;, localVarContentType);</span>
         }
 
-<span class="nc" id="L364">        String[] localVarAuthNames = new String[] {  };</span>
-<span class="nc" id="L365">        return localVarApiClient.buildCall(basePath, localVarPath, &quot;POST&quot;, localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);</span>
+<span class="nc" id="L373">        String[] localVarAuthNames = new String[] {  };</span>
+<span class="nc" id="L374">        return localVarApiClient.buildCall(basePath, localVarPath, &quot;POST&quot;, localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);</span>
     }
 
     @SuppressWarnings(&quot;rawtypes&quot;)
-    private okhttp3.Call createUsersWithListInputValidateBeforeCall(List&lt;User&gt; body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createUsersWithListInputValidateBeforeCall(@javax.annotation.Nonnull List&lt;User&gt; body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'body' is set
-<span class="nc bnc" id="L371" title="All 2 branches missed.">        if (body == null) {</span>
-<span class="nc" id="L372">            throw new ApiException(&quot;Missing the required parameter 'body' when calling createUsersWithListInput(Async)&quot;);</span>
+<span class="nc bnc" id="L380" title="All 2 branches missed.">        if (body == null) {</span>
+<span class="nc" id="L381">            throw new ApiException(&quot;Missing the required parameter 'body' when calling createUsersWithListInput(Async)&quot;);</span>
         }
 
-<span class="nc" id="L375">        return createUsersWithListInputCall(body, _callback);</span>
+<span class="nc" id="L384">        return createUsersWithListInputCall(body, _callback);</span>
 
     }
 
@@ -382,14 +391,15 @@ public class UserApi {
      * @param body List of user object (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 0 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public void createUsersWithListInput(List&lt;User&gt; body) throws ApiException {
-<span class="nc" id="L391">        createUsersWithListInputWithHttpInfo(body);</span>
-<span class="nc" id="L392">    }</span>
+    public void createUsersWithListInput(@javax.annotation.Nonnull List&lt;User&gt; body) throws ApiException {
+<span class="nc" id="L401">        createUsersWithListInputWithHttpInfo(body);</span>
+<span class="nc" id="L402">    }</span>
 
     /**
      * Creates list of users with given input array
@@ -398,14 +408,15 @@ public class UserApi {
      * @return ApiResponse&amp;lt;Void&amp;gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 0 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public ApiResponse&lt;Void&gt; createUsersWithListInputWithHttpInfo(List&lt;User&gt; body) throws ApiException {
-<span class="nc" id="L407">        okhttp3.Call localVarCall = createUsersWithListInputValidateBeforeCall(body, null);</span>
-<span class="nc" id="L408">        return localVarApiClient.execute(localVarCall);</span>
+    public ApiResponse&lt;Void&gt; createUsersWithListInputWithHttpInfo(@javax.annotation.Nonnull List&lt;User&gt; body) throws ApiException {
+<span class="nc" id="L418">        okhttp3.Call localVarCall = createUsersWithListInputValidateBeforeCall(body, null);</span>
+<span class="nc" id="L419">        return localVarApiClient.execute(localVarCall);</span>
     }
 
     /**
@@ -416,16 +427,17 @@ public class UserApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 0 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public okhttp3.Call createUsersWithListInputAsync(List&lt;User&gt; body, final ApiCallback&lt;Void&gt; _callback) throws ApiException {
+    public okhttp3.Call createUsersWithListInputAsync(@javax.annotation.Nonnull List&lt;User&gt; body, final ApiCallback&lt;Void&gt; _callback) throws ApiException {
 
-<span class="nc" id="L426">        okhttp3.Call localVarCall = createUsersWithListInputValidateBeforeCall(body, _callback);</span>
-<span class="nc" id="L427">        localVarApiClient.executeAsync(localVarCall, _callback);</span>
-<span class="nc" id="L428">        return localVarCall;</span>
+<span class="nc" id="L438">        okhttp3.Call localVarCall = createUsersWithListInputValidateBeforeCall(body, _callback);</span>
+<span class="nc" id="L439">        localVarApiClient.executeAsync(localVarCall, _callback);</span>
+<span class="nc" id="L440">        return localVarCall;</span>
     }
     /**
      * Build call for deleteUser
@@ -434,64 +446,65 @@ public class UserApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 400 &lt;/td&gt;&lt;td&gt; Invalid username supplied &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 404 &lt;/td&gt;&lt;td&gt; User not found &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public okhttp3.Call deleteUserCall(String username, final ApiCallback _callback) throws ApiException {
-<span class="nc" id="L444">        String basePath = null;</span>
+    public okhttp3.Call deleteUserCall(@javax.annotation.Nonnull String username, final ApiCallback _callback) throws ApiException {
+<span class="nc" id="L457">        String basePath = null;</span>
         // Operation Servers
-<span class="nc" id="L446">        String[] localBasePaths = new String[] {  };</span>
+<span class="nc" id="L459">        String[] localBasePaths = new String[] {  };</span>
 
         // Determine Base Path to Use
-<span class="nc bnc" id="L449" title="All 2 branches missed.">        if (localCustomBaseUrl != null){</span>
-<span class="nc" id="L450">            basePath = localCustomBaseUrl;</span>
-<span class="nc bnc" id="L451" title="All 2 branches missed.">        } else if ( localBasePaths.length &gt; 0 ) {</span>
-<span class="nc" id="L452">            basePath = localBasePaths[localHostIndex];</span>
+<span class="nc bnc" id="L462" title="All 2 branches missed.">        if (localCustomBaseUrl != null){</span>
+<span class="nc" id="L463">            basePath = localCustomBaseUrl;</span>
+<span class="nc bnc" id="L464" title="All 2 branches missed.">        } else if ( localBasePaths.length &gt; 0 ) {</span>
+<span class="nc" id="L465">            basePath = localBasePaths[localHostIndex];</span>
         } else {
-<span class="nc" id="L454">            basePath = null;</span>
+<span class="nc" id="L467">            basePath = null;</span>
         }
 
-<span class="nc" id="L457">        Object localVarPostBody = null;</span>
+<span class="nc" id="L470">        Object localVarPostBody = null;</span>
 
         // create path and map variables
-<span class="nc" id="L460">        String localVarPath = &quot;/user/{username}&quot;</span>
-<span class="nc" id="L461">            .replace(&quot;{&quot; + &quot;username&quot; + &quot;}&quot;, localVarApiClient.escapeString(username.toString()));</span>
+<span class="nc" id="L473">        String localVarPath = &quot;/user/{username}&quot;</span>
+<span class="nc" id="L474">            .replace(&quot;{&quot; + &quot;username&quot; + &quot;}&quot;, localVarApiClient.escapeString(username.toString()));</span>
 
-<span class="nc" id="L463">        List&lt;Pair&gt; localVarQueryParams = new ArrayList&lt;Pair&gt;();</span>
-<span class="nc" id="L464">        List&lt;Pair&gt; localVarCollectionQueryParams = new ArrayList&lt;Pair&gt;();</span>
-<span class="nc" id="L465">        Map&lt;String, String&gt; localVarHeaderParams = new HashMap&lt;String, String&gt;();</span>
-<span class="nc" id="L466">        Map&lt;String, String&gt; localVarCookieParams = new HashMap&lt;String, String&gt;();</span>
-<span class="nc" id="L467">        Map&lt;String, Object&gt; localVarFormParams = new HashMap&lt;String, Object&gt;();</span>
+<span class="nc" id="L476">        List&lt;Pair&gt; localVarQueryParams = new ArrayList&lt;Pair&gt;();</span>
+<span class="nc" id="L477">        List&lt;Pair&gt; localVarCollectionQueryParams = new ArrayList&lt;Pair&gt;();</span>
+<span class="nc" id="L478">        Map&lt;String, String&gt; localVarHeaderParams = new HashMap&lt;String, String&gt;();</span>
+<span class="nc" id="L479">        Map&lt;String, String&gt; localVarCookieParams = new HashMap&lt;String, String&gt;();</span>
+<span class="nc" id="L480">        Map&lt;String, Object&gt; localVarFormParams = new HashMap&lt;String, Object&gt;();</span>
 
-<span class="nc" id="L469">        final String[] localVarAccepts = {</span>
+<span class="nc" id="L482">        final String[] localVarAccepts = {</span>
         };
-<span class="nc" id="L471">        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);</span>
-<span class="nc bnc" id="L472" title="All 2 branches missed.">        if (localVarAccept != null) {</span>
-<span class="nc" id="L473">            localVarHeaderParams.put(&quot;Accept&quot;, localVarAccept);</span>
+<span class="nc" id="L484">        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);</span>
+<span class="nc bnc" id="L485" title="All 2 branches missed.">        if (localVarAccept != null) {</span>
+<span class="nc" id="L486">            localVarHeaderParams.put(&quot;Accept&quot;, localVarAccept);</span>
         }
 
-<span class="nc" id="L476">        final String[] localVarContentTypes = {</span>
+<span class="nc" id="L489">        final String[] localVarContentTypes = {</span>
         };
-<span class="nc" id="L478">        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);</span>
-<span class="nc bnc" id="L479" title="All 2 branches missed.">        if (localVarContentType != null) {</span>
-<span class="nc" id="L480">            localVarHeaderParams.put(&quot;Content-Type&quot;, localVarContentType);</span>
+<span class="nc" id="L491">        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);</span>
+<span class="nc bnc" id="L492" title="All 2 branches missed.">        if (localVarContentType != null) {</span>
+<span class="nc" id="L493">            localVarHeaderParams.put(&quot;Content-Type&quot;, localVarContentType);</span>
         }
 
-<span class="nc" id="L483">        String[] localVarAuthNames = new String[] {  };</span>
-<span class="nc" id="L484">        return localVarApiClient.buildCall(basePath, localVarPath, &quot;DELETE&quot;, localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);</span>
+<span class="nc" id="L496">        String[] localVarAuthNames = new String[] {  };</span>
+<span class="nc" id="L497">        return localVarApiClient.buildCall(basePath, localVarPath, &quot;DELETE&quot;, localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);</span>
     }
 
     @SuppressWarnings(&quot;rawtypes&quot;)
-    private okhttp3.Call deleteUserValidateBeforeCall(String username, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteUserValidateBeforeCall(@javax.annotation.Nonnull String username, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'username' is set
-<span class="nc bnc" id="L490" title="All 2 branches missed.">        if (username == null) {</span>
-<span class="nc" id="L491">            throw new ApiException(&quot;Missing the required parameter 'username' when calling deleteUser(Async)&quot;);</span>
+<span class="nc bnc" id="L503" title="All 2 branches missed.">        if (username == null) {</span>
+<span class="nc" id="L504">            throw new ApiException(&quot;Missing the required parameter 'username' when calling deleteUser(Async)&quot;);</span>
         }
 
-<span class="nc" id="L494">        return deleteUserCall(username, _callback);</span>
+<span class="nc" id="L507">        return deleteUserCall(username, _callback);</span>
 
     }
 
@@ -501,15 +514,16 @@ public class UserApi {
      * @param username The name that needs to be deleted (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 400 &lt;/td&gt;&lt;td&gt; Invalid username supplied &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 404 &lt;/td&gt;&lt;td&gt; User not found &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public void deleteUser(String username) throws ApiException {
-<span class="nc" id="L511">        deleteUserWithHttpInfo(username);</span>
-<span class="nc" id="L512">    }</span>
+    public void deleteUser(@javax.annotation.Nonnull String username) throws ApiException {
+<span class="nc" id="L525">        deleteUserWithHttpInfo(username);</span>
+<span class="nc" id="L526">    }</span>
 
     /**
      * Delete user
@@ -518,15 +532,16 @@ public class UserApi {
      * @return ApiResponse&amp;lt;Void&amp;gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 400 &lt;/td&gt;&lt;td&gt; Invalid username supplied &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 404 &lt;/td&gt;&lt;td&gt; User not found &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public ApiResponse&lt;Void&gt; deleteUserWithHttpInfo(String username) throws ApiException {
-<span class="nc" id="L528">        okhttp3.Call localVarCall = deleteUserValidateBeforeCall(username, null);</span>
-<span class="nc" id="L529">        return localVarApiClient.execute(localVarCall);</span>
+    public ApiResponse&lt;Void&gt; deleteUserWithHttpInfo(@javax.annotation.Nonnull String username) throws ApiException {
+<span class="nc" id="L543">        okhttp3.Call localVarCall = deleteUserValidateBeforeCall(username, null);</span>
+<span class="nc" id="L544">        return localVarApiClient.execute(localVarCall);</span>
     }
 
     /**
@@ -537,17 +552,18 @@ public class UserApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 400 &lt;/td&gt;&lt;td&gt; Invalid username supplied &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 404 &lt;/td&gt;&lt;td&gt; User not found &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public okhttp3.Call deleteUserAsync(String username, final ApiCallback&lt;Void&gt; _callback) throws ApiException {
+    public okhttp3.Call deleteUserAsync(@javax.annotation.Nonnull String username, final ApiCallback&lt;Void&gt; _callback) throws ApiException {
 
-<span class="nc" id="L548">        okhttp3.Call localVarCall = deleteUserValidateBeforeCall(username, _callback);</span>
-<span class="nc" id="L549">        localVarApiClient.executeAsync(localVarCall, _callback);</span>
-<span class="nc" id="L550">        return localVarCall;</span>
+<span class="nc" id="L564">        okhttp3.Call localVarCall = deleteUserValidateBeforeCall(username, _callback);</span>
+<span class="nc" id="L565">        localVarApiClient.executeAsync(localVarCall, _callback);</span>
+<span class="nc" id="L566">        return localVarCall;</span>
     }
     /**
      * Build call for getUserByName
@@ -556,67 +572,68 @@ public class UserApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 200 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 400 &lt;/td&gt;&lt;td&gt; Invalid username supplied &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 404 &lt;/td&gt;&lt;td&gt; User not found &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public okhttp3.Call getUserByNameCall(String username, final ApiCallback _callback) throws ApiException {
-<span class="nc" id="L567">        String basePath = null;</span>
+    public okhttp3.Call getUserByNameCall(@javax.annotation.Nonnull String username, final ApiCallback _callback) throws ApiException {
+<span class="nc" id="L584">        String basePath = null;</span>
         // Operation Servers
-<span class="nc" id="L569">        String[] localBasePaths = new String[] {  };</span>
+<span class="nc" id="L586">        String[] localBasePaths = new String[] {  };</span>
 
         // Determine Base Path to Use
-<span class="nc bnc" id="L572" title="All 2 branches missed.">        if (localCustomBaseUrl != null){</span>
-<span class="nc" id="L573">            basePath = localCustomBaseUrl;</span>
-<span class="nc bnc" id="L574" title="All 2 branches missed.">        } else if ( localBasePaths.length &gt; 0 ) {</span>
-<span class="nc" id="L575">            basePath = localBasePaths[localHostIndex];</span>
+<span class="nc bnc" id="L589" title="All 2 branches missed.">        if (localCustomBaseUrl != null){</span>
+<span class="nc" id="L590">            basePath = localCustomBaseUrl;</span>
+<span class="nc bnc" id="L591" title="All 2 branches missed.">        } else if ( localBasePaths.length &gt; 0 ) {</span>
+<span class="nc" id="L592">            basePath = localBasePaths[localHostIndex];</span>
         } else {
-<span class="nc" id="L577">            basePath = null;</span>
+<span class="nc" id="L594">            basePath = null;</span>
         }
 
-<span class="nc" id="L580">        Object localVarPostBody = null;</span>
+<span class="nc" id="L597">        Object localVarPostBody = null;</span>
 
         // create path and map variables
-<span class="nc" id="L583">        String localVarPath = &quot;/user/{username}&quot;</span>
-<span class="nc" id="L584">            .replace(&quot;{&quot; + &quot;username&quot; + &quot;}&quot;, localVarApiClient.escapeString(username.toString()));</span>
+<span class="nc" id="L600">        String localVarPath = &quot;/user/{username}&quot;</span>
+<span class="nc" id="L601">            .replace(&quot;{&quot; + &quot;username&quot; + &quot;}&quot;, localVarApiClient.escapeString(username.toString()));</span>
 
-<span class="nc" id="L586">        List&lt;Pair&gt; localVarQueryParams = new ArrayList&lt;Pair&gt;();</span>
-<span class="nc" id="L587">        List&lt;Pair&gt; localVarCollectionQueryParams = new ArrayList&lt;Pair&gt;();</span>
-<span class="nc" id="L588">        Map&lt;String, String&gt; localVarHeaderParams = new HashMap&lt;String, String&gt;();</span>
-<span class="nc" id="L589">        Map&lt;String, String&gt; localVarCookieParams = new HashMap&lt;String, String&gt;();</span>
-<span class="nc" id="L590">        Map&lt;String, Object&gt; localVarFormParams = new HashMap&lt;String, Object&gt;();</span>
+<span class="nc" id="L603">        List&lt;Pair&gt; localVarQueryParams = new ArrayList&lt;Pair&gt;();</span>
+<span class="nc" id="L604">        List&lt;Pair&gt; localVarCollectionQueryParams = new ArrayList&lt;Pair&gt;();</span>
+<span class="nc" id="L605">        Map&lt;String, String&gt; localVarHeaderParams = new HashMap&lt;String, String&gt;();</span>
+<span class="nc" id="L606">        Map&lt;String, String&gt; localVarCookieParams = new HashMap&lt;String, String&gt;();</span>
+<span class="nc" id="L607">        Map&lt;String, Object&gt; localVarFormParams = new HashMap&lt;String, Object&gt;();</span>
 
-<span class="nc" id="L592">        final String[] localVarAccepts = {</span>
+<span class="nc" id="L609">        final String[] localVarAccepts = {</span>
             &quot;application/json&quot;,
             &quot;application/xml&quot;
         };
-<span class="nc" id="L596">        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);</span>
-<span class="nc bnc" id="L597" title="All 2 branches missed.">        if (localVarAccept != null) {</span>
-<span class="nc" id="L598">            localVarHeaderParams.put(&quot;Accept&quot;, localVarAccept);</span>
+<span class="nc" id="L613">        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);</span>
+<span class="nc bnc" id="L614" title="All 2 branches missed.">        if (localVarAccept != null) {</span>
+<span class="nc" id="L615">            localVarHeaderParams.put(&quot;Accept&quot;, localVarAccept);</span>
         }
 
-<span class="nc" id="L601">        final String[] localVarContentTypes = {</span>
+<span class="nc" id="L618">        final String[] localVarContentTypes = {</span>
         };
-<span class="nc" id="L603">        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);</span>
-<span class="nc bnc" id="L604" title="All 2 branches missed.">        if (localVarContentType != null) {</span>
-<span class="nc" id="L605">            localVarHeaderParams.put(&quot;Content-Type&quot;, localVarContentType);</span>
+<span class="nc" id="L620">        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);</span>
+<span class="nc bnc" id="L621" title="All 2 branches missed.">        if (localVarContentType != null) {</span>
+<span class="nc" id="L622">            localVarHeaderParams.put(&quot;Content-Type&quot;, localVarContentType);</span>
         }
 
-<span class="nc" id="L608">        String[] localVarAuthNames = new String[] {  };</span>
-<span class="nc" id="L609">        return localVarApiClient.buildCall(basePath, localVarPath, &quot;GET&quot;, localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);</span>
+<span class="nc" id="L625">        String[] localVarAuthNames = new String[] {  };</span>
+<span class="nc" id="L626">        return localVarApiClient.buildCall(basePath, localVarPath, &quot;GET&quot;, localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);</span>
     }
 
     @SuppressWarnings(&quot;rawtypes&quot;)
-    private okhttp3.Call getUserByNameValidateBeforeCall(String username, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUserByNameValidateBeforeCall(@javax.annotation.Nonnull String username, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'username' is set
-<span class="nc bnc" id="L615" title="All 2 branches missed.">        if (username == null) {</span>
-<span class="nc" id="L616">            throw new ApiException(&quot;Missing the required parameter 'username' when calling getUserByName(Async)&quot;);</span>
+<span class="nc bnc" id="L632" title="All 2 branches missed.">        if (username == null) {</span>
+<span class="nc" id="L633">            throw new ApiException(&quot;Missing the required parameter 'username' when calling getUserByName(Async)&quot;);</span>
         }
 
-<span class="nc" id="L619">        return getUserByNameCall(username, _callback);</span>
+<span class="nc" id="L636">        return getUserByNameCall(username, _callback);</span>
 
     }
 
@@ -627,16 +644,17 @@ public class UserApi {
      * @return User
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 200 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 400 &lt;/td&gt;&lt;td&gt; Invalid username supplied &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 404 &lt;/td&gt;&lt;td&gt; User not found &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public User getUserByName(String username) throws ApiException {
-<span class="nc" id="L638">        ApiResponse&lt;User&gt; localVarResp = getUserByNameWithHttpInfo(username);</span>
-<span class="nc" id="L639">        return localVarResp.getData();</span>
+    public User getUserByName(@javax.annotation.Nonnull String username) throws ApiException {
+<span class="nc" id="L656">        ApiResponse&lt;User&gt; localVarResp = getUserByNameWithHttpInfo(username);</span>
+<span class="nc" id="L657">        return localVarResp.getData();</span>
     }
 
     /**
@@ -646,17 +664,18 @@ public class UserApi {
      * @return ApiResponse&amp;lt;User&amp;gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 200 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 400 &lt;/td&gt;&lt;td&gt; Invalid username supplied &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 404 &lt;/td&gt;&lt;td&gt; User not found &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public ApiResponse&lt;User&gt; getUserByNameWithHttpInfo(String username) throws ApiException {
-<span class="nc" id="L657">        okhttp3.Call localVarCall = getUserByNameValidateBeforeCall(username, null);</span>
-<span class="nc" id="L658">        Type localVarReturnType = new TypeToken&lt;User&gt;(){}.getType();</span>
-<span class="nc" id="L659">        return localVarApiClient.execute(localVarCall, localVarReturnType);</span>
+    public ApiResponse&lt;User&gt; getUserByNameWithHttpInfo(@javax.annotation.Nonnull String username) throws ApiException {
+<span class="nc" id="L676">        okhttp3.Call localVarCall = getUserByNameValidateBeforeCall(username, null);</span>
+<span class="nc" id="L677">        Type localVarReturnType = new TypeToken&lt;User&gt;(){}.getType();</span>
+<span class="nc" id="L678">        return localVarApiClient.execute(localVarCall, localVarReturnType);</span>
     }
 
     /**
@@ -667,19 +686,20 @@ public class UserApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 200 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 400 &lt;/td&gt;&lt;td&gt; Invalid username supplied &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 404 &lt;/td&gt;&lt;td&gt; User not found &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public okhttp3.Call getUserByNameAsync(String username, final ApiCallback&lt;User&gt; _callback) throws ApiException {
+    public okhttp3.Call getUserByNameAsync(@javax.annotation.Nonnull String username, final ApiCallback&lt;User&gt; _callback) throws ApiException {
 
-<span class="nc" id="L679">        okhttp3.Call localVarCall = getUserByNameValidateBeforeCall(username, _callback);</span>
-<span class="nc" id="L680">        Type localVarReturnType = new TypeToken&lt;User&gt;(){}.getType();</span>
-<span class="nc" id="L681">        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);</span>
-<span class="nc" id="L682">        return localVarCall;</span>
+<span class="nc" id="L699">        okhttp3.Call localVarCall = getUserByNameValidateBeforeCall(username, _callback);</span>
+<span class="nc" id="L700">        Type localVarReturnType = new TypeToken&lt;User&gt;(){}.getType();</span>
+<span class="nc" id="L701">        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);</span>
+<span class="nc" id="L702">        return localVarCall;</span>
     }
     /**
      * Build call for loginUser
@@ -689,78 +709,79 @@ public class UserApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 200 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  * X-Rate-Limit - calls per hour allowed by the user &lt;br&gt;  * X-Expires-After - date in UTC when token expires &lt;br&gt;  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 400 &lt;/td&gt;&lt;td&gt; Invalid username/password supplied &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public okhttp3.Call loginUserCall(String username, String password, final ApiCallback _callback) throws ApiException {
-<span class="nc" id="L699">        String basePath = null;</span>
+    public okhttp3.Call loginUserCall(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, final ApiCallback _callback) throws ApiException {
+<span class="nc" id="L720">        String basePath = null;</span>
         // Operation Servers
-<span class="nc" id="L701">        String[] localBasePaths = new String[] {  };</span>
+<span class="nc" id="L722">        String[] localBasePaths = new String[] {  };</span>
 
         // Determine Base Path to Use
-<span class="nc bnc" id="L704" title="All 2 branches missed.">        if (localCustomBaseUrl != null){</span>
-<span class="nc" id="L705">            basePath = localCustomBaseUrl;</span>
-<span class="nc bnc" id="L706" title="All 2 branches missed.">        } else if ( localBasePaths.length &gt; 0 ) {</span>
-<span class="nc" id="L707">            basePath = localBasePaths[localHostIndex];</span>
+<span class="nc bnc" id="L725" title="All 2 branches missed.">        if (localCustomBaseUrl != null){</span>
+<span class="nc" id="L726">            basePath = localCustomBaseUrl;</span>
+<span class="nc bnc" id="L727" title="All 2 branches missed.">        } else if ( localBasePaths.length &gt; 0 ) {</span>
+<span class="nc" id="L728">            basePath = localBasePaths[localHostIndex];</span>
         } else {
-<span class="nc" id="L709">            basePath = null;</span>
+<span class="nc" id="L730">            basePath = null;</span>
         }
 
-<span class="nc" id="L712">        Object localVarPostBody = null;</span>
+<span class="nc" id="L733">        Object localVarPostBody = null;</span>
 
         // create path and map variables
-<span class="nc" id="L715">        String localVarPath = &quot;/user/login&quot;;</span>
+<span class="nc" id="L736">        String localVarPath = &quot;/user/login&quot;;</span>
 
-<span class="nc" id="L717">        List&lt;Pair&gt; localVarQueryParams = new ArrayList&lt;Pair&gt;();</span>
-<span class="nc" id="L718">        List&lt;Pair&gt; localVarCollectionQueryParams = new ArrayList&lt;Pair&gt;();</span>
-<span class="nc" id="L719">        Map&lt;String, String&gt; localVarHeaderParams = new HashMap&lt;String, String&gt;();</span>
-<span class="nc" id="L720">        Map&lt;String, String&gt; localVarCookieParams = new HashMap&lt;String, String&gt;();</span>
-<span class="nc" id="L721">        Map&lt;String, Object&gt; localVarFormParams = new HashMap&lt;String, Object&gt;();</span>
+<span class="nc" id="L738">        List&lt;Pair&gt; localVarQueryParams = new ArrayList&lt;Pair&gt;();</span>
+<span class="nc" id="L739">        List&lt;Pair&gt; localVarCollectionQueryParams = new ArrayList&lt;Pair&gt;();</span>
+<span class="nc" id="L740">        Map&lt;String, String&gt; localVarHeaderParams = new HashMap&lt;String, String&gt;();</span>
+<span class="nc" id="L741">        Map&lt;String, String&gt; localVarCookieParams = new HashMap&lt;String, String&gt;();</span>
+<span class="nc" id="L742">        Map&lt;String, Object&gt; localVarFormParams = new HashMap&lt;String, Object&gt;();</span>
 
-<span class="nc bnc" id="L723" title="All 2 branches missed.">        if (username != null) {</span>
-<span class="nc" id="L724">            localVarQueryParams.addAll(localVarApiClient.parameterToPair(&quot;username&quot;, username));</span>
+<span class="nc bnc" id="L744" title="All 2 branches missed.">        if (username != null) {</span>
+<span class="nc" id="L745">            localVarQueryParams.addAll(localVarApiClient.parameterToPair(&quot;username&quot;, username));</span>
         }
 
-<span class="nc bnc" id="L727" title="All 2 branches missed.">        if (password != null) {</span>
-<span class="nc" id="L728">            localVarQueryParams.addAll(localVarApiClient.parameterToPair(&quot;password&quot;, password));</span>
+<span class="nc bnc" id="L748" title="All 2 branches missed.">        if (password != null) {</span>
+<span class="nc" id="L749">            localVarQueryParams.addAll(localVarApiClient.parameterToPair(&quot;password&quot;, password));</span>
         }
 
-<span class="nc" id="L731">        final String[] localVarAccepts = {</span>
+<span class="nc" id="L752">        final String[] localVarAccepts = {</span>
             &quot;application/json&quot;,
             &quot;application/xml&quot;
         };
-<span class="nc" id="L735">        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);</span>
-<span class="nc bnc" id="L736" title="All 2 branches missed.">        if (localVarAccept != null) {</span>
-<span class="nc" id="L737">            localVarHeaderParams.put(&quot;Accept&quot;, localVarAccept);</span>
+<span class="nc" id="L756">        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);</span>
+<span class="nc bnc" id="L757" title="All 2 branches missed.">        if (localVarAccept != null) {</span>
+<span class="nc" id="L758">            localVarHeaderParams.put(&quot;Accept&quot;, localVarAccept);</span>
         }
 
-<span class="nc" id="L740">        final String[] localVarContentTypes = {</span>
+<span class="nc" id="L761">        final String[] localVarContentTypes = {</span>
         };
-<span class="nc" id="L742">        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);</span>
-<span class="nc bnc" id="L743" title="All 2 branches missed.">        if (localVarContentType != null) {</span>
-<span class="nc" id="L744">            localVarHeaderParams.put(&quot;Content-Type&quot;, localVarContentType);</span>
+<span class="nc" id="L763">        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);</span>
+<span class="nc bnc" id="L764" title="All 2 branches missed.">        if (localVarContentType != null) {</span>
+<span class="nc" id="L765">            localVarHeaderParams.put(&quot;Content-Type&quot;, localVarContentType);</span>
         }
 
-<span class="nc" id="L747">        String[] localVarAuthNames = new String[] {  };</span>
-<span class="nc" id="L748">        return localVarApiClient.buildCall(basePath, localVarPath, &quot;GET&quot;, localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);</span>
+<span class="nc" id="L768">        String[] localVarAuthNames = new String[] {  };</span>
+<span class="nc" id="L769">        return localVarApiClient.buildCall(basePath, localVarPath, &quot;GET&quot;, localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);</span>
     }
 
     @SuppressWarnings(&quot;rawtypes&quot;)
-    private okhttp3.Call loginUserValidateBeforeCall(String username, String password, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call loginUserValidateBeforeCall(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'username' is set
-<span class="nc bnc" id="L754" title="All 2 branches missed.">        if (username == null) {</span>
-<span class="nc" id="L755">            throw new ApiException(&quot;Missing the required parameter 'username' when calling loginUser(Async)&quot;);</span>
+<span class="nc bnc" id="L775" title="All 2 branches missed.">        if (username == null) {</span>
+<span class="nc" id="L776">            throw new ApiException(&quot;Missing the required parameter 'username' when calling loginUser(Async)&quot;);</span>
         }
 
         // verify the required parameter 'password' is set
-<span class="nc bnc" id="L759" title="All 2 branches missed.">        if (password == null) {</span>
-<span class="nc" id="L760">            throw new ApiException(&quot;Missing the required parameter 'password' when calling loginUser(Async)&quot;);</span>
+<span class="nc bnc" id="L780" title="All 2 branches missed.">        if (password == null) {</span>
+<span class="nc" id="L781">            throw new ApiException(&quot;Missing the required parameter 'password' when calling loginUser(Async)&quot;);</span>
         }
 
-<span class="nc" id="L763">        return loginUserCall(username, password, _callback);</span>
+<span class="nc" id="L784">        return loginUserCall(username, password, _callback);</span>
 
     }
 
@@ -772,15 +793,16 @@ public class UserApi {
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 200 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  * X-Rate-Limit - calls per hour allowed by the user &lt;br&gt;  * X-Expires-After - date in UTC when token expires &lt;br&gt;  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 400 &lt;/td&gt;&lt;td&gt; Invalid username/password supplied &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public String loginUser(String username, String password) throws ApiException {
-<span class="nc" id="L782">        ApiResponse&lt;String&gt; localVarResp = loginUserWithHttpInfo(username, password);</span>
-<span class="nc" id="L783">        return localVarResp.getData();</span>
+    public String loginUser(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password) throws ApiException {
+<span class="nc" id="L804">        ApiResponse&lt;String&gt; localVarResp = loginUserWithHttpInfo(username, password);</span>
+<span class="nc" id="L805">        return localVarResp.getData();</span>
     }
 
     /**
@@ -791,16 +813,17 @@ public class UserApi {
      * @return ApiResponse&amp;lt;String&amp;gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 200 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  * X-Rate-Limit - calls per hour allowed by the user &lt;br&gt;  * X-Expires-After - date in UTC when token expires &lt;br&gt;  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 400 &lt;/td&gt;&lt;td&gt; Invalid username/password supplied &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public ApiResponse&lt;String&gt; loginUserWithHttpInfo(String username, String password) throws ApiException {
-<span class="nc" id="L801">        okhttp3.Call localVarCall = loginUserValidateBeforeCall(username, password, null);</span>
-<span class="nc" id="L802">        Type localVarReturnType = new TypeToken&lt;String&gt;(){}.getType();</span>
-<span class="nc" id="L803">        return localVarApiClient.execute(localVarCall, localVarReturnType);</span>
+    public ApiResponse&lt;String&gt; loginUserWithHttpInfo(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password) throws ApiException {
+<span class="nc" id="L824">        okhttp3.Call localVarCall = loginUserValidateBeforeCall(username, password, null);</span>
+<span class="nc" id="L825">        Type localVarReturnType = new TypeToken&lt;String&gt;(){}.getType();</span>
+<span class="nc" id="L826">        return localVarApiClient.execute(localVarCall, localVarReturnType);</span>
     }
 
     /**
@@ -812,18 +835,19 @@ public class UserApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 200 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  * X-Rate-Limit - calls per hour allowed by the user &lt;br&gt;  * X-Expires-After - date in UTC when token expires &lt;br&gt;  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 400 &lt;/td&gt;&lt;td&gt; Invalid username/password supplied &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public okhttp3.Call loginUserAsync(String username, String password, final ApiCallback&lt;String&gt; _callback) throws ApiException {
+    public okhttp3.Call loginUserAsync(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, final ApiCallback&lt;String&gt; _callback) throws ApiException {
 
-<span class="nc" id="L823">        okhttp3.Call localVarCall = loginUserValidateBeforeCall(username, password, _callback);</span>
-<span class="nc" id="L824">        Type localVarReturnType = new TypeToken&lt;String&gt;(){}.getType();</span>
-<span class="nc" id="L825">        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);</span>
-<span class="nc" id="L826">        return localVarCall;</span>
+<span class="nc" id="L847">        okhttp3.Call localVarCall = loginUserValidateBeforeCall(username, password, _callback);</span>
+<span class="nc" id="L848">        Type localVarReturnType = new TypeToken&lt;String&gt;(){}.getType();</span>
+<span class="nc" id="L849">        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);</span>
+<span class="nc" id="L850">        return localVarCall;</span>
     }
     /**
      * Build call for logoutUser
@@ -831,57 +855,58 @@ public class UserApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 0 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
     public okhttp3.Call logoutUserCall(final ApiCallback _callback) throws ApiException {
-<span class="nc" id="L840">        String basePath = null;</span>
+<span class="nc" id="L865">        String basePath = null;</span>
         // Operation Servers
-<span class="nc" id="L842">        String[] localBasePaths = new String[] {  };</span>
+<span class="nc" id="L867">        String[] localBasePaths = new String[] {  };</span>
 
         // Determine Base Path to Use
-<span class="nc bnc" id="L845" title="All 2 branches missed.">        if (localCustomBaseUrl != null){</span>
-<span class="nc" id="L846">            basePath = localCustomBaseUrl;</span>
-<span class="nc bnc" id="L847" title="All 2 branches missed.">        } else if ( localBasePaths.length &gt; 0 ) {</span>
-<span class="nc" id="L848">            basePath = localBasePaths[localHostIndex];</span>
+<span class="nc bnc" id="L870" title="All 2 branches missed.">        if (localCustomBaseUrl != null){</span>
+<span class="nc" id="L871">            basePath = localCustomBaseUrl;</span>
+<span class="nc bnc" id="L872" title="All 2 branches missed.">        } else if ( localBasePaths.length &gt; 0 ) {</span>
+<span class="nc" id="L873">            basePath = localBasePaths[localHostIndex];</span>
         } else {
-<span class="nc" id="L850">            basePath = null;</span>
+<span class="nc" id="L875">            basePath = null;</span>
         }
 
-<span class="nc" id="L853">        Object localVarPostBody = null;</span>
+<span class="nc" id="L878">        Object localVarPostBody = null;</span>
 
         // create path and map variables
-<span class="nc" id="L856">        String localVarPath = &quot;/user/logout&quot;;</span>
+<span class="nc" id="L881">        String localVarPath = &quot;/user/logout&quot;;</span>
 
-<span class="nc" id="L858">        List&lt;Pair&gt; localVarQueryParams = new ArrayList&lt;Pair&gt;();</span>
-<span class="nc" id="L859">        List&lt;Pair&gt; localVarCollectionQueryParams = new ArrayList&lt;Pair&gt;();</span>
-<span class="nc" id="L860">        Map&lt;String, String&gt; localVarHeaderParams = new HashMap&lt;String, String&gt;();</span>
-<span class="nc" id="L861">        Map&lt;String, String&gt; localVarCookieParams = new HashMap&lt;String, String&gt;();</span>
-<span class="nc" id="L862">        Map&lt;String, Object&gt; localVarFormParams = new HashMap&lt;String, Object&gt;();</span>
+<span class="nc" id="L883">        List&lt;Pair&gt; localVarQueryParams = new ArrayList&lt;Pair&gt;();</span>
+<span class="nc" id="L884">        List&lt;Pair&gt; localVarCollectionQueryParams = new ArrayList&lt;Pair&gt;();</span>
+<span class="nc" id="L885">        Map&lt;String, String&gt; localVarHeaderParams = new HashMap&lt;String, String&gt;();</span>
+<span class="nc" id="L886">        Map&lt;String, String&gt; localVarCookieParams = new HashMap&lt;String, String&gt;();</span>
+<span class="nc" id="L887">        Map&lt;String, Object&gt; localVarFormParams = new HashMap&lt;String, Object&gt;();</span>
 
-<span class="nc" id="L864">        final String[] localVarAccepts = {</span>
+<span class="nc" id="L889">        final String[] localVarAccepts = {</span>
         };
-<span class="nc" id="L866">        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);</span>
-<span class="nc bnc" id="L867" title="All 2 branches missed.">        if (localVarAccept != null) {</span>
-<span class="nc" id="L868">            localVarHeaderParams.put(&quot;Accept&quot;, localVarAccept);</span>
+<span class="nc" id="L891">        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);</span>
+<span class="nc bnc" id="L892" title="All 2 branches missed.">        if (localVarAccept != null) {</span>
+<span class="nc" id="L893">            localVarHeaderParams.put(&quot;Accept&quot;, localVarAccept);</span>
         }
 
-<span class="nc" id="L871">        final String[] localVarContentTypes = {</span>
+<span class="nc" id="L896">        final String[] localVarContentTypes = {</span>
         };
-<span class="nc" id="L873">        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);</span>
-<span class="nc bnc" id="L874" title="All 2 branches missed.">        if (localVarContentType != null) {</span>
-<span class="nc" id="L875">            localVarHeaderParams.put(&quot;Content-Type&quot;, localVarContentType);</span>
+<span class="nc" id="L898">        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);</span>
+<span class="nc bnc" id="L899" title="All 2 branches missed.">        if (localVarContentType != null) {</span>
+<span class="nc" id="L900">            localVarHeaderParams.put(&quot;Content-Type&quot;, localVarContentType);</span>
         }
 
-<span class="nc" id="L878">        String[] localVarAuthNames = new String[] {  };</span>
-<span class="nc" id="L879">        return localVarApiClient.buildCall(basePath, localVarPath, &quot;GET&quot;, localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);</span>
+<span class="nc" id="L903">        String[] localVarAuthNames = new String[] {  };</span>
+<span class="nc" id="L904">        return localVarApiClient.buildCall(basePath, localVarPath, &quot;GET&quot;, localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);</span>
     }
 
     @SuppressWarnings(&quot;rawtypes&quot;)
     private okhttp3.Call logoutUserValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-<span class="nc" id="L884">        return logoutUserCall(_callback);</span>
+<span class="nc" id="L909">        return logoutUserCall(_callback);</span>
 
     }
 
@@ -890,14 +915,15 @@ public class UserApi {
      * 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 0 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
     public void logoutUser() throws ApiException {
-<span class="nc" id="L899">        logoutUserWithHttpInfo();</span>
-<span class="nc" id="L900">    }</span>
+<span class="nc" id="L925">        logoutUserWithHttpInfo();</span>
+<span class="nc" id="L926">    }</span>
 
     /**
      * Logs out current logged in user session
@@ -905,14 +931,15 @@ public class UserApi {
      * @return ApiResponse&amp;lt;Void&amp;gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 0 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
     public ApiResponse&lt;Void&gt; logoutUserWithHttpInfo() throws ApiException {
-<span class="nc" id="L914">        okhttp3.Call localVarCall = logoutUserValidateBeforeCall(null);</span>
-<span class="nc" id="L915">        return localVarApiClient.execute(localVarCall);</span>
+<span class="nc" id="L941">        okhttp3.Call localVarCall = logoutUserValidateBeforeCall(null);</span>
+<span class="nc" id="L942">        return localVarApiClient.execute(localVarCall);</span>
     }
 
     /**
@@ -922,16 +949,17 @@ public class UserApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 0 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
     public okhttp3.Call logoutUserAsync(final ApiCallback&lt;Void&gt; _callback) throws ApiException {
 
-<span class="nc" id="L932">        okhttp3.Call localVarCall = logoutUserValidateBeforeCall(_callback);</span>
-<span class="nc" id="L933">        localVarApiClient.executeAsync(localVarCall, _callback);</span>
-<span class="nc" id="L934">        return localVarCall;</span>
+<span class="nc" id="L960">        okhttp3.Call localVarCall = logoutUserValidateBeforeCall(_callback);</span>
+<span class="nc" id="L961">        localVarApiClient.executeAsync(localVarCall, _callback);</span>
+<span class="nc" id="L962">        return localVarCall;</span>
     }
     /**
      * Build call for updateUser
@@ -941,70 +969,71 @@ public class UserApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 400 &lt;/td&gt;&lt;td&gt; Invalid user supplied &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 404 &lt;/td&gt;&lt;td&gt; User not found &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public okhttp3.Call updateUserCall(String username, User body, final ApiCallback _callback) throws ApiException {
-<span class="nc" id="L951">        String basePath = null;</span>
+    public okhttp3.Call updateUserCall(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull User body, final ApiCallback _callback) throws ApiException {
+<span class="nc" id="L980">        String basePath = null;</span>
         // Operation Servers
-<span class="nc" id="L953">        String[] localBasePaths = new String[] {  };</span>
+<span class="nc" id="L982">        String[] localBasePaths = new String[] {  };</span>
 
         // Determine Base Path to Use
-<span class="nc bnc" id="L956" title="All 2 branches missed.">        if (localCustomBaseUrl != null){</span>
-<span class="nc" id="L957">            basePath = localCustomBaseUrl;</span>
-<span class="nc bnc" id="L958" title="All 2 branches missed.">        } else if ( localBasePaths.length &gt; 0 ) {</span>
-<span class="nc" id="L959">            basePath = localBasePaths[localHostIndex];</span>
+<span class="nc bnc" id="L985" title="All 2 branches missed.">        if (localCustomBaseUrl != null){</span>
+<span class="nc" id="L986">            basePath = localCustomBaseUrl;</span>
+<span class="nc bnc" id="L987" title="All 2 branches missed.">        } else if ( localBasePaths.length &gt; 0 ) {</span>
+<span class="nc" id="L988">            basePath = localBasePaths[localHostIndex];</span>
         } else {
-<span class="nc" id="L961">            basePath = null;</span>
+<span class="nc" id="L990">            basePath = null;</span>
         }
 
-<span class="nc" id="L964">        Object localVarPostBody = body;</span>
+<span class="nc" id="L993">        Object localVarPostBody = body;</span>
 
         // create path and map variables
-<span class="nc" id="L967">        String localVarPath = &quot;/user/{username}&quot;</span>
-<span class="nc" id="L968">            .replace(&quot;{&quot; + &quot;username&quot; + &quot;}&quot;, localVarApiClient.escapeString(username.toString()));</span>
+<span class="nc" id="L996">        String localVarPath = &quot;/user/{username}&quot;</span>
+<span class="nc" id="L997">            .replace(&quot;{&quot; + &quot;username&quot; + &quot;}&quot;, localVarApiClient.escapeString(username.toString()));</span>
 
-<span class="nc" id="L970">        List&lt;Pair&gt; localVarQueryParams = new ArrayList&lt;Pair&gt;();</span>
-<span class="nc" id="L971">        List&lt;Pair&gt; localVarCollectionQueryParams = new ArrayList&lt;Pair&gt;();</span>
-<span class="nc" id="L972">        Map&lt;String, String&gt; localVarHeaderParams = new HashMap&lt;String, String&gt;();</span>
-<span class="nc" id="L973">        Map&lt;String, String&gt; localVarCookieParams = new HashMap&lt;String, String&gt;();</span>
-<span class="nc" id="L974">        Map&lt;String, Object&gt; localVarFormParams = new HashMap&lt;String, Object&gt;();</span>
+<span class="nc" id="L999">        List&lt;Pair&gt; localVarQueryParams = new ArrayList&lt;Pair&gt;();</span>
+<span class="nc" id="L1000">        List&lt;Pair&gt; localVarCollectionQueryParams = new ArrayList&lt;Pair&gt;();</span>
+<span class="nc" id="L1001">        Map&lt;String, String&gt; localVarHeaderParams = new HashMap&lt;String, String&gt;();</span>
+<span class="nc" id="L1002">        Map&lt;String, String&gt; localVarCookieParams = new HashMap&lt;String, String&gt;();</span>
+<span class="nc" id="L1003">        Map&lt;String, Object&gt; localVarFormParams = new HashMap&lt;String, Object&gt;();</span>
 
-<span class="nc" id="L976">        final String[] localVarAccepts = {</span>
+<span class="nc" id="L1005">        final String[] localVarAccepts = {</span>
         };
-<span class="nc" id="L978">        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);</span>
-<span class="nc bnc" id="L979" title="All 2 branches missed.">        if (localVarAccept != null) {</span>
-<span class="nc" id="L980">            localVarHeaderParams.put(&quot;Accept&quot;, localVarAccept);</span>
+<span class="nc" id="L1007">        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);</span>
+<span class="nc bnc" id="L1008" title="All 2 branches missed.">        if (localVarAccept != null) {</span>
+<span class="nc" id="L1009">            localVarHeaderParams.put(&quot;Accept&quot;, localVarAccept);</span>
         }
 
-<span class="nc" id="L983">        final String[] localVarContentTypes = {</span>
+<span class="nc" id="L1012">        final String[] localVarContentTypes = {</span>
             &quot;application/json&quot;
         };
-<span class="nc" id="L986">        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);</span>
-<span class="nc bnc" id="L987" title="All 2 branches missed.">        if (localVarContentType != null) {</span>
-<span class="nc" id="L988">            localVarHeaderParams.put(&quot;Content-Type&quot;, localVarContentType);</span>
+<span class="nc" id="L1015">        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);</span>
+<span class="nc bnc" id="L1016" title="All 2 branches missed.">        if (localVarContentType != null) {</span>
+<span class="nc" id="L1017">            localVarHeaderParams.put(&quot;Content-Type&quot;, localVarContentType);</span>
         }
 
-<span class="nc" id="L991">        String[] localVarAuthNames = new String[] {  };</span>
-<span class="nc" id="L992">        return localVarApiClient.buildCall(basePath, localVarPath, &quot;PUT&quot;, localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);</span>
+<span class="nc" id="L1020">        String[] localVarAuthNames = new String[] {  };</span>
+<span class="nc" id="L1021">        return localVarApiClient.buildCall(basePath, localVarPath, &quot;PUT&quot;, localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);</span>
     }
 
     @SuppressWarnings(&quot;rawtypes&quot;)
-    private okhttp3.Call updateUserValidateBeforeCall(String username, User body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateUserValidateBeforeCall(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull User body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'username' is set
-<span class="nc bnc" id="L998" title="All 2 branches missed.">        if (username == null) {</span>
-<span class="nc" id="L999">            throw new ApiException(&quot;Missing the required parameter 'username' when calling updateUser(Async)&quot;);</span>
+<span class="nc bnc" id="L1027" title="All 2 branches missed.">        if (username == null) {</span>
+<span class="nc" id="L1028">            throw new ApiException(&quot;Missing the required parameter 'username' when calling updateUser(Async)&quot;);</span>
         }
 
         // verify the required parameter 'body' is set
-<span class="nc bnc" id="L1003" title="All 2 branches missed.">        if (body == null) {</span>
-<span class="nc" id="L1004">            throw new ApiException(&quot;Missing the required parameter 'body' when calling updateUser(Async)&quot;);</span>
+<span class="nc bnc" id="L1032" title="All 2 branches missed.">        if (body == null) {</span>
+<span class="nc" id="L1033">            throw new ApiException(&quot;Missing the required parameter 'body' when calling updateUser(Async)&quot;);</span>
         }
 
-<span class="nc" id="L1007">        return updateUserCall(username, body, _callback);</span>
+<span class="nc" id="L1036">        return updateUserCall(username, body, _callback);</span>
 
     }
 
@@ -1015,15 +1044,16 @@ public class UserApi {
      * @param body Updated user object (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 400 &lt;/td&gt;&lt;td&gt; Invalid user supplied &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 404 &lt;/td&gt;&lt;td&gt; User not found &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public void updateUser(String username, User body) throws ApiException {
-<span class="nc" id="L1025">        updateUserWithHttpInfo(username, body);</span>
-<span class="nc" id="L1026">    }</span>
+    public void updateUser(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull User body) throws ApiException {
+<span class="nc" id="L1055">        updateUserWithHttpInfo(username, body);</span>
+<span class="nc" id="L1056">    }</span>
 
     /**
      * Updated user
@@ -1033,15 +1063,16 @@ public class UserApi {
      * @return ApiResponse&amp;lt;Void&amp;gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 400 &lt;/td&gt;&lt;td&gt; Invalid user supplied &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 404 &lt;/td&gt;&lt;td&gt; User not found &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public ApiResponse&lt;Void&gt; updateUserWithHttpInfo(String username, User body) throws ApiException {
-<span class="nc" id="L1043">        okhttp3.Call localVarCall = updateUserValidateBeforeCall(username, body, null);</span>
-<span class="nc" id="L1044">        return localVarApiClient.execute(localVarCall);</span>
+    public ApiResponse&lt;Void&gt; updateUserWithHttpInfo(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull User body) throws ApiException {
+<span class="nc" id="L1074">        okhttp3.Call localVarCall = updateUserValidateBeforeCall(username, body, null);</span>
+<span class="nc" id="L1075">        return localVarApiClient.execute(localVarCall);</span>
     }
 
     /**
@@ -1053,17 +1084,18 @@ public class UserApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 400 &lt;/td&gt;&lt;td&gt; Invalid user supplied &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 404 &lt;/td&gt;&lt;td&gt; User not found &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public okhttp3.Call updateUserAsync(String username, User body, final ApiCallback&lt;Void&gt; _callback) throws ApiException {
+    public okhttp3.Call updateUserAsync(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull User body, final ApiCallback&lt;Void&gt; _callback) throws ApiException {
 
-<span class="nc" id="L1064">        okhttp3.Call localVarCall = updateUserValidateBeforeCall(username, body, _callback);</span>
-<span class="nc" id="L1065">        localVarApiClient.executeAsync(localVarCall, _callback);</span>
-<span class="nc" id="L1066">        return localVarCall;</span>
+<span class="nc" id="L1096">        okhttp3.Call localVarCall = updateUserValidateBeforeCall(username, body, _callback);</span>
+<span class="nc" id="L1097">        localVarApiClient.executeAsync(localVarCall, _callback);</span>
+<span class="nc" id="L1098">        return localVarCall;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

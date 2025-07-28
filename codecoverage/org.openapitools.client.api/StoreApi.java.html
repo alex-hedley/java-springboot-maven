@@ -79,64 +79,65 @@ public class StoreApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 400 &lt;/td&gt;&lt;td&gt; Invalid ID supplied &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 404 &lt;/td&gt;&lt;td&gt; Order not found &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public okhttp3.Call deleteOrderCall(Long orderId, final ApiCallback _callback) throws ApiException {
-<span class="nc" id="L89">        String basePath = null;</span>
+    public okhttp3.Call deleteOrderCall(@javax.annotation.Nonnull Long orderId, final ApiCallback _callback) throws ApiException {
+<span class="nc" id="L90">        String basePath = null;</span>
         // Operation Servers
-<span class="nc" id="L91">        String[] localBasePaths = new String[] {  };</span>
+<span class="nc" id="L92">        String[] localBasePaths = new String[] {  };</span>
 
         // Determine Base Path to Use
-<span class="nc bnc" id="L94" title="All 2 branches missed.">        if (localCustomBaseUrl != null){</span>
-<span class="nc" id="L95">            basePath = localCustomBaseUrl;</span>
-<span class="nc bnc" id="L96" title="All 2 branches missed.">        } else if ( localBasePaths.length &gt; 0 ) {</span>
-<span class="nc" id="L97">            basePath = localBasePaths[localHostIndex];</span>
+<span class="nc bnc" id="L95" title="All 2 branches missed.">        if (localCustomBaseUrl != null){</span>
+<span class="nc" id="L96">            basePath = localCustomBaseUrl;</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">        } else if ( localBasePaths.length &gt; 0 ) {</span>
+<span class="nc" id="L98">            basePath = localBasePaths[localHostIndex];</span>
         } else {
-<span class="nc" id="L99">            basePath = null;</span>
+<span class="nc" id="L100">            basePath = null;</span>
         }
 
-<span class="nc" id="L102">        Object localVarPostBody = null;</span>
+<span class="nc" id="L103">        Object localVarPostBody = null;</span>
 
         // create path and map variables
-<span class="nc" id="L105">        String localVarPath = &quot;/store/order/{orderId}&quot;</span>
-<span class="nc" id="L106">            .replace(&quot;{&quot; + &quot;orderId&quot; + &quot;}&quot;, localVarApiClient.escapeString(orderId.toString()));</span>
+<span class="nc" id="L106">        String localVarPath = &quot;/store/order/{orderId}&quot;</span>
+<span class="nc" id="L107">            .replace(&quot;{&quot; + &quot;orderId&quot; + &quot;}&quot;, localVarApiClient.escapeString(orderId.toString()));</span>
 
-<span class="nc" id="L108">        List&lt;Pair&gt; localVarQueryParams = new ArrayList&lt;Pair&gt;();</span>
-<span class="nc" id="L109">        List&lt;Pair&gt; localVarCollectionQueryParams = new ArrayList&lt;Pair&gt;();</span>
-<span class="nc" id="L110">        Map&lt;String, String&gt; localVarHeaderParams = new HashMap&lt;String, String&gt;();</span>
-<span class="nc" id="L111">        Map&lt;String, String&gt; localVarCookieParams = new HashMap&lt;String, String&gt;();</span>
-<span class="nc" id="L112">        Map&lt;String, Object&gt; localVarFormParams = new HashMap&lt;String, Object&gt;();</span>
+<span class="nc" id="L109">        List&lt;Pair&gt; localVarQueryParams = new ArrayList&lt;Pair&gt;();</span>
+<span class="nc" id="L110">        List&lt;Pair&gt; localVarCollectionQueryParams = new ArrayList&lt;Pair&gt;();</span>
+<span class="nc" id="L111">        Map&lt;String, String&gt; localVarHeaderParams = new HashMap&lt;String, String&gt;();</span>
+<span class="nc" id="L112">        Map&lt;String, String&gt; localVarCookieParams = new HashMap&lt;String, String&gt;();</span>
+<span class="nc" id="L113">        Map&lt;String, Object&gt; localVarFormParams = new HashMap&lt;String, Object&gt;();</span>
 
-<span class="nc" id="L114">        final String[] localVarAccepts = {</span>
+<span class="nc" id="L115">        final String[] localVarAccepts = {</span>
         };
-<span class="nc" id="L116">        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);</span>
-<span class="nc bnc" id="L117" title="All 2 branches missed.">        if (localVarAccept != null) {</span>
-<span class="nc" id="L118">            localVarHeaderParams.put(&quot;Accept&quot;, localVarAccept);</span>
+<span class="nc" id="L117">        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);</span>
+<span class="nc bnc" id="L118" title="All 2 branches missed.">        if (localVarAccept != null) {</span>
+<span class="nc" id="L119">            localVarHeaderParams.put(&quot;Accept&quot;, localVarAccept);</span>
         }
 
-<span class="nc" id="L121">        final String[] localVarContentTypes = {</span>
+<span class="nc" id="L122">        final String[] localVarContentTypes = {</span>
         };
-<span class="nc" id="L123">        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);</span>
-<span class="nc bnc" id="L124" title="All 2 branches missed.">        if (localVarContentType != null) {</span>
-<span class="nc" id="L125">            localVarHeaderParams.put(&quot;Content-Type&quot;, localVarContentType);</span>
+<span class="nc" id="L124">        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);</span>
+<span class="nc bnc" id="L125" title="All 2 branches missed.">        if (localVarContentType != null) {</span>
+<span class="nc" id="L126">            localVarHeaderParams.put(&quot;Content-Type&quot;, localVarContentType);</span>
         }
 
-<span class="nc" id="L128">        String[] localVarAuthNames = new String[] {  };</span>
-<span class="nc" id="L129">        return localVarApiClient.buildCall(basePath, localVarPath, &quot;DELETE&quot;, localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);</span>
+<span class="nc" id="L129">        String[] localVarAuthNames = new String[] {  };</span>
+<span class="nc" id="L130">        return localVarApiClient.buildCall(basePath, localVarPath, &quot;DELETE&quot;, localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);</span>
     }
 
     @SuppressWarnings(&quot;rawtypes&quot;)
-    private okhttp3.Call deleteOrderValidateBeforeCall(Long orderId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteOrderValidateBeforeCall(@javax.annotation.Nonnull Long orderId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'orderId' is set
-<span class="nc bnc" id="L135" title="All 2 branches missed.">        if (orderId == null) {</span>
-<span class="nc" id="L136">            throw new ApiException(&quot;Missing the required parameter 'orderId' when calling deleteOrder(Async)&quot;);</span>
+<span class="nc bnc" id="L136" title="All 2 branches missed.">        if (orderId == null) {</span>
+<span class="nc" id="L137">            throw new ApiException(&quot;Missing the required parameter 'orderId' when calling deleteOrder(Async)&quot;);</span>
         }
 
-<span class="nc" id="L139">        return deleteOrderCall(orderId, _callback);</span>
+<span class="nc" id="L140">        return deleteOrderCall(orderId, _callback);</span>
 
     }
 
@@ -146,15 +147,16 @@ public class StoreApi {
      * @param orderId ID of the order that needs to be deleted (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 400 &lt;/td&gt;&lt;td&gt; Invalid ID supplied &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 404 &lt;/td&gt;&lt;td&gt; Order not found &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public void deleteOrder(Long orderId) throws ApiException {
-<span class="nc" id="L156">        deleteOrderWithHttpInfo(orderId);</span>
-<span class="nc" id="L157">    }</span>
+    public void deleteOrder(@javax.annotation.Nonnull Long orderId) throws ApiException {
+<span class="nc" id="L158">        deleteOrderWithHttpInfo(orderId);</span>
+<span class="nc" id="L159">    }</span>
 
     /**
      * Delete purchase order by ID
@@ -163,15 +165,16 @@ public class StoreApi {
      * @return ApiResponse&amp;lt;Void&amp;gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 400 &lt;/td&gt;&lt;td&gt; Invalid ID supplied &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 404 &lt;/td&gt;&lt;td&gt; Order not found &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public ApiResponse&lt;Void&gt; deleteOrderWithHttpInfo(Long orderId) throws ApiException {
-<span class="nc" id="L173">        okhttp3.Call localVarCall = deleteOrderValidateBeforeCall(orderId, null);</span>
-<span class="nc" id="L174">        return localVarApiClient.execute(localVarCall);</span>
+    public ApiResponse&lt;Void&gt; deleteOrderWithHttpInfo(@javax.annotation.Nonnull Long orderId) throws ApiException {
+<span class="nc" id="L176">        okhttp3.Call localVarCall = deleteOrderValidateBeforeCall(orderId, null);</span>
+<span class="nc" id="L177">        return localVarApiClient.execute(localVarCall);</span>
     }
 
     /**
@@ -182,17 +185,18 @@ public class StoreApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 400 &lt;/td&gt;&lt;td&gt; Invalid ID supplied &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 404 &lt;/td&gt;&lt;td&gt; Order not found &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public okhttp3.Call deleteOrderAsync(Long orderId, final ApiCallback&lt;Void&gt; _callback) throws ApiException {
+    public okhttp3.Call deleteOrderAsync(@javax.annotation.Nonnull Long orderId, final ApiCallback&lt;Void&gt; _callback) throws ApiException {
 
-<span class="nc" id="L193">        okhttp3.Call localVarCall = deleteOrderValidateBeforeCall(orderId, _callback);</span>
-<span class="nc" id="L194">        localVarApiClient.executeAsync(localVarCall, _callback);</span>
-<span class="nc" id="L195">        return localVarCall;</span>
+<span class="nc" id="L197">        okhttp3.Call localVarCall = deleteOrderValidateBeforeCall(orderId, _callback);</span>
+<span class="nc" id="L198">        localVarApiClient.executeAsync(localVarCall, _callback);</span>
+<span class="nc" id="L199">        return localVarCall;</span>
     }
     /**
      * Build call for getInventory
@@ -200,58 +204,59 @@ public class StoreApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 200 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
     public okhttp3.Call getInventoryCall(final ApiCallback _callback) throws ApiException {
-<span class="nc" id="L209">        String basePath = null;</span>
+<span class="nc" id="L214">        String basePath = null;</span>
         // Operation Servers
-<span class="nc" id="L211">        String[] localBasePaths = new String[] {  };</span>
+<span class="nc" id="L216">        String[] localBasePaths = new String[] {  };</span>
 
         // Determine Base Path to Use
-<span class="nc bnc" id="L214" title="All 2 branches missed.">        if (localCustomBaseUrl != null){</span>
-<span class="nc" id="L215">            basePath = localCustomBaseUrl;</span>
-<span class="nc bnc" id="L216" title="All 2 branches missed.">        } else if ( localBasePaths.length &gt; 0 ) {</span>
-<span class="nc" id="L217">            basePath = localBasePaths[localHostIndex];</span>
+<span class="nc bnc" id="L219" title="All 2 branches missed.">        if (localCustomBaseUrl != null){</span>
+<span class="nc" id="L220">            basePath = localCustomBaseUrl;</span>
+<span class="nc bnc" id="L221" title="All 2 branches missed.">        } else if ( localBasePaths.length &gt; 0 ) {</span>
+<span class="nc" id="L222">            basePath = localBasePaths[localHostIndex];</span>
         } else {
-<span class="nc" id="L219">            basePath = null;</span>
+<span class="nc" id="L224">            basePath = null;</span>
         }
 
-<span class="nc" id="L222">        Object localVarPostBody = null;</span>
+<span class="nc" id="L227">        Object localVarPostBody = null;</span>
 
         // create path and map variables
-<span class="nc" id="L225">        String localVarPath = &quot;/store/inventory&quot;;</span>
+<span class="nc" id="L230">        String localVarPath = &quot;/store/inventory&quot;;</span>
 
-<span class="nc" id="L227">        List&lt;Pair&gt; localVarQueryParams = new ArrayList&lt;Pair&gt;();</span>
-<span class="nc" id="L228">        List&lt;Pair&gt; localVarCollectionQueryParams = new ArrayList&lt;Pair&gt;();</span>
-<span class="nc" id="L229">        Map&lt;String, String&gt; localVarHeaderParams = new HashMap&lt;String, String&gt;();</span>
-<span class="nc" id="L230">        Map&lt;String, String&gt; localVarCookieParams = new HashMap&lt;String, String&gt;();</span>
-<span class="nc" id="L231">        Map&lt;String, Object&gt; localVarFormParams = new HashMap&lt;String, Object&gt;();</span>
+<span class="nc" id="L232">        List&lt;Pair&gt; localVarQueryParams = new ArrayList&lt;Pair&gt;();</span>
+<span class="nc" id="L233">        List&lt;Pair&gt; localVarCollectionQueryParams = new ArrayList&lt;Pair&gt;();</span>
+<span class="nc" id="L234">        Map&lt;String, String&gt; localVarHeaderParams = new HashMap&lt;String, String&gt;();</span>
+<span class="nc" id="L235">        Map&lt;String, String&gt; localVarCookieParams = new HashMap&lt;String, String&gt;();</span>
+<span class="nc" id="L236">        Map&lt;String, Object&gt; localVarFormParams = new HashMap&lt;String, Object&gt;();</span>
 
-<span class="nc" id="L233">        final String[] localVarAccepts = {</span>
+<span class="nc" id="L238">        final String[] localVarAccepts = {</span>
             &quot;application/json&quot;
         };
-<span class="nc" id="L236">        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);</span>
-<span class="nc bnc" id="L237" title="All 2 branches missed.">        if (localVarAccept != null) {</span>
-<span class="nc" id="L238">            localVarHeaderParams.put(&quot;Accept&quot;, localVarAccept);</span>
+<span class="nc" id="L241">        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);</span>
+<span class="nc bnc" id="L242" title="All 2 branches missed.">        if (localVarAccept != null) {</span>
+<span class="nc" id="L243">            localVarHeaderParams.put(&quot;Accept&quot;, localVarAccept);</span>
         }
 
-<span class="nc" id="L241">        final String[] localVarContentTypes = {</span>
+<span class="nc" id="L246">        final String[] localVarContentTypes = {</span>
         };
-<span class="nc" id="L243">        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);</span>
-<span class="nc bnc" id="L244" title="All 2 branches missed.">        if (localVarContentType != null) {</span>
-<span class="nc" id="L245">            localVarHeaderParams.put(&quot;Content-Type&quot;, localVarContentType);</span>
+<span class="nc" id="L248">        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);</span>
+<span class="nc bnc" id="L249" title="All 2 branches missed.">        if (localVarContentType != null) {</span>
+<span class="nc" id="L250">            localVarHeaderParams.put(&quot;Content-Type&quot;, localVarContentType);</span>
         }
 
-<span class="nc" id="L248">        String[] localVarAuthNames = new String[] { &quot;api_key&quot; };</span>
-<span class="nc" id="L249">        return localVarApiClient.buildCall(basePath, localVarPath, &quot;GET&quot;, localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);</span>
+<span class="nc" id="L253">        String[] localVarAuthNames = new String[] { &quot;api_key&quot; };</span>
+<span class="nc" id="L254">        return localVarApiClient.buildCall(basePath, localVarPath, &quot;GET&quot;, localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);</span>
     }
 
     @SuppressWarnings(&quot;rawtypes&quot;)
     private okhttp3.Call getInventoryValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-<span class="nc" id="L254">        return getInventoryCall(_callback);</span>
+<span class="nc" id="L259">        return getInventoryCall(_callback);</span>
 
     }
 
@@ -261,14 +266,15 @@ public class StoreApi {
      * @return Map&amp;lt;String, Integer&amp;gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 200 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
     public Map&lt;String, Integer&gt; getInventory() throws ApiException {
-<span class="nc" id="L270">        ApiResponse&lt;Map&lt;String, Integer&gt;&gt; localVarResp = getInventoryWithHttpInfo();</span>
-<span class="nc" id="L271">        return localVarResp.getData();</span>
+<span class="nc" id="L276">        ApiResponse&lt;Map&lt;String, Integer&gt;&gt; localVarResp = getInventoryWithHttpInfo();</span>
+<span class="nc" id="L277">        return localVarResp.getData();</span>
     }
 
     /**
@@ -277,15 +283,16 @@ public class StoreApi {
      * @return ApiResponse&amp;lt;Map&amp;lt;String, Integer&amp;gt;&amp;gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 200 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
     public ApiResponse&lt;Map&lt;String, Integer&gt;&gt; getInventoryWithHttpInfo() throws ApiException {
-<span class="nc" id="L286">        okhttp3.Call localVarCall = getInventoryValidateBeforeCall(null);</span>
-<span class="nc" id="L287">        Type localVarReturnType = new TypeToken&lt;Map&lt;String, Integer&gt;&gt;(){}.getType();</span>
-<span class="nc" id="L288">        return localVarApiClient.execute(localVarCall, localVarReturnType);</span>
+<span class="nc" id="L293">        okhttp3.Call localVarCall = getInventoryValidateBeforeCall(null);</span>
+<span class="nc" id="L294">        Type localVarReturnType = new TypeToken&lt;Map&lt;String, Integer&gt;&gt;(){}.getType();</span>
+<span class="nc" id="L295">        return localVarApiClient.execute(localVarCall, localVarReturnType);</span>
     }
 
     /**
@@ -295,17 +302,18 @@ public class StoreApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 200 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
     public okhttp3.Call getInventoryAsync(final ApiCallback&lt;Map&lt;String, Integer&gt;&gt; _callback) throws ApiException {
 
-<span class="nc" id="L305">        okhttp3.Call localVarCall = getInventoryValidateBeforeCall(_callback);</span>
-<span class="nc" id="L306">        Type localVarReturnType = new TypeToken&lt;Map&lt;String, Integer&gt;&gt;(){}.getType();</span>
-<span class="nc" id="L307">        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);</span>
-<span class="nc" id="L308">        return localVarCall;</span>
+<span class="nc" id="L313">        okhttp3.Call localVarCall = getInventoryValidateBeforeCall(_callback);</span>
+<span class="nc" id="L314">        Type localVarReturnType = new TypeToken&lt;Map&lt;String, Integer&gt;&gt;(){}.getType();</span>
+<span class="nc" id="L315">        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);</span>
+<span class="nc" id="L316">        return localVarCall;</span>
     }
     /**
      * Build call for getOrderById
@@ -314,67 +322,68 @@ public class StoreApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 200 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 400 &lt;/td&gt;&lt;td&gt; Invalid ID supplied &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 404 &lt;/td&gt;&lt;td&gt; Order not found &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public okhttp3.Call getOrderByIdCall(Long orderId, final ApiCallback _callback) throws ApiException {
-<span class="nc" id="L325">        String basePath = null;</span>
+    public okhttp3.Call getOrderByIdCall(@javax.annotation.Nonnull Long orderId, final ApiCallback _callback) throws ApiException {
+<span class="nc" id="L334">        String basePath = null;</span>
         // Operation Servers
-<span class="nc" id="L327">        String[] localBasePaths = new String[] {  };</span>
+<span class="nc" id="L336">        String[] localBasePaths = new String[] {  };</span>
 
         // Determine Base Path to Use
-<span class="nc bnc" id="L330" title="All 2 branches missed.">        if (localCustomBaseUrl != null){</span>
-<span class="nc" id="L331">            basePath = localCustomBaseUrl;</span>
-<span class="nc bnc" id="L332" title="All 2 branches missed.">        } else if ( localBasePaths.length &gt; 0 ) {</span>
-<span class="nc" id="L333">            basePath = localBasePaths[localHostIndex];</span>
+<span class="nc bnc" id="L339" title="All 2 branches missed.">        if (localCustomBaseUrl != null){</span>
+<span class="nc" id="L340">            basePath = localCustomBaseUrl;</span>
+<span class="nc bnc" id="L341" title="All 2 branches missed.">        } else if ( localBasePaths.length &gt; 0 ) {</span>
+<span class="nc" id="L342">            basePath = localBasePaths[localHostIndex];</span>
         } else {
-<span class="nc" id="L335">            basePath = null;</span>
+<span class="nc" id="L344">            basePath = null;</span>
         }
 
-<span class="nc" id="L338">        Object localVarPostBody = null;</span>
+<span class="nc" id="L347">        Object localVarPostBody = null;</span>
 
         // create path and map variables
-<span class="nc" id="L341">        String localVarPath = &quot;/store/order/{orderId}&quot;</span>
-<span class="nc" id="L342">            .replace(&quot;{&quot; + &quot;orderId&quot; + &quot;}&quot;, localVarApiClient.escapeString(orderId.toString()));</span>
+<span class="nc" id="L350">        String localVarPath = &quot;/store/order/{orderId}&quot;</span>
+<span class="nc" id="L351">            .replace(&quot;{&quot; + &quot;orderId&quot; + &quot;}&quot;, localVarApiClient.escapeString(orderId.toString()));</span>
 
-<span class="nc" id="L344">        List&lt;Pair&gt; localVarQueryParams = new ArrayList&lt;Pair&gt;();</span>
-<span class="nc" id="L345">        List&lt;Pair&gt; localVarCollectionQueryParams = new ArrayList&lt;Pair&gt;();</span>
-<span class="nc" id="L346">        Map&lt;String, String&gt; localVarHeaderParams = new HashMap&lt;String, String&gt;();</span>
-<span class="nc" id="L347">        Map&lt;String, String&gt; localVarCookieParams = new HashMap&lt;String, String&gt;();</span>
-<span class="nc" id="L348">        Map&lt;String, Object&gt; localVarFormParams = new HashMap&lt;String, Object&gt;();</span>
+<span class="nc" id="L353">        List&lt;Pair&gt; localVarQueryParams = new ArrayList&lt;Pair&gt;();</span>
+<span class="nc" id="L354">        List&lt;Pair&gt; localVarCollectionQueryParams = new ArrayList&lt;Pair&gt;();</span>
+<span class="nc" id="L355">        Map&lt;String, String&gt; localVarHeaderParams = new HashMap&lt;String, String&gt;();</span>
+<span class="nc" id="L356">        Map&lt;String, String&gt; localVarCookieParams = new HashMap&lt;String, String&gt;();</span>
+<span class="nc" id="L357">        Map&lt;String, Object&gt; localVarFormParams = new HashMap&lt;String, Object&gt;();</span>
 
-<span class="nc" id="L350">        final String[] localVarAccepts = {</span>
+<span class="nc" id="L359">        final String[] localVarAccepts = {</span>
             &quot;application/json&quot;,
             &quot;application/xml&quot;
         };
-<span class="nc" id="L354">        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);</span>
-<span class="nc bnc" id="L355" title="All 2 branches missed.">        if (localVarAccept != null) {</span>
-<span class="nc" id="L356">            localVarHeaderParams.put(&quot;Accept&quot;, localVarAccept);</span>
+<span class="nc" id="L363">        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);</span>
+<span class="nc bnc" id="L364" title="All 2 branches missed.">        if (localVarAccept != null) {</span>
+<span class="nc" id="L365">            localVarHeaderParams.put(&quot;Accept&quot;, localVarAccept);</span>
         }
 
-<span class="nc" id="L359">        final String[] localVarContentTypes = {</span>
+<span class="nc" id="L368">        final String[] localVarContentTypes = {</span>
         };
-<span class="nc" id="L361">        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);</span>
-<span class="nc bnc" id="L362" title="All 2 branches missed.">        if (localVarContentType != null) {</span>
-<span class="nc" id="L363">            localVarHeaderParams.put(&quot;Content-Type&quot;, localVarContentType);</span>
+<span class="nc" id="L370">        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);</span>
+<span class="nc bnc" id="L371" title="All 2 branches missed.">        if (localVarContentType != null) {</span>
+<span class="nc" id="L372">            localVarHeaderParams.put(&quot;Content-Type&quot;, localVarContentType);</span>
         }
 
-<span class="nc" id="L366">        String[] localVarAuthNames = new String[] {  };</span>
-<span class="nc" id="L367">        return localVarApiClient.buildCall(basePath, localVarPath, &quot;GET&quot;, localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);</span>
+<span class="nc" id="L375">        String[] localVarAuthNames = new String[] {  };</span>
+<span class="nc" id="L376">        return localVarApiClient.buildCall(basePath, localVarPath, &quot;GET&quot;, localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);</span>
     }
 
     @SuppressWarnings(&quot;rawtypes&quot;)
-    private okhttp3.Call getOrderByIdValidateBeforeCall(Long orderId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getOrderByIdValidateBeforeCall(@javax.annotation.Nonnull Long orderId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'orderId' is set
-<span class="nc bnc" id="L373" title="All 2 branches missed.">        if (orderId == null) {</span>
-<span class="nc" id="L374">            throw new ApiException(&quot;Missing the required parameter 'orderId' when calling getOrderById(Async)&quot;);</span>
+<span class="nc bnc" id="L382" title="All 2 branches missed.">        if (orderId == null) {</span>
+<span class="nc" id="L383">            throw new ApiException(&quot;Missing the required parameter 'orderId' when calling getOrderById(Async)&quot;);</span>
         }
 
-<span class="nc" id="L377">        return getOrderByIdCall(orderId, _callback);</span>
+<span class="nc" id="L386">        return getOrderByIdCall(orderId, _callback);</span>
 
     }
 
@@ -385,16 +394,17 @@ public class StoreApi {
      * @return Order
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 200 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 400 &lt;/td&gt;&lt;td&gt; Invalid ID supplied &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 404 &lt;/td&gt;&lt;td&gt; Order not found &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public Order getOrderById(Long orderId) throws ApiException {
-<span class="nc" id="L396">        ApiResponse&lt;Order&gt; localVarResp = getOrderByIdWithHttpInfo(orderId);</span>
-<span class="nc" id="L397">        return localVarResp.getData();</span>
+    public Order getOrderById(@javax.annotation.Nonnull Long orderId) throws ApiException {
+<span class="nc" id="L406">        ApiResponse&lt;Order&gt; localVarResp = getOrderByIdWithHttpInfo(orderId);</span>
+<span class="nc" id="L407">        return localVarResp.getData();</span>
     }
 
     /**
@@ -404,17 +414,18 @@ public class StoreApi {
      * @return ApiResponse&amp;lt;Order&amp;gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 200 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 400 &lt;/td&gt;&lt;td&gt; Invalid ID supplied &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 404 &lt;/td&gt;&lt;td&gt; Order not found &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public ApiResponse&lt;Order&gt; getOrderByIdWithHttpInfo(Long orderId) throws ApiException {
-<span class="nc" id="L415">        okhttp3.Call localVarCall = getOrderByIdValidateBeforeCall(orderId, null);</span>
-<span class="nc" id="L416">        Type localVarReturnType = new TypeToken&lt;Order&gt;(){}.getType();</span>
-<span class="nc" id="L417">        return localVarApiClient.execute(localVarCall, localVarReturnType);</span>
+    public ApiResponse&lt;Order&gt; getOrderByIdWithHttpInfo(@javax.annotation.Nonnull Long orderId) throws ApiException {
+<span class="nc" id="L426">        okhttp3.Call localVarCall = getOrderByIdValidateBeforeCall(orderId, null);</span>
+<span class="nc" id="L427">        Type localVarReturnType = new TypeToken&lt;Order&gt;(){}.getType();</span>
+<span class="nc" id="L428">        return localVarApiClient.execute(localVarCall, localVarReturnType);</span>
     }
 
     /**
@@ -425,19 +436,20 @@ public class StoreApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 200 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 400 &lt;/td&gt;&lt;td&gt; Invalid ID supplied &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 404 &lt;/td&gt;&lt;td&gt; Order not found &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public okhttp3.Call getOrderByIdAsync(Long orderId, final ApiCallback&lt;Order&gt; _callback) throws ApiException {
+    public okhttp3.Call getOrderByIdAsync(@javax.annotation.Nonnull Long orderId, final ApiCallback&lt;Order&gt; _callback) throws ApiException {
 
-<span class="nc" id="L437">        okhttp3.Call localVarCall = getOrderByIdValidateBeforeCall(orderId, _callback);</span>
-<span class="nc" id="L438">        Type localVarReturnType = new TypeToken&lt;Order&gt;(){}.getType();</span>
-<span class="nc" id="L439">        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);</span>
-<span class="nc" id="L440">        return localVarCall;</span>
+<span class="nc" id="L449">        okhttp3.Call localVarCall = getOrderByIdValidateBeforeCall(orderId, _callback);</span>
+<span class="nc" id="L450">        Type localVarReturnType = new TypeToken&lt;Order&gt;(){}.getType();</span>
+<span class="nc" id="L451">        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);</span>
+<span class="nc" id="L452">        return localVarCall;</span>
     }
     /**
      * Build call for placeOrder
@@ -446,66 +458,67 @@ public class StoreApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 200 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 400 &lt;/td&gt;&lt;td&gt; Invalid Order &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public okhttp3.Call placeOrderCall(Order body, final ApiCallback _callback) throws ApiException {
-<span class="nc" id="L456">        String basePath = null;</span>
+    public okhttp3.Call placeOrderCall(@javax.annotation.Nonnull Order body, final ApiCallback _callback) throws ApiException {
+<span class="nc" id="L469">        String basePath = null;</span>
         // Operation Servers
-<span class="nc" id="L458">        String[] localBasePaths = new String[] {  };</span>
+<span class="nc" id="L471">        String[] localBasePaths = new String[] {  };</span>
 
         // Determine Base Path to Use
-<span class="nc bnc" id="L461" title="All 2 branches missed.">        if (localCustomBaseUrl != null){</span>
-<span class="nc" id="L462">            basePath = localCustomBaseUrl;</span>
-<span class="nc bnc" id="L463" title="All 2 branches missed.">        } else if ( localBasePaths.length &gt; 0 ) {</span>
-<span class="nc" id="L464">            basePath = localBasePaths[localHostIndex];</span>
+<span class="nc bnc" id="L474" title="All 2 branches missed.">        if (localCustomBaseUrl != null){</span>
+<span class="nc" id="L475">            basePath = localCustomBaseUrl;</span>
+<span class="nc bnc" id="L476" title="All 2 branches missed.">        } else if ( localBasePaths.length &gt; 0 ) {</span>
+<span class="nc" id="L477">            basePath = localBasePaths[localHostIndex];</span>
         } else {
-<span class="nc" id="L466">            basePath = null;</span>
+<span class="nc" id="L479">            basePath = null;</span>
         }
 
-<span class="nc" id="L469">        Object localVarPostBody = body;</span>
+<span class="nc" id="L482">        Object localVarPostBody = body;</span>
 
         // create path and map variables
-<span class="nc" id="L472">        String localVarPath = &quot;/store/order&quot;;</span>
+<span class="nc" id="L485">        String localVarPath = &quot;/store/order&quot;;</span>
 
-<span class="nc" id="L474">        List&lt;Pair&gt; localVarQueryParams = new ArrayList&lt;Pair&gt;();</span>
-<span class="nc" id="L475">        List&lt;Pair&gt; localVarCollectionQueryParams = new ArrayList&lt;Pair&gt;();</span>
-<span class="nc" id="L476">        Map&lt;String, String&gt; localVarHeaderParams = new HashMap&lt;String, String&gt;();</span>
-<span class="nc" id="L477">        Map&lt;String, String&gt; localVarCookieParams = new HashMap&lt;String, String&gt;();</span>
-<span class="nc" id="L478">        Map&lt;String, Object&gt; localVarFormParams = new HashMap&lt;String, Object&gt;();</span>
+<span class="nc" id="L487">        List&lt;Pair&gt; localVarQueryParams = new ArrayList&lt;Pair&gt;();</span>
+<span class="nc" id="L488">        List&lt;Pair&gt; localVarCollectionQueryParams = new ArrayList&lt;Pair&gt;();</span>
+<span class="nc" id="L489">        Map&lt;String, String&gt; localVarHeaderParams = new HashMap&lt;String, String&gt;();</span>
+<span class="nc" id="L490">        Map&lt;String, String&gt; localVarCookieParams = new HashMap&lt;String, String&gt;();</span>
+<span class="nc" id="L491">        Map&lt;String, Object&gt; localVarFormParams = new HashMap&lt;String, Object&gt;();</span>
 
-<span class="nc" id="L480">        final String[] localVarAccepts = {</span>
+<span class="nc" id="L493">        final String[] localVarAccepts = {</span>
             &quot;application/json&quot;,
             &quot;application/xml&quot;
         };
-<span class="nc" id="L484">        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);</span>
-<span class="nc bnc" id="L485" title="All 2 branches missed.">        if (localVarAccept != null) {</span>
-<span class="nc" id="L486">            localVarHeaderParams.put(&quot;Accept&quot;, localVarAccept);</span>
+<span class="nc" id="L497">        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);</span>
+<span class="nc bnc" id="L498" title="All 2 branches missed.">        if (localVarAccept != null) {</span>
+<span class="nc" id="L499">            localVarHeaderParams.put(&quot;Accept&quot;, localVarAccept);</span>
         }
 
-<span class="nc" id="L489">        final String[] localVarContentTypes = {</span>
+<span class="nc" id="L502">        final String[] localVarContentTypes = {</span>
             &quot;application/json&quot;
         };
-<span class="nc" id="L492">        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);</span>
-<span class="nc bnc" id="L493" title="All 2 branches missed.">        if (localVarContentType != null) {</span>
-<span class="nc" id="L494">            localVarHeaderParams.put(&quot;Content-Type&quot;, localVarContentType);</span>
+<span class="nc" id="L505">        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);</span>
+<span class="nc bnc" id="L506" title="All 2 branches missed.">        if (localVarContentType != null) {</span>
+<span class="nc" id="L507">            localVarHeaderParams.put(&quot;Content-Type&quot;, localVarContentType);</span>
         }
 
-<span class="nc" id="L497">        String[] localVarAuthNames = new String[] {  };</span>
-<span class="nc" id="L498">        return localVarApiClient.buildCall(basePath, localVarPath, &quot;POST&quot;, localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);</span>
+<span class="nc" id="L510">        String[] localVarAuthNames = new String[] {  };</span>
+<span class="nc" id="L511">        return localVarApiClient.buildCall(basePath, localVarPath, &quot;POST&quot;, localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);</span>
     }
 
     @SuppressWarnings(&quot;rawtypes&quot;)
-    private okhttp3.Call placeOrderValidateBeforeCall(Order body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call placeOrderValidateBeforeCall(@javax.annotation.Nonnull Order body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'body' is set
-<span class="nc bnc" id="L504" title="All 2 branches missed.">        if (body == null) {</span>
-<span class="nc" id="L505">            throw new ApiException(&quot;Missing the required parameter 'body' when calling placeOrder(Async)&quot;);</span>
+<span class="nc bnc" id="L517" title="All 2 branches missed.">        if (body == null) {</span>
+<span class="nc" id="L518">            throw new ApiException(&quot;Missing the required parameter 'body' when calling placeOrder(Async)&quot;);</span>
         }
 
-<span class="nc" id="L508">        return placeOrderCall(body, _callback);</span>
+<span class="nc" id="L521">        return placeOrderCall(body, _callback);</span>
 
     }
 
@@ -516,15 +529,16 @@ public class StoreApi {
      * @return Order
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 200 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 400 &lt;/td&gt;&lt;td&gt; Invalid Order &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public Order placeOrder(Order body) throws ApiException {
-<span class="nc" id="L526">        ApiResponse&lt;Order&gt; localVarResp = placeOrderWithHttpInfo(body);</span>
-<span class="nc" id="L527">        return localVarResp.getData();</span>
+    public Order placeOrder(@javax.annotation.Nonnull Order body) throws ApiException {
+<span class="nc" id="L540">        ApiResponse&lt;Order&gt; localVarResp = placeOrderWithHttpInfo(body);</span>
+<span class="nc" id="L541">        return localVarResp.getData();</span>
     }
 
     /**
@@ -534,16 +548,17 @@ public class StoreApi {
      * @return ApiResponse&amp;lt;Order&amp;gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 200 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 400 &lt;/td&gt;&lt;td&gt; Invalid Order &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public ApiResponse&lt;Order&gt; placeOrderWithHttpInfo(Order body) throws ApiException {
-<span class="nc" id="L544">        okhttp3.Call localVarCall = placeOrderValidateBeforeCall(body, null);</span>
-<span class="nc" id="L545">        Type localVarReturnType = new TypeToken&lt;Order&gt;(){}.getType();</span>
-<span class="nc" id="L546">        return localVarApiClient.execute(localVarCall, localVarReturnType);</span>
+    public ApiResponse&lt;Order&gt; placeOrderWithHttpInfo(@javax.annotation.Nonnull Order body) throws ApiException {
+<span class="nc" id="L559">        okhttp3.Call localVarCall = placeOrderValidateBeforeCall(body, null);</span>
+<span class="nc" id="L560">        Type localVarReturnType = new TypeToken&lt;Order&gt;(){}.getType();</span>
+<span class="nc" id="L561">        return localVarApiClient.execute(localVarCall, localVarReturnType);</span>
     }
 
     /**
@@ -554,18 +569,19 @@ public class StoreApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     &lt;table summary=&quot;Response Details&quot; border=&quot;1&quot;&gt;
+     &lt;table border=&quot;1&quot;&gt;
+       &lt;caption&gt;Response Details&lt;/caption&gt;
         &lt;tr&gt;&lt;td&gt; Status Code &lt;/td&gt;&lt;td&gt; Description &lt;/td&gt;&lt;td&gt; Response Headers &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 200 &lt;/td&gt;&lt;td&gt; successful operation &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt; 400 &lt;/td&gt;&lt;td&gt; Invalid Order &lt;/td&gt;&lt;td&gt;  -  &lt;/td&gt;&lt;/tr&gt;
      &lt;/table&gt;
      */
-    public okhttp3.Call placeOrderAsync(Order body, final ApiCallback&lt;Order&gt; _callback) throws ApiException {
+    public okhttp3.Call placeOrderAsync(@javax.annotation.Nonnull Order body, final ApiCallback&lt;Order&gt; _callback) throws ApiException {
 
-<span class="nc" id="L565">        okhttp3.Call localVarCall = placeOrderValidateBeforeCall(body, _callback);</span>
-<span class="nc" id="L566">        Type localVarReturnType = new TypeToken&lt;Order&gt;(){}.getType();</span>
-<span class="nc" id="L567">        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);</span>
-<span class="nc" id="L568">        return localVarCall;</span>
+<span class="nc" id="L581">        okhttp3.Call localVarCall = placeOrderValidateBeforeCall(body, _callback);</span>
+<span class="nc" id="L582">        Type localVarReturnType = new TypeToken&lt;Order&gt;(){}.getType();</span>
+<span class="nc" id="L583">        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);</span>
+<span class="nc" id="L584">        return localVarCall;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>
