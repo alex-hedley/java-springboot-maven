@@ -13,52 +13,30 @@
 
 package org.openapitools.client;
 
-import java.util.Objects;
-import java.util.concurrent.atomic.AtomicReference;
-import java.util.function.Supplier;
+@javax.annotation.Generated(value = &quot;org.openapitools.codegen.languages.JavaClientCodegen&quot;, date = &quot;2025-07-28T04:22:06.783549034Z[Etc/UTC]&quot;, comments = &quot;Generator version: 7.6.0&quot;)
+<span class="nc" id="L17">public class Configuration {</span>
+    public static final String VERSION = &quot;1.0.6&quot;;
 
-@javax.annotation.Generated(value = &quot;org.openapitools.codegen.languages.JavaClientCodegen&quot;, date = &quot;2025-07-28T04:21:47.404443110Z[Etc/UTC]&quot;, comments = &quot;Generator version: 7.14.0&quot;)
-public class Configuration {
-  public static final String VERSION = &quot;1.0.6&quot;;
+<span class="nc" id="L20">    private static ApiClient defaultApiClient = new ApiClient();</span>
 
-<span class="nc" id="L24">  private static final AtomicReference&lt;ApiClient&gt; defaultApiClient = new AtomicReference&lt;&gt;();</span>
-<span class="nc" id="L25">  private static volatile Supplier&lt;ApiClient&gt; apiClientFactory = ApiClient::new;</span>
-
-  /**
-   * Get the default API client, which would be used when creating API instances without providing an API client.
-   *
-   * @return Default API client
-   */
-  public static ApiClient getDefaultApiClient() {
-<span class="nc" id="L33">    ApiClient client = defaultApiClient.get();</span>
-<span class="nc bnc" id="L34" title="All 2 branches missed.">    if (client == null) {</span>
-<span class="nc" id="L35">      client = defaultApiClient.updateAndGet(val -&gt; {</span>
-<span class="nc bnc" id="L36" title="All 2 branches missed.">        if (val != null) { // changed by another thread</span>
-<span class="nc" id="L37">          return val;</span>
-        }
-<span class="nc" id="L39">        return apiClientFactory.get();</span>
-      });
+    /**
+     * Get the default API client, which would be used when creating API
+     * instances without providing an API client.
+     *
+     * @return Default API client
+     */
+    public static ApiClient getDefaultApiClient() {
+<span class="nc" id="L29">        return defaultApiClient;</span>
     }
-<span class="nc" id="L42">    return client;</span>
-  }
 
-  /**
-   * Set the default API client, which would be used when creating API instances without providing an API client.
-   *
-   * @param apiClient API client
-   */
-  public static void setDefaultApiClient(ApiClient apiClient) {
-<span class="nc" id="L51">    defaultApiClient.set(apiClient);</span>
-<span class="nc" id="L52">  }</span>
-
-  /**
-   * set the callback used to create new ApiClient objects
-   */
-  public static void setApiClientFactory(Supplier&lt;ApiClient&gt; factory) {
-<span class="nc" id="L58">    apiClientFactory = Objects.requireNonNull(factory);</span>
-<span class="nc" id="L59">  }</span>
-
-  private Configuration() {
-  }
+    /**
+     * Set the default API client, which would be used when creating API
+     * instances without providing an API client.
+     *
+     * @param apiClient API client
+     */
+    public static void setDefaultApiClient(ApiClient apiClient) {
+<span class="nc" id="L39">        defaultApiClient = apiClient;</span>
+<span class="nc" id="L40">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

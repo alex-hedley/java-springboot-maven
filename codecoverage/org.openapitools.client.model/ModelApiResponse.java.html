@@ -37,6 +37,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -48,112 +49,109 @@ import org.openapitools.client.JSON;
 /**
  * ModelApiResponse
  */
-@javax.annotation.Generated(value = &quot;org.openapitools.codegen.languages.JavaClientCodegen&quot;, date = &quot;2025-07-28T04:21:47.404443110Z[Etc/UTC]&quot;, comments = &quot;Generator version: 7.14.0&quot;)
+@javax.annotation.Generated(value = &quot;org.openapitools.codegen.languages.JavaClientCodegen&quot;, date = &quot;2025-07-28T04:22:06.783549034Z[Etc/UTC]&quot;, comments = &quot;Generator version: 7.6.0&quot;)
 public class ModelApiResponse {
   public static final String SERIALIZED_NAME_CODE = &quot;code&quot;;
   @SerializedName(SERIALIZED_NAME_CODE)
-  @javax.annotation.Nullable
   private Integer code;
 
   public static final String SERIALIZED_NAME_TYPE = &quot;type&quot;;
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nullable
   private String type;
 
   public static final String SERIALIZED_NAME_MESSAGE = &quot;message&quot;;
   @SerializedName(SERIALIZED_NAME_MESSAGE)
-  @javax.annotation.Nullable
   private String message;
 
-<span class="nc" id="L68">  public ModelApiResponse() {</span>
-<span class="nc" id="L69">  }</span>
+<span class="nc" id="L66">  public ModelApiResponse() {</span>
+<span class="nc" id="L67">  }</span>
 
-  public ModelApiResponse code(@javax.annotation.Nullable Integer code) {
-<span class="nc" id="L72">    this.code = code;</span>
-<span class="nc" id="L73">    return this;</span>
+  public ModelApiResponse code(Integer code) {
+<span class="nc" id="L70">    this.code = code;</span>
+<span class="nc" id="L71">    return this;</span>
   }
 
-  /**
+   /**
    * Get code
    * @return code
-   */
+  **/
   @javax.annotation.Nullable
   public Integer getCode() {
-<span class="nc" id="L82">    return code;</span>
+<span class="nc" id="L80">    return code;</span>
   }
 
-  public void setCode(@javax.annotation.Nullable Integer code) {
-<span class="nc" id="L86">    this.code = code;</span>
-<span class="nc" id="L87">  }</span>
+  public void setCode(Integer code) {
+<span class="nc" id="L84">    this.code = code;</span>
+<span class="nc" id="L85">  }</span>
 
 
-  public ModelApiResponse type(@javax.annotation.Nullable String type) {
-<span class="nc" id="L91">    this.type = type;</span>
-<span class="nc" id="L92">    return this;</span>
+  public ModelApiResponse type(String type) {
+<span class="nc" id="L89">    this.type = type;</span>
+<span class="nc" id="L90">    return this;</span>
   }
 
-  /**
+   /**
    * Get type
    * @return type
-   */
+  **/
   @javax.annotation.Nullable
   public String getType() {
-<span class="nc" id="L101">    return type;</span>
+<span class="nc" id="L99">    return type;</span>
   }
 
-  public void setType(@javax.annotation.Nullable String type) {
-<span class="nc" id="L105">    this.type = type;</span>
-<span class="nc" id="L106">  }</span>
+  public void setType(String type) {
+<span class="nc" id="L103">    this.type = type;</span>
+<span class="nc" id="L104">  }</span>
 
 
-  public ModelApiResponse message(@javax.annotation.Nullable String message) {
-<span class="nc" id="L110">    this.message = message;</span>
-<span class="nc" id="L111">    return this;</span>
+  public ModelApiResponse message(String message) {
+<span class="nc" id="L108">    this.message = message;</span>
+<span class="nc" id="L109">    return this;</span>
   }
 
-  /**
+   /**
    * Get message
    * @return message
-   */
+  **/
   @javax.annotation.Nullable
   public String getMessage() {
-<span class="nc" id="L120">    return message;</span>
+<span class="nc" id="L118">    return message;</span>
   }
 
-  public void setMessage(@javax.annotation.Nullable String message) {
-<span class="nc" id="L124">    this.message = message;</span>
-<span class="nc" id="L125">  }</span>
+  public void setMessage(String message) {
+<span class="nc" id="L122">    this.message = message;</span>
+<span class="nc" id="L123">  }</span>
 
 
 
   @Override
   public boolean equals(Object o) {
-<span class="nc bnc" id="L131" title="All 2 branches missed.">    if (this == o) {</span>
-<span class="nc" id="L132">      return true;</span>
+<span class="nc bnc" id="L129" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L130">      return true;</span>
     }
-<span class="nc bnc" id="L134" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
-<span class="nc" id="L135">      return false;</span>
+<span class="nc bnc" id="L132" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L133">      return false;</span>
     }
-<span class="nc" id="L137">    ModelApiResponse _apiResponse = (ModelApiResponse) o;</span>
-<span class="nc bnc" id="L138" title="All 2 branches missed.">    return Objects.equals(this.code, _apiResponse.code) &amp;&amp;</span>
-<span class="nc bnc" id="L139" title="All 2 branches missed.">        Objects.equals(this.type, _apiResponse.type) &amp;&amp;</span>
-<span class="nc bnc" id="L140" title="All 2 branches missed.">        Objects.equals(this.message, _apiResponse.message);</span>
+<span class="nc" id="L135">    ModelApiResponse _apiResponse = (ModelApiResponse) o;</span>
+<span class="nc bnc" id="L136" title="All 2 branches missed.">    return Objects.equals(this.code, _apiResponse.code) &amp;&amp;</span>
+<span class="nc bnc" id="L137" title="All 2 branches missed.">        Objects.equals(this.type, _apiResponse.type) &amp;&amp;</span>
+<span class="nc bnc" id="L138" title="All 2 branches missed.">        Objects.equals(this.message, _apiResponse.message);</span>
   }
 
   @Override
   public int hashCode() {
-<span class="nc" id="L145">    return Objects.hash(code, type, message);</span>
+<span class="nc" id="L143">    return Objects.hash(code, type, message);</span>
   }
 
   @Override
   public String toString() {
-<span class="nc" id="L150">    StringBuilder sb = new StringBuilder();</span>
-<span class="nc" id="L151">    sb.append(&quot;class ModelApiResponse {\n&quot;);</span>
-<span class="nc" id="L152">    sb.append(&quot;    code: &quot;).append(toIndentedString(code)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L153">    sb.append(&quot;    type: &quot;).append(toIndentedString(type)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L154">    sb.append(&quot;    message: &quot;).append(toIndentedString(message)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L155">    sb.append(&quot;}&quot;);</span>
-<span class="nc" id="L156">    return sb.toString();</span>
+<span class="nc" id="L148">    StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L149">    sb.append(&quot;class ModelApiResponse {\n&quot;);</span>
+<span class="nc" id="L150">    sb.append(&quot;    code: &quot;).append(toIndentedString(code)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L151">    sb.append(&quot;    type: &quot;).append(toIndentedString(type)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L152">    sb.append(&quot;    message: &quot;).append(toIndentedString(message)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L153">    sb.append(&quot;}&quot;);</span>
+<span class="nc" id="L154">    return sb.toString();</span>
   }
 
   /**
@@ -161,10 +159,10 @@ public class ModelApiResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-<span class="nc bnc" id="L164" title="All 2 branches missed.">    if (o == null) {</span>
-<span class="nc" id="L165">      return &quot;null&quot;;</span>
+<span class="nc bnc" id="L162" title="All 2 branches missed.">    if (o == null) {</span>
+<span class="nc" id="L163">      return &quot;null&quot;;</span>
     }
-<span class="nc" id="L167">    return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</span>
+<span class="nc" id="L165">    return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</span>
   }
 
 
@@ -173,88 +171,91 @@ public class ModelApiResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-<span class="nc" id="L176">    openapiFields = new HashSet&lt;String&gt;(Arrays.asList(&quot;code&quot;, &quot;type&quot;, &quot;message&quot;));</span>
+<span class="nc" id="L174">    openapiFields = new HashSet&lt;String&gt;();</span>
+<span class="nc" id="L175">    openapiFields.add(&quot;code&quot;);</span>
+<span class="nc" id="L176">    openapiFields.add(&quot;type&quot;);</span>
+<span class="nc" id="L177">    openapiFields.add(&quot;message&quot;);</span>
 
     // a set of required properties/fields (JSON key names)
-<span class="nc" id="L179">    openapiRequiredFields = new HashSet&lt;String&gt;(0);</span>
-<span class="nc" id="L180">  }</span>
+<span class="nc" id="L180">    openapiRequiredFields = new HashSet&lt;String&gt;();</span>
+<span class="nc" id="L181">  }</span>
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ModelApiResponse
-   */
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to ModelApiResponse
+  */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-<span class="nc bnc" id="L189" title="All 2 branches missed.">      if (jsonElement == null) {</span>
-<span class="nc bnc" id="L190" title="All 2 branches missed.">        if (!ModelApiResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null</span>
-<span class="nc" id="L191">          throw new IllegalArgumentException(String.format(&quot;The required field(s) %s in ModelApiResponse is not found in the empty JSON string&quot;, ModelApiResponse.openapiRequiredFields.toString()));</span>
+<span class="nc bnc" id="L190" title="All 2 branches missed.">      if (jsonElement == null) {</span>
+<span class="nc bnc" id="L191" title="All 2 branches missed.">        if (!ModelApiResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null</span>
+<span class="nc" id="L192">          throw new IllegalArgumentException(String.format(&quot;The required field(s) %s in ModelApiResponse is not found in the empty JSON string&quot;, ModelApiResponse.openapiRequiredFields.toString()));</span>
         }
       }
 
-<span class="nc" id="L195">      Set&lt;Map.Entry&lt;String, JsonElement&gt;&gt; entries = jsonElement.getAsJsonObject().entrySet();</span>
+<span class="nc" id="L196">      Set&lt;Map.Entry&lt;String, JsonElement&gt;&gt; entries = jsonElement.getAsJsonObject().entrySet();</span>
       // check to see if the JSON string contains additional fields
-<span class="nc bnc" id="L197" title="All 2 branches missed.">      for (Map.Entry&lt;String, JsonElement&gt; entry : entries) {</span>
-<span class="nc bnc" id="L198" title="All 2 branches missed.">        if (!ModelApiResponse.openapiFields.contains(entry.getKey())) {</span>
-<span class="nc" id="L199">          throw new IllegalArgumentException(String.format(&quot;The field `%s` in the JSON string is not defined in the `ModelApiResponse` properties. JSON: %s&quot;, entry.getKey(), jsonElement.toString()));</span>
+<span class="nc bnc" id="L198" title="All 2 branches missed.">      for (Map.Entry&lt;String, JsonElement&gt; entry : entries) {</span>
+<span class="nc bnc" id="L199" title="All 2 branches missed.">        if (!ModelApiResponse.openapiFields.contains(entry.getKey())) {</span>
+<span class="nc" id="L200">          throw new IllegalArgumentException(String.format(&quot;The field `%s` in the JSON string is not defined in the `ModelApiResponse` properties. JSON: %s&quot;, entry.getKey(), jsonElement.toString()));</span>
         }
-<span class="nc" id="L201">      }</span>
-<span class="nc" id="L202">        JsonObject jsonObj = jsonElement.getAsJsonObject();</span>
-<span class="nc bnc" id="L203" title="All 6 branches missed.">      if ((jsonObj.get(&quot;type&quot;) != null &amp;&amp; !jsonObj.get(&quot;type&quot;).isJsonNull()) &amp;&amp; !jsonObj.get(&quot;type&quot;).isJsonPrimitive()) {</span>
-<span class="nc" id="L204">        throw new IllegalArgumentException(String.format(&quot;Expected the field `type` to be a primitive type in the JSON string but got `%s`&quot;, jsonObj.get(&quot;type&quot;).toString()));</span>
+<span class="nc" id="L202">      }</span>
+<span class="nc" id="L203">        JsonObject jsonObj = jsonElement.getAsJsonObject();</span>
+<span class="nc bnc" id="L204" title="All 6 branches missed.">      if ((jsonObj.get(&quot;type&quot;) != null &amp;&amp; !jsonObj.get(&quot;type&quot;).isJsonNull()) &amp;&amp; !jsonObj.get(&quot;type&quot;).isJsonPrimitive()) {</span>
+<span class="nc" id="L205">        throw new IllegalArgumentException(String.format(&quot;Expected the field `type` to be a primitive type in the JSON string but got `%s`&quot;, jsonObj.get(&quot;type&quot;).toString()));</span>
       }
-<span class="nc bnc" id="L206" title="All 6 branches missed.">      if ((jsonObj.get(&quot;message&quot;) != null &amp;&amp; !jsonObj.get(&quot;message&quot;).isJsonNull()) &amp;&amp; !jsonObj.get(&quot;message&quot;).isJsonPrimitive()) {</span>
-<span class="nc" id="L207">        throw new IllegalArgumentException(String.format(&quot;Expected the field `message` to be a primitive type in the JSON string but got `%s`&quot;, jsonObj.get(&quot;message&quot;).toString()));</span>
+<span class="nc bnc" id="L207" title="All 6 branches missed.">      if ((jsonObj.get(&quot;message&quot;) != null &amp;&amp; !jsonObj.get(&quot;message&quot;).isJsonNull()) &amp;&amp; !jsonObj.get(&quot;message&quot;).isJsonPrimitive()) {</span>
+<span class="nc" id="L208">        throw new IllegalArgumentException(String.format(&quot;Expected the field `message` to be a primitive type in the JSON string but got `%s`&quot;, jsonObj.get(&quot;message&quot;).toString()));</span>
       }
-<span class="nc" id="L209">  }</span>
+<span class="nc" id="L210">  }</span>
 
-<span class="nc" id="L211">  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {</span>
+<span class="nc" id="L212">  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {</span>
     @SuppressWarnings(&quot;unchecked&quot;)
     @Override
     public &lt;T&gt; TypeAdapter&lt;T&gt; create(Gson gson, TypeToken&lt;T&gt; type) {
-<span class="nc bnc" id="L215" title="All 2 branches missed.">       if (!ModelApiResponse.class.isAssignableFrom(type.getRawType())) {</span>
-<span class="nc" id="L216">         return null; // this class only serializes 'ModelApiResponse' and its subtypes</span>
+<span class="nc bnc" id="L216" title="All 2 branches missed.">       if (!ModelApiResponse.class.isAssignableFrom(type.getRawType())) {</span>
+<span class="nc" id="L217">         return null; // this class only serializes 'ModelApiResponse' and its subtypes</span>
        }
-<span class="nc" id="L218">       final TypeAdapter&lt;JsonElement&gt; elementAdapter = gson.getAdapter(JsonElement.class);</span>
-<span class="nc" id="L219">       final TypeAdapter&lt;ModelApiResponse&gt; thisAdapter</span>
-<span class="nc" id="L220">                        = gson.getDelegateAdapter(this, TypeToken.get(ModelApiResponse.class));</span>
+<span class="nc" id="L219">       final TypeAdapter&lt;JsonElement&gt; elementAdapter = gson.getAdapter(JsonElement.class);</span>
+<span class="nc" id="L220">       final TypeAdapter&lt;ModelApiResponse&gt; thisAdapter</span>
+<span class="nc" id="L221">                        = gson.getDelegateAdapter(this, TypeToken.get(ModelApiResponse.class));</span>
 
-<span class="nc" id="L222">       return (TypeAdapter&lt;T&gt;) new TypeAdapter&lt;ModelApiResponse&gt;() {</span>
+<span class="nc" id="L223">       return (TypeAdapter&lt;T&gt;) new TypeAdapter&lt;ModelApiResponse&gt;() {</span>
            @Override
            public void write(JsonWriter out, ModelApiResponse value) throws IOException {
-<span class="nc" id="L225">             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();</span>
-<span class="nc" id="L226">             elementAdapter.write(out, obj);</span>
-<span class="nc" id="L227">           }</span>
+<span class="nc" id="L226">             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();</span>
+<span class="nc" id="L227">             elementAdapter.write(out, obj);</span>
+<span class="nc" id="L228">           }</span>
 
            @Override
            public ModelApiResponse read(JsonReader in) throws IOException {
-<span class="nc" id="L231">             JsonElement jsonElement = elementAdapter.read(in);</span>
-<span class="nc" id="L232">             validateJsonElement(jsonElement);</span>
-<span class="nc" id="L233">             return thisAdapter.fromJsonTree(jsonElement);</span>
+<span class="nc" id="L232">             JsonElement jsonElement = elementAdapter.read(in);</span>
+<span class="nc" id="L233">             validateJsonElement(jsonElement);</span>
+<span class="nc" id="L234">             return thisAdapter.fromJsonTree(jsonElement);</span>
            }
 
-<span class="nc" id="L236">       }.nullSafe();</span>
+<span class="nc" id="L237">       }.nullSafe();</span>
     }
   }
 
-  /**
-   * Create an instance of ModelApiResponse given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of ModelApiResponse
-   * @throws IOException if the JSON string is invalid with respect to ModelApiResponse
-   */
+ /**
+  * Create an instance of ModelApiResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ModelApiResponse
+  * @throws IOException if the JSON string is invalid with respect to ModelApiResponse
+  */
   public static ModelApiResponse fromJson(String jsonString) throws IOException {
-<span class="nc" id="L248">    return JSON.getGson().fromJson(jsonString, ModelApiResponse.class);</span>
+<span class="nc" id="L249">    return JSON.getGson().fromJson(jsonString, ModelApiResponse.class);</span>
   }
 
-  /**
-   * Convert an instance of ModelApiResponse to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of ModelApiResponse to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
-<span class="nc" id="L257">    return JSON.getGson().toJson(this);</span>
+<span class="nc" id="L258">    return JSON.getGson().toJson(this);</span>
   }
 }
 

@@ -13,11 +13,11 @@
 
 package org.openapitools.client;
 
+import com.fasterxml.jackson.databind.util.StdDateFormat;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapter;
-import com.google.gson.internal.bind.util.ISO8601Utils;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.google.gson.JsonElement;
@@ -27,21 +27,20 @@ import io.gsonfire.TypeSelector;
 import okio.ByteString;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.lang.reflect.Type;
-import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.ParsePosition;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.TimeZone;
 
 /*
  * A JSON utility class
@@ -49,29 +48,34 @@ import java.util.HashMap;
  * NOTE: in the future, this class may be converted to static, which may break
  *       backward-compatibility
  */
-<span class="nc" id="L52">public class JSON {</span>
+<span class="nc" id="L51">public class JSON {</span>
     private static Gson gson;
-<span class="nc" id="L54">    private static boolean isLenientOnJson = false;</span>
-<span class="nc" id="L55">    private static DateTypeAdapter dateTypeAdapter = new DateTypeAdapter();</span>
-<span class="nc" id="L56">    private static SqlDateTypeAdapter sqlDateTypeAdapter = new SqlDateTypeAdapter();</span>
-<span class="nc" id="L57">    private static OffsetDateTimeTypeAdapter offsetDateTimeTypeAdapter = new OffsetDateTimeTypeAdapter();</span>
-<span class="nc" id="L58">    private static LocalDateTypeAdapter localDateTypeAdapter = new LocalDateTypeAdapter();</span>
-<span class="nc" id="L59">    private static ByteArrayAdapter byteArrayAdapter = new ByteArrayAdapter();</span>
+<span class="nc" id="L53">    private static boolean isLenientOnJson = false;</span>
+<span class="nc" id="L54">    private static DateTypeAdapter dateTypeAdapter = new DateTypeAdapter();</span>
+<span class="nc" id="L55">    private static SqlDateTypeAdapter sqlDateTypeAdapter = new SqlDateTypeAdapter();</span>
+<span class="nc" id="L56">    private static OffsetDateTimeTypeAdapter offsetDateTimeTypeAdapter = new OffsetDateTimeTypeAdapter();</span>
+<span class="nc" id="L57">    private static LocalDateTypeAdapter localDateTypeAdapter = new LocalDateTypeAdapter();</span>
+<span class="nc" id="L58">    private static ByteArrayAdapter byteArrayAdapter = new ByteArrayAdapter();</span>
+
+<span class="nc" id="L60">    private static final StdDateFormat sdf = new StdDateFormat()</span>
+<span class="nc" id="L61">        .withTimeZone(TimeZone.getTimeZone(ZoneId.systemDefault()))</span>
+<span class="nc" id="L62">        .withColonInTimeZone(true);</span>
+<span class="nc" id="L63">    private static final DateTimeFormatter dtf = DateTimeFormatter.ISO_OFFSET_DATE_TIME;</span>
 
     @SuppressWarnings(&quot;unchecked&quot;)
     public static GsonBuilder createGson() {
-<span class="nc" id="L63">        GsonFireBuilder fireBuilder = new GsonFireBuilder()</span>
+<span class="nc" id="L67">        GsonFireBuilder fireBuilder = new GsonFireBuilder()</span>
         ;
-<span class="nc" id="L65">        GsonBuilder builder = fireBuilder.createGsonBuilder();</span>
-<span class="nc" id="L66">        return builder;</span>
+<span class="nc" id="L69">        GsonBuilder builder = fireBuilder.createGsonBuilder();</span>
+<span class="nc" id="L70">        return builder;</span>
     }
 
     private static String getDiscriminatorValue(JsonElement readElement, String discriminatorField) {
-<span class="nc" id="L70">        JsonElement element = readElement.getAsJsonObject().get(discriminatorField);</span>
-<span class="nc bnc" id="L71" title="All 2 branches missed.">        if (null == element) {</span>
-<span class="nc" id="L72">            throw new IllegalArgumentException(&quot;missing discriminator field: &lt;&quot; + discriminatorField + &quot;&gt;&quot;);</span>
+<span class="nc" id="L74">        JsonElement element = readElement.getAsJsonObject().get(discriminatorField);</span>
+<span class="nc bnc" id="L75" title="All 2 branches missed.">        if (null == element) {</span>
+<span class="nc" id="L76">            throw new IllegalArgumentException(&quot;missing discriminator field: &lt;&quot; + discriminatorField + &quot;&gt;&quot;);</span>
         }
-<span class="nc" id="L74">        return element.getAsString();</span>
+<span class="nc" id="L78">        return element.getAsString();</span>
     }
 
     /**
@@ -82,28 +86,28 @@ import java.util.HashMap;
      * @return The Java class that implements the OpenAPI schema
      */
     private static Class getClassByDiscriminator(Map classByDiscriminatorValue, String discriminatorValue) {
-<span class="nc" id="L85">        Class clazz = (Class) classByDiscriminatorValue.get(discriminatorValue);</span>
-<span class="nc bnc" id="L86" title="All 2 branches missed.">        if (null == clazz) {</span>
-<span class="nc" id="L87">            throw new IllegalArgumentException(&quot;cannot determine model class of name: &lt;&quot; + discriminatorValue + &quot;&gt;&quot;);</span>
+<span class="nc" id="L89">        Class clazz = (Class) classByDiscriminatorValue.get(discriminatorValue);</span>
+<span class="nc bnc" id="L90" title="All 2 branches missed.">        if (null == clazz) {</span>
+<span class="nc" id="L91">            throw new IllegalArgumentException(&quot;cannot determine model class of name: &lt;&quot; + discriminatorValue + &quot;&gt;&quot;);</span>
         }
-<span class="nc" id="L89">        return clazz;</span>
+<span class="nc" id="L93">        return clazz;</span>
     }
 
     static {
-<span class="nc" id="L93">        GsonBuilder gsonBuilder = createGson();</span>
-<span class="nc" id="L94">        gsonBuilder.registerTypeAdapter(Date.class, dateTypeAdapter);</span>
-<span class="nc" id="L95">        gsonBuilder.registerTypeAdapter(java.sql.Date.class, sqlDateTypeAdapter);</span>
-<span class="nc" id="L96">        gsonBuilder.registerTypeAdapter(OffsetDateTime.class, offsetDateTimeTypeAdapter);</span>
-<span class="nc" id="L97">        gsonBuilder.registerTypeAdapter(LocalDate.class, localDateTypeAdapter);</span>
-<span class="nc" id="L98">        gsonBuilder.registerTypeAdapter(byte[].class, byteArrayAdapter);</span>
-<span class="nc" id="L99">        gsonBuilder.registerTypeAdapterFactory(new org.openapitools.client.model.Category.CustomTypeAdapterFactory());</span>
-<span class="nc" id="L100">        gsonBuilder.registerTypeAdapterFactory(new org.openapitools.client.model.ModelApiResponse.CustomTypeAdapterFactory());</span>
-<span class="nc" id="L101">        gsonBuilder.registerTypeAdapterFactory(new org.openapitools.client.model.Order.CustomTypeAdapterFactory());</span>
-<span class="nc" id="L102">        gsonBuilder.registerTypeAdapterFactory(new org.openapitools.client.model.Pet.CustomTypeAdapterFactory());</span>
-<span class="nc" id="L103">        gsonBuilder.registerTypeAdapterFactory(new org.openapitools.client.model.Tag.CustomTypeAdapterFactory());</span>
-<span class="nc" id="L104">        gsonBuilder.registerTypeAdapterFactory(new org.openapitools.client.model.User.CustomTypeAdapterFactory());</span>
-<span class="nc" id="L105">        gson = gsonBuilder.create();</span>
-<span class="nc" id="L106">    }</span>
+<span class="nc" id="L97">        GsonBuilder gsonBuilder = createGson();</span>
+<span class="nc" id="L98">        gsonBuilder.registerTypeAdapter(Date.class, dateTypeAdapter);</span>
+<span class="nc" id="L99">        gsonBuilder.registerTypeAdapter(java.sql.Date.class, sqlDateTypeAdapter);</span>
+<span class="nc" id="L100">        gsonBuilder.registerTypeAdapter(OffsetDateTime.class, offsetDateTimeTypeAdapter);</span>
+<span class="nc" id="L101">        gsonBuilder.registerTypeAdapter(LocalDate.class, localDateTypeAdapter);</span>
+<span class="nc" id="L102">        gsonBuilder.registerTypeAdapter(byte[].class, byteArrayAdapter);</span>
+<span class="nc" id="L103">        gsonBuilder.registerTypeAdapterFactory(new org.openapitools.client.model.Category.CustomTypeAdapterFactory());</span>
+<span class="nc" id="L104">        gsonBuilder.registerTypeAdapterFactory(new org.openapitools.client.model.ModelApiResponse.CustomTypeAdapterFactory());</span>
+<span class="nc" id="L105">        gsonBuilder.registerTypeAdapterFactory(new org.openapitools.client.model.Order.CustomTypeAdapterFactory());</span>
+<span class="nc" id="L106">        gsonBuilder.registerTypeAdapterFactory(new org.openapitools.client.model.Pet.CustomTypeAdapterFactory());</span>
+<span class="nc" id="L107">        gsonBuilder.registerTypeAdapterFactory(new org.openapitools.client.model.Tag.CustomTypeAdapterFactory());</span>
+<span class="nc" id="L108">        gsonBuilder.registerTypeAdapterFactory(new org.openapitools.client.model.User.CustomTypeAdapterFactory());</span>
+<span class="nc" id="L109">        gson = gsonBuilder.create();</span>
+<span class="nc" id="L110">    }</span>
 
     /**
      * Get Gson.
@@ -111,7 +115,7 @@ import java.util.HashMap;
      * @return Gson
      */
     public static Gson getGson() {
-<span class="nc" id="L114">        return gson;</span>
+<span class="nc" id="L118">        return gson;</span>
     }
 
     /**
@@ -120,12 +124,12 @@ import java.util.HashMap;
      * @param gson Gson
      */
     public static void setGson(Gson gson) {
-<span class="nc" id="L123">        JSON.gson = gson;</span>
-<span class="nc" id="L124">    }</span>
+<span class="nc" id="L127">        JSON.gson = gson;</span>
+<span class="nc" id="L128">    }</span>
 
     public static void setLenientOnJson(boolean lenientOnJson) {
-<span class="nc" id="L127">        isLenientOnJson = lenientOnJson;</span>
-<span class="nc" id="L128">    }</span>
+<span class="nc" id="L131">        isLenientOnJson = lenientOnJson;</span>
+<span class="nc" id="L132">    }</span>
 
     /**
      * Serialize the given Java object into JSON string.
@@ -134,7 +138,7 @@ import java.util.HashMap;
      * @return String representation of the JSON
      */
     public static String serialize(Object obj) {
-<span class="nc" id="L137">        return gson.toJson(obj);</span>
+<span class="nc" id="L141">        return gson.toJson(obj);</span>
     }
 
     /**
@@ -148,71 +152,49 @@ import java.util.HashMap;
     @SuppressWarnings(&quot;unchecked&quot;)
     public static &lt;T&gt; T deserialize(String body, Type returnType) {
         try {
-<span class="nc bnc" id="L151" title="All 2 branches missed.">            if (isLenientOnJson) {</span>
-<span class="nc" id="L152">                JsonReader jsonReader = new JsonReader(new StringReader(body));</span>
+<span class="nc bnc" id="L155" title="All 2 branches missed.">            if (isLenientOnJson) {</span>
+<span class="nc" id="L156">                JsonReader jsonReader = new JsonReader(new StringReader(body));</span>
                 // see https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/stream/JsonReader.html#setLenient(boolean)
-<span class="nc" id="L154">                jsonReader.setLenient(true);</span>
-<span class="nc" id="L155">                return gson.fromJson(jsonReader, returnType);</span>
+<span class="nc" id="L158">                jsonReader.setLenient(true);</span>
+<span class="nc" id="L159">                return gson.fromJson(jsonReader, returnType);</span>
             } else {
-<span class="nc" id="L157">                return gson.fromJson(body, returnType);</span>
+<span class="nc" id="L161">                return gson.fromJson(body, returnType);</span>
             }
-<span class="nc" id="L159">        } catch (JsonParseException e) {</span>
+<span class="nc" id="L163">        } catch (JsonParseException e) {</span>
             // Fallback processing when failed to parse JSON form response body:
             // return the response body string directly for the String return type;
-<span class="nc bnc" id="L162" title="All 2 branches missed.">            if (returnType.equals(String.class)) {</span>
-<span class="nc" id="L163">                return (T) body;</span>
+<span class="nc bnc" id="L166" title="All 2 branches missed.">            if (returnType.equals(String.class)) {</span>
+<span class="nc" id="L167">                return (T) body;</span>
             } else {
-<span class="nc" id="L165">                throw (e);</span>
+<span class="nc" id="L169">                throw (e);</span>
             }
         }
     }
 
     /**
-    * Deserialize the given JSON InputStream to a Java object.
-    *
-    * @param &lt;T&gt;         Type
-    * @param inputStream The JSON InputStream
-    * @param returnType  The type to deserialize into
-    * @return The deserialized Java object
-    */
-    @SuppressWarnings(&quot;unchecked&quot;)
-    public static &lt;T&gt; T deserialize(InputStream inputStream, Type returnType) throws IOException {
-<span class="nc" id="L180">        try (InputStreamReader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8)) {</span>
-<span class="nc bnc" id="L181" title="All 2 branches missed.">        if (isLenientOnJson) {</span>
-            // see https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/stream/JsonReader.html#setLenient(boolean)
-<span class="nc" id="L183">            JsonReader jsonReader = new JsonReader(reader);</span>
-<span class="nc" id="L184">            jsonReader.setLenient(true);</span>
-<span class="nc" id="L185">            return gson.fromJson(jsonReader, returnType);</span>
-            } else {
-<span class="nc" id="L187">                return gson.fromJson(reader, returnType);</span>
-            }
-<span class="nc" id="L189">        }</span>
-    }
-
-    /**
      * Gson TypeAdapter for Byte Array type
      */
-<span class="nc" id="L195">    public static class ByteArrayAdapter extends TypeAdapter&lt;byte[]&gt; {</span>
+<span class="nc" id="L177">    public static class ByteArrayAdapter extends TypeAdapter&lt;byte[]&gt; {</span>
 
         @Override
         public void write(JsonWriter out, byte[] value) throws IOException {
-<span class="nc bnc" id="L199" title="All 2 branches missed.">            if (value == null) {</span>
-<span class="nc" id="L200">                out.nullValue();</span>
+<span class="nc bnc" id="L181" title="All 2 branches missed.">            if (value == null) {</span>
+<span class="nc" id="L182">                out.nullValue();</span>
             } else {
-<span class="nc" id="L202">                out.value(ByteString.of(value).base64());</span>
+<span class="nc" id="L184">                out.value(ByteString.of(value).base64());</span>
             }
-<span class="nc" id="L204">        }</span>
+<span class="nc" id="L186">        }</span>
 
         @Override
         public byte[] read(JsonReader in) throws IOException {
-<span class="nc bnc" id="L208" title="All 2 branches missed.">            switch (in.peek()) {</span>
+<span class="nc bnc" id="L190" title="All 2 branches missed.">            switch (in.peek()) {</span>
                 case NULL:
-<span class="nc" id="L210">                    in.nextNull();</span>
-<span class="nc" id="L211">                    return null;</span>
+<span class="nc" id="L192">                    in.nextNull();</span>
+<span class="nc" id="L193">                    return null;</span>
                 default:
-<span class="nc" id="L213">                    String bytesAsBase64 = in.nextString();</span>
-<span class="nc" id="L214">                    ByteString byteString = ByteString.decodeBase64(bytesAsBase64);</span>
-<span class="nc" id="L215">                    return byteString.toByteArray();</span>
+<span class="nc" id="L195">                    String bytesAsBase64 = in.nextString();</span>
+<span class="nc" id="L196">                    ByteString byteString = ByteString.decodeBase64(bytesAsBase64);</span>
+<span class="nc" id="L197">                    return byteString.toByteArray();</span>
             }
         }
     }
@@ -225,38 +207,38 @@ import java.util.HashMap;
         private DateTimeFormatter formatter;
 
         public OffsetDateTimeTypeAdapter() {
-<span class="nc" id="L228">            this(DateTimeFormatter.ISO_OFFSET_DATE_TIME);</span>
-<span class="nc" id="L229">        }</span>
+<span class="nc" id="L210">            this(DateTimeFormatter.ISO_OFFSET_DATE_TIME);</span>
+<span class="nc" id="L211">        }</span>
 
-<span class="nc" id="L231">        public OffsetDateTimeTypeAdapter(DateTimeFormatter formatter) {</span>
-<span class="nc" id="L232">            this.formatter = formatter;</span>
-<span class="nc" id="L233">        }</span>
+<span class="nc" id="L213">        public OffsetDateTimeTypeAdapter(DateTimeFormatter formatter) {</span>
+<span class="nc" id="L214">            this.formatter = formatter;</span>
+<span class="nc" id="L215">        }</span>
 
         public void setFormat(DateTimeFormatter dateFormat) {
-<span class="nc" id="L236">            this.formatter = dateFormat;</span>
-<span class="nc" id="L237">        }</span>
+<span class="nc" id="L218">            this.formatter = dateFormat;</span>
+<span class="nc" id="L219">        }</span>
 
         @Override
         public void write(JsonWriter out, OffsetDateTime date) throws IOException {
-<span class="nc bnc" id="L241" title="All 2 branches missed.">            if (date == null) {</span>
-<span class="nc" id="L242">                out.nullValue();</span>
+<span class="nc bnc" id="L223" title="All 2 branches missed.">            if (date == null) {</span>
+<span class="nc" id="L224">                out.nullValue();</span>
             } else {
-<span class="nc" id="L244">                out.value(formatter.format(date));</span>
+<span class="nc" id="L226">                out.value(formatter.format(date));</span>
             }
-<span class="nc" id="L246">        }</span>
+<span class="nc" id="L228">        }</span>
 
         @Override
         public OffsetDateTime read(JsonReader in) throws IOException {
-<span class="nc bnc" id="L250" title="All 2 branches missed.">            switch (in.peek()) {</span>
+<span class="nc bnc" id="L232" title="All 2 branches missed.">            switch (in.peek()) {</span>
                 case NULL:
-<span class="nc" id="L252">                    in.nextNull();</span>
-<span class="nc" id="L253">                    return null;</span>
+<span class="nc" id="L234">                    in.nextNull();</span>
+<span class="nc" id="L235">                    return null;</span>
                 default:
-<span class="nc" id="L255">                    String date = in.nextString();</span>
-<span class="nc bnc" id="L256" title="All 2 branches missed.">                    if (date.endsWith(&quot;+0000&quot;)) {</span>
-<span class="nc" id="L257">                        date = date.substring(0, date.length()-5) + &quot;Z&quot;;</span>
+<span class="nc" id="L237">                    String date = in.nextString();</span>
+<span class="nc bnc" id="L238" title="All 2 branches missed.">                    if (date.endsWith(&quot;+0000&quot;)) {</span>
+<span class="nc" id="L239">                        date = date.substring(0, date.length()-5) + &quot;Z&quot;;</span>
                     }
-<span class="nc" id="L259">                    return OffsetDateTime.parse(date, formatter);</span>
+<span class="nc" id="L241">                    return OffsetDateTime.parse(date, formatter);</span>
             }
         }
     }
@@ -269,46 +251,46 @@ import java.util.HashMap;
         private DateTimeFormatter formatter;
 
         public LocalDateTypeAdapter() {
-<span class="nc" id="L272">            this(DateTimeFormatter.ISO_LOCAL_DATE);</span>
-<span class="nc" id="L273">        }</span>
+<span class="nc" id="L254">            this(DateTimeFormatter.ISO_LOCAL_DATE);</span>
+<span class="nc" id="L255">        }</span>
 
-<span class="nc" id="L275">        public LocalDateTypeAdapter(DateTimeFormatter formatter) {</span>
-<span class="nc" id="L276">            this.formatter = formatter;</span>
-<span class="nc" id="L277">        }</span>
+<span class="nc" id="L257">        public LocalDateTypeAdapter(DateTimeFormatter formatter) {</span>
+<span class="nc" id="L258">            this.formatter = formatter;</span>
+<span class="nc" id="L259">        }</span>
 
         public void setFormat(DateTimeFormatter dateFormat) {
-<span class="nc" id="L280">            this.formatter = dateFormat;</span>
-<span class="nc" id="L281">        }</span>
+<span class="nc" id="L262">            this.formatter = dateFormat;</span>
+<span class="nc" id="L263">        }</span>
 
         @Override
         public void write(JsonWriter out, LocalDate date) throws IOException {
-<span class="nc bnc" id="L285" title="All 2 branches missed.">            if (date == null) {</span>
-<span class="nc" id="L286">                out.nullValue();</span>
+<span class="nc bnc" id="L267" title="All 2 branches missed.">            if (date == null) {</span>
+<span class="nc" id="L268">                out.nullValue();</span>
             } else {
-<span class="nc" id="L288">                out.value(formatter.format(date));</span>
+<span class="nc" id="L270">                out.value(formatter.format(date));</span>
             }
-<span class="nc" id="L290">        }</span>
+<span class="nc" id="L272">        }</span>
 
         @Override
         public LocalDate read(JsonReader in) throws IOException {
-<span class="nc bnc" id="L294" title="All 2 branches missed.">            switch (in.peek()) {</span>
+<span class="nc bnc" id="L276" title="All 2 branches missed.">            switch (in.peek()) {</span>
                 case NULL:
-<span class="nc" id="L296">                    in.nextNull();</span>
-<span class="nc" id="L297">                    return null;</span>
+<span class="nc" id="L278">                    in.nextNull();</span>
+<span class="nc" id="L279">                    return null;</span>
                 default:
-<span class="nc" id="L299">                    String date = in.nextString();</span>
-<span class="nc" id="L300">                    return LocalDate.parse(date, formatter);</span>
+<span class="nc" id="L281">                    String date = in.nextString();</span>
+<span class="nc" id="L282">                    return LocalDate.parse(date, formatter);</span>
             }
         }
     }
 
     public static void setOffsetDateTimeFormat(DateTimeFormatter dateFormat) {
-<span class="nc" id="L306">        offsetDateTimeTypeAdapter.setFormat(dateFormat);</span>
-<span class="nc" id="L307">    }</span>
+<span class="nc" id="L288">        offsetDateTimeTypeAdapter.setFormat(dateFormat);</span>
+<span class="nc" id="L289">    }</span>
 
     public static void setLocalDateFormat(DateTimeFormatter dateFormat) {
-<span class="nc" id="L310">        localDateTypeAdapter.setFormat(dateFormat);</span>
-<span class="nc" id="L311">    }</span>
+<span class="nc" id="L292">        localDateTypeAdapter.setFormat(dateFormat);</span>
+<span class="nc" id="L293">    }</span>
 
     /**
      * Gson TypeAdapter for java.sql.Date type
@@ -319,46 +301,46 @@ import java.util.HashMap;
 
         private DateFormat dateFormat;
 
-<span class="nc" id="L322">        public SqlDateTypeAdapter() {}</span>
+<span class="nc" id="L304">        public SqlDateTypeAdapter() {}</span>
 
-<span class="nc" id="L324">        public SqlDateTypeAdapter(DateFormat dateFormat) {</span>
-<span class="nc" id="L325">            this.dateFormat = dateFormat;</span>
-<span class="nc" id="L326">        }</span>
+<span class="nc" id="L306">        public SqlDateTypeAdapter(DateFormat dateFormat) {</span>
+<span class="nc" id="L307">            this.dateFormat = dateFormat;</span>
+<span class="nc" id="L308">        }</span>
 
         public void setFormat(DateFormat dateFormat) {
-<span class="nc" id="L329">            this.dateFormat = dateFormat;</span>
-<span class="nc" id="L330">        }</span>
+<span class="nc" id="L311">            this.dateFormat = dateFormat;</span>
+<span class="nc" id="L312">        }</span>
 
         @Override
         public void write(JsonWriter out, java.sql.Date date) throws IOException {
-<span class="nc bnc" id="L334" title="All 2 branches missed.">            if (date == null) {</span>
-<span class="nc" id="L335">                out.nullValue();</span>
+<span class="nc bnc" id="L316" title="All 2 branches missed.">            if (date == null) {</span>
+<span class="nc" id="L317">                out.nullValue();</span>
             } else {
                 String value;
-<span class="nc bnc" id="L338" title="All 2 branches missed.">                if (dateFormat != null) {</span>
-<span class="nc" id="L339">                    value = dateFormat.format(date);</span>
+<span class="nc bnc" id="L320" title="All 2 branches missed.">                if (dateFormat != null) {</span>
+<span class="nc" id="L321">                    value = dateFormat.format(date);</span>
                 } else {
-<span class="nc" id="L341">                    value = date.toString();</span>
+<span class="nc" id="L323">                    value = date.toString();</span>
                 }
-<span class="nc" id="L343">                out.value(value);</span>
+<span class="nc" id="L325">                out.value(value);</span>
             }
-<span class="nc" id="L345">        }</span>
+<span class="nc" id="L327">        }</span>
 
         @Override
         public java.sql.Date read(JsonReader in) throws IOException {
-<span class="nc bnc" id="L349" title="All 2 branches missed.">            switch (in.peek()) {</span>
+<span class="nc bnc" id="L331" title="All 2 branches missed.">            switch (in.peek()) {</span>
                 case NULL:
-<span class="nc" id="L351">                    in.nextNull();</span>
-<span class="nc" id="L352">                    return null;</span>
+<span class="nc" id="L333">                    in.nextNull();</span>
+<span class="nc" id="L334">                    return null;</span>
                 default:
-<span class="nc" id="L354">                    String date = in.nextString();</span>
+<span class="nc" id="L336">                    String date = in.nextString();</span>
                     try {
-<span class="nc bnc" id="L356" title="All 2 branches missed.">                        if (dateFormat != null) {</span>
-<span class="nc" id="L357">                            return new java.sql.Date(dateFormat.parse(date).getTime());</span>
+<span class="nc bnc" id="L338" title="All 2 branches missed.">                        if (dateFormat != null) {</span>
+<span class="nc" id="L339">                            return new java.sql.Date(dateFormat.parse(date).getTime());</span>
                         }
-<span class="nc" id="L359">                        return new java.sql.Date(ISO8601Utils.parse(date, new ParsePosition(0)).getTime());</span>
-<span class="nc" id="L360">                    } catch (ParseException e) {</span>
-<span class="nc" id="L361">                        throw new JsonParseException(e);</span>
+<span class="nc" id="L341">                        return new java.sql.Date(sdf.parse(date).getTime());</span>
+<span class="nc" id="L342">                    } catch (ParseException e) {</span>
+<span class="nc" id="L343">                        throw new JsonParseException(e);</span>
                     }
             }
         }
@@ -366,67 +348,67 @@ import java.util.HashMap;
 
     /**
      * Gson TypeAdapter for java.util.Date type
-     * If the dateFormat is null, ISO8601Utils will be used.
+     * If the dateFormat is null, DateTimeFormatter will be used.
      */
     public static class DateTypeAdapter extends TypeAdapter&lt;Date&gt; {
 
         private DateFormat dateFormat;
 
-<span class="nc" id="L375">        public DateTypeAdapter() {}</span>
+<span class="nc" id="L357">        public DateTypeAdapter() {}</span>
 
-<span class="nc" id="L377">        public DateTypeAdapter(DateFormat dateFormat) {</span>
-<span class="nc" id="L378">            this.dateFormat = dateFormat;</span>
-<span class="nc" id="L379">        }</span>
+<span class="nc" id="L359">        public DateTypeAdapter(DateFormat dateFormat) {</span>
+<span class="nc" id="L360">            this.dateFormat = dateFormat;</span>
+<span class="nc" id="L361">        }</span>
 
         public void setFormat(DateFormat dateFormat) {
-<span class="nc" id="L382">            this.dateFormat = dateFormat;</span>
-<span class="nc" id="L383">        }</span>
+<span class="nc" id="L364">            this.dateFormat = dateFormat;</span>
+<span class="nc" id="L365">        }</span>
 
         @Override
         public void write(JsonWriter out, Date date) throws IOException {
-<span class="nc bnc" id="L387" title="All 2 branches missed.">            if (date == null) {</span>
-<span class="nc" id="L388">                out.nullValue();</span>
+<span class="nc bnc" id="L369" title="All 2 branches missed.">            if (date == null) {</span>
+<span class="nc" id="L370">                out.nullValue();</span>
             } else {
                 String value;
-<span class="nc bnc" id="L391" title="All 2 branches missed.">                if (dateFormat != null) {</span>
-<span class="nc" id="L392">                    value = dateFormat.format(date);</span>
+<span class="nc bnc" id="L373" title="All 2 branches missed.">                if (dateFormat != null) {</span>
+<span class="nc" id="L374">                    value = dateFormat.format(date);</span>
                 } else {
-<span class="nc" id="L394">                    value = ISO8601Utils.format(date, true);</span>
+<span class="nc" id="L376">                    value = date.toInstant().atOffset(ZoneOffset.UTC).format(dtf);</span>
                 }
-<span class="nc" id="L396">                out.value(value);</span>
+<span class="nc" id="L378">                out.value(value);</span>
             }
-<span class="nc" id="L398">        }</span>
+<span class="nc" id="L380">        }</span>
 
         @Override
         public Date read(JsonReader in) throws IOException {
             try {
-<span class="nc bnc" id="L403" title="All 2 branches missed.">                switch (in.peek()) {</span>
+<span class="nc bnc" id="L385" title="All 2 branches missed.">                switch (in.peek()) {</span>
                     case NULL:
-<span class="nc" id="L405">                        in.nextNull();</span>
-<span class="nc" id="L406">                        return null;</span>
+<span class="nc" id="L387">                        in.nextNull();</span>
+<span class="nc" id="L388">                        return null;</span>
                     default:
-<span class="nc" id="L408">                        String date = in.nextString();</span>
+<span class="nc" id="L390">                        String date = in.nextString();</span>
                         try {
-<span class="nc bnc" id="L410" title="All 2 branches missed.">                            if (dateFormat != null) {</span>
-<span class="nc" id="L411">                                return dateFormat.parse(date);</span>
+<span class="nc bnc" id="L392" title="All 2 branches missed.">                            if (dateFormat != null) {</span>
+<span class="nc" id="L393">                                return dateFormat.parse(date);</span>
                             }
-<span class="nc" id="L413">                            return ISO8601Utils.parse(date, new ParsePosition(0));</span>
-<span class="nc" id="L414">                        } catch (ParseException e) {</span>
-<span class="nc" id="L415">                            throw new JsonParseException(e);</span>
+<span class="nc" id="L395">                            return sdf.parse(date);</span>
+<span class="nc" id="L396">                        } catch (ParseException e) {</span>
+<span class="nc" id="L397">                            throw new JsonParseException(e);</span>
                         }
                 }
-<span class="nc" id="L418">            } catch (IllegalArgumentException e) {</span>
-<span class="nc" id="L419">                throw new JsonParseException(e);</span>
+<span class="nc" id="L400">            } catch (IllegalArgumentException e) {</span>
+<span class="nc" id="L401">                throw new JsonParseException(e);</span>
             }
         }
     }
 
     public static void setDateFormat(DateFormat dateFormat) {
-<span class="nc" id="L425">        dateTypeAdapter.setFormat(dateFormat);</span>
-<span class="nc" id="L426">    }</span>
+<span class="nc" id="L407">        dateTypeAdapter.setFormat(dateFormat);</span>
+<span class="nc" id="L408">    }</span>
 
     public static void setSqlDateFormat(DateFormat dateFormat) {
-<span class="nc" id="L429">        sqlDateTypeAdapter.setFormat(dateFormat);</span>
-<span class="nc" id="L430">    }</span>
+<span class="nc" id="L411">        sqlDateTypeAdapter.setFormat(dateFormat);</span>
+<span class="nc" id="L412">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

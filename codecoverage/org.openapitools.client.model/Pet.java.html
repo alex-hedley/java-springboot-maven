@@ -41,6 +41,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -52,260 +53,254 @@ import org.openapitools.client.JSON;
 /**
  * Pet
  */
-@javax.annotation.Generated(value = &quot;org.openapitools.codegen.languages.JavaClientCodegen&quot;, date = &quot;2025-07-28T04:21:47.404443110Z[Etc/UTC]&quot;, comments = &quot;Generator version: 7.14.0&quot;)
+@javax.annotation.Generated(value = &quot;org.openapitools.codegen.languages.JavaClientCodegen&quot;, date = &quot;2025-07-28T04:22:06.783549034Z[Etc/UTC]&quot;, comments = &quot;Generator version: 7.6.0&quot;)
 public class Pet {
   public static final String SERIALIZED_NAME_ID = &quot;id&quot;;
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nullable
   private Long id;
 
   public static final String SERIALIZED_NAME_CATEGORY = &quot;category&quot;;
   @SerializedName(SERIALIZED_NAME_CATEGORY)
-  @javax.annotation.Nullable
   private Category category;
 
   public static final String SERIALIZED_NAME_NAME = &quot;name&quot;;
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_PHOTO_URLS = &quot;photoUrls&quot;;
-<span class="nc" id="L73">  @SerializedName(SERIALIZED_NAME_PHOTO_URLS)</span>
-  @javax.annotation.Nonnull
+<span class="nc" id="L71">  @SerializedName(SERIALIZED_NAME_PHOTO_URLS)</span>
   private List&lt;String&gt; photoUrls = new ArrayList&lt;&gt;();
 
   public static final String SERIALIZED_NAME_TAGS = &quot;tags&quot;;
-<span class="nc" id="L78">  @SerializedName(SERIALIZED_NAME_TAGS)</span>
-  @javax.annotation.Nullable
+<span class="nc" id="L75">  @SerializedName(SERIALIZED_NAME_TAGS)</span>
   private List&lt;Tag&gt; tags = new ArrayList&lt;&gt;();
 
   /**
    * pet status in the store
    */
-<span class="nc" id="L85">  @JsonAdapter(StatusEnum.Adapter.class)</span>
+<span class="nc" id="L81">  @JsonAdapter(StatusEnum.Adapter.class)</span>
   public enum StatusEnum {
-<span class="nc" id="L87">    AVAILABLE(&quot;available&quot;),</span>
+<span class="nc" id="L83">    AVAILABLE(&quot;available&quot;),</span>
     
-<span class="nc" id="L89">    PENDING(&quot;pending&quot;),</span>
+<span class="nc" id="L85">    PENDING(&quot;pending&quot;),</span>
     
-<span class="nc" id="L91">    SOLD(&quot;sold&quot;);</span>
+<span class="nc" id="L87">    SOLD(&quot;sold&quot;);</span>
 
     private String value;
 
-<span class="nc" id="L95">    StatusEnum(String value) {</span>
-<span class="nc" id="L96">      this.value = value;</span>
-<span class="nc" id="L97">    }</span>
+<span class="nc" id="L91">    StatusEnum(String value) {</span>
+<span class="nc" id="L92">      this.value = value;</span>
+<span class="nc" id="L93">    }</span>
 
     public String getValue() {
-<span class="nc" id="L100">      return value;</span>
+<span class="nc" id="L96">      return value;</span>
     }
 
     @Override
     public String toString() {
-<span class="nc" id="L105">      return String.valueOf(value);</span>
+<span class="nc" id="L101">      return String.valueOf(value);</span>
     }
 
     public static StatusEnum fromValue(String value) {
-<span class="nc bnc" id="L109" title="All 2 branches missed.">      for (StatusEnum b : StatusEnum.values()) {</span>
-<span class="nc bnc" id="L110" title="All 2 branches missed.">        if (b.value.equals(value)) {</span>
-<span class="nc" id="L111">          return b;</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">      for (StatusEnum b : StatusEnum.values()) {</span>
+<span class="nc bnc" id="L106" title="All 2 branches missed.">        if (b.value.equals(value)) {</span>
+<span class="nc" id="L107">          return b;</span>
         }
       }
-<span class="nc" id="L114">      throw new IllegalArgumentException(&quot;Unexpected value '&quot; + value + &quot;'&quot;);</span>
+<span class="nc" id="L110">      throw new IllegalArgumentException(&quot;Unexpected value '&quot; + value + &quot;'&quot;);</span>
     }
 
-<span class="nc" id="L117">    public static class Adapter extends TypeAdapter&lt;StatusEnum&gt; {</span>
+<span class="nc" id="L113">    public static class Adapter extends TypeAdapter&lt;StatusEnum&gt; {</span>
       @Override
       public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-<span class="nc" id="L120">        jsonWriter.value(enumeration.getValue());</span>
-<span class="nc" id="L121">      }</span>
+<span class="nc" id="L116">        jsonWriter.value(enumeration.getValue());</span>
+<span class="nc" id="L117">      }</span>
 
       @Override
       public StatusEnum read(final JsonReader jsonReader) throws IOException {
-<span class="nc" id="L125">        String value =  jsonReader.nextString();</span>
-<span class="nc" id="L126">        return StatusEnum.fromValue(value);</span>
+<span class="nc" id="L121">        String value =  jsonReader.nextString();</span>
+<span class="nc" id="L122">        return StatusEnum.fromValue(value);</span>
       }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-<span class="nc" id="L131">      String value = jsonElement.getAsString();</span>
-<span class="nc" id="L132">      StatusEnum.fromValue(value);</span>
-<span class="nc" id="L133">    }</span>
+<span class="nc" id="L127">      String value = jsonElement.getAsString();</span>
+<span class="nc" id="L128">      StatusEnum.fromValue(value);</span>
+<span class="nc" id="L129">    }</span>
   }
 
   public static final String SERIALIZED_NAME_STATUS = &quot;status&quot;;
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nullable
   private StatusEnum status;
 
-<span class="nc" id="L141">  public Pet() {</span>
-<span class="nc" id="L142">  }</span>
+<span class="nc" id="L136">  public Pet() {</span>
+<span class="nc" id="L137">  }</span>
 
-  public Pet id(@javax.annotation.Nullable Long id) {
-<span class="nc" id="L145">    this.id = id;</span>
-<span class="nc" id="L146">    return this;</span>
+  public Pet id(Long id) {
+<span class="nc" id="L140">    this.id = id;</span>
+<span class="nc" id="L141">    return this;</span>
   }
 
-  /**
+   /**
    * Get id
    * @return id
-   */
+  **/
   @javax.annotation.Nullable
   public Long getId() {
-<span class="nc" id="L155">    return id;</span>
+<span class="nc" id="L150">    return id;</span>
   }
 
-  public void setId(@javax.annotation.Nullable Long id) {
-<span class="nc" id="L159">    this.id = id;</span>
-<span class="nc" id="L160">  }</span>
+  public void setId(Long id) {
+<span class="nc" id="L154">    this.id = id;</span>
+<span class="nc" id="L155">  }</span>
 
 
-  public Pet category(@javax.annotation.Nullable Category category) {
-<span class="nc" id="L164">    this.category = category;</span>
-<span class="nc" id="L165">    return this;</span>
+  public Pet category(Category category) {
+<span class="nc" id="L159">    this.category = category;</span>
+<span class="nc" id="L160">    return this;</span>
   }
 
-  /**
+   /**
    * Get category
    * @return category
-   */
+  **/
   @javax.annotation.Nullable
   public Category getCategory() {
-<span class="nc" id="L174">    return category;</span>
+<span class="nc" id="L169">    return category;</span>
   }
 
-  public void setCategory(@javax.annotation.Nullable Category category) {
-<span class="nc" id="L178">    this.category = category;</span>
-<span class="nc" id="L179">  }</span>
+  public void setCategory(Category category) {
+<span class="nc" id="L173">    this.category = category;</span>
+<span class="nc" id="L174">  }</span>
 
 
-  public Pet name(@javax.annotation.Nonnull String name) {
-<span class="nc" id="L183">    this.name = name;</span>
-<span class="nc" id="L184">    return this;</span>
+  public Pet name(String name) {
+<span class="nc" id="L178">    this.name = name;</span>
+<span class="nc" id="L179">    return this;</span>
   }
 
-  /**
+   /**
    * Get name
    * @return name
-   */
+  **/
   @javax.annotation.Nonnull
   public String getName() {
-<span class="nc" id="L193">    return name;</span>
+<span class="nc" id="L188">    return name;</span>
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
-<span class="nc" id="L197">    this.name = name;</span>
-<span class="nc" id="L198">  }</span>
+  public void setName(String name) {
+<span class="nc" id="L192">    this.name = name;</span>
+<span class="nc" id="L193">  }</span>
 
 
-  public Pet photoUrls(@javax.annotation.Nonnull List&lt;String&gt; photoUrls) {
-<span class="nc" id="L202">    this.photoUrls = photoUrls;</span>
-<span class="nc" id="L203">    return this;</span>
+  public Pet photoUrls(List&lt;String&gt; photoUrls) {
+<span class="nc" id="L197">    this.photoUrls = photoUrls;</span>
+<span class="nc" id="L198">    return this;</span>
   }
 
   public Pet addPhotoUrlsItem(String photoUrlsItem) {
-<span class="nc bnc" id="L207" title="All 2 branches missed.">    if (this.photoUrls == null) {</span>
-<span class="nc" id="L208">      this.photoUrls = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L202" title="All 2 branches missed.">    if (this.photoUrls == null) {</span>
+<span class="nc" id="L203">      this.photoUrls = new ArrayList&lt;&gt;();</span>
     }
-<span class="nc" id="L210">    this.photoUrls.add(photoUrlsItem);</span>
-<span class="nc" id="L211">    return this;</span>
+<span class="nc" id="L205">    this.photoUrls.add(photoUrlsItem);</span>
+<span class="nc" id="L206">    return this;</span>
   }
 
-  /**
+   /**
    * Get photoUrls
    * @return photoUrls
-   */
+  **/
   @javax.annotation.Nonnull
   public List&lt;String&gt; getPhotoUrls() {
-<span class="nc" id="L220">    return photoUrls;</span>
+<span class="nc" id="L215">    return photoUrls;</span>
   }
 
-  public void setPhotoUrls(@javax.annotation.Nonnull List&lt;String&gt; photoUrls) {
-<span class="nc" id="L224">    this.photoUrls = photoUrls;</span>
-<span class="nc" id="L225">  }</span>
+  public void setPhotoUrls(List&lt;String&gt; photoUrls) {
+<span class="nc" id="L219">    this.photoUrls = photoUrls;</span>
+<span class="nc" id="L220">  }</span>
 
 
-  public Pet tags(@javax.annotation.Nullable List&lt;Tag&gt; tags) {
-<span class="nc" id="L229">    this.tags = tags;</span>
-<span class="nc" id="L230">    return this;</span>
+  public Pet tags(List&lt;Tag&gt; tags) {
+<span class="nc" id="L224">    this.tags = tags;</span>
+<span class="nc" id="L225">    return this;</span>
   }
 
   public Pet addTagsItem(Tag tagsItem) {
-<span class="nc bnc" id="L234" title="All 2 branches missed.">    if (this.tags == null) {</span>
-<span class="nc" id="L235">      this.tags = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L229" title="All 2 branches missed.">    if (this.tags == null) {</span>
+<span class="nc" id="L230">      this.tags = new ArrayList&lt;&gt;();</span>
     }
-<span class="nc" id="L237">    this.tags.add(tagsItem);</span>
-<span class="nc" id="L238">    return this;</span>
+<span class="nc" id="L232">    this.tags.add(tagsItem);</span>
+<span class="nc" id="L233">    return this;</span>
   }
 
-  /**
+   /**
    * Get tags
    * @return tags
-   */
+  **/
   @javax.annotation.Nullable
   public List&lt;Tag&gt; getTags() {
-<span class="nc" id="L247">    return tags;</span>
+<span class="nc" id="L242">    return tags;</span>
   }
 
-  public void setTags(@javax.annotation.Nullable List&lt;Tag&gt; tags) {
-<span class="nc" id="L251">    this.tags = tags;</span>
-<span class="nc" id="L252">  }</span>
+  public void setTags(List&lt;Tag&gt; tags) {
+<span class="nc" id="L246">    this.tags = tags;</span>
+<span class="nc" id="L247">  }</span>
 
 
-  public Pet status(@javax.annotation.Nullable StatusEnum status) {
-<span class="nc" id="L256">    this.status = status;</span>
-<span class="nc" id="L257">    return this;</span>
+  public Pet status(StatusEnum status) {
+<span class="nc" id="L251">    this.status = status;</span>
+<span class="nc" id="L252">    return this;</span>
   }
 
-  /**
+   /**
    * pet status in the store
    * @return status
-   */
+  **/
   @javax.annotation.Nullable
   public StatusEnum getStatus() {
-<span class="nc" id="L266">    return status;</span>
+<span class="nc" id="L261">    return status;</span>
   }
 
-  public void setStatus(@javax.annotation.Nullable StatusEnum status) {
-<span class="nc" id="L270">    this.status = status;</span>
-<span class="nc" id="L271">  }</span>
+  public void setStatus(StatusEnum status) {
+<span class="nc" id="L265">    this.status = status;</span>
+<span class="nc" id="L266">  }</span>
 
 
 
   @Override
   public boolean equals(Object o) {
-<span class="nc bnc" id="L277" title="All 2 branches missed.">    if (this == o) {</span>
-<span class="nc" id="L278">      return true;</span>
+<span class="nc bnc" id="L272" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L273">      return true;</span>
     }
-<span class="nc bnc" id="L280" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
-<span class="nc" id="L281">      return false;</span>
+<span class="nc bnc" id="L275" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L276">      return false;</span>
     }
-<span class="nc" id="L283">    Pet pet = (Pet) o;</span>
-<span class="nc bnc" id="L284" title="All 2 branches missed.">    return Objects.equals(this.id, pet.id) &amp;&amp;</span>
-<span class="nc bnc" id="L285" title="All 2 branches missed.">        Objects.equals(this.category, pet.category) &amp;&amp;</span>
-<span class="nc bnc" id="L286" title="All 2 branches missed.">        Objects.equals(this.name, pet.name) &amp;&amp;</span>
-<span class="nc bnc" id="L287" title="All 2 branches missed.">        Objects.equals(this.photoUrls, pet.photoUrls) &amp;&amp;</span>
-<span class="nc bnc" id="L288" title="All 2 branches missed.">        Objects.equals(this.tags, pet.tags) &amp;&amp;</span>
-<span class="nc bnc" id="L289" title="All 2 branches missed.">        Objects.equals(this.status, pet.status);</span>
+<span class="nc" id="L278">    Pet pet = (Pet) o;</span>
+<span class="nc bnc" id="L279" title="All 2 branches missed.">    return Objects.equals(this.id, pet.id) &amp;&amp;</span>
+<span class="nc bnc" id="L280" title="All 2 branches missed.">        Objects.equals(this.category, pet.category) &amp;&amp;</span>
+<span class="nc bnc" id="L281" title="All 2 branches missed.">        Objects.equals(this.name, pet.name) &amp;&amp;</span>
+<span class="nc bnc" id="L282" title="All 2 branches missed.">        Objects.equals(this.photoUrls, pet.photoUrls) &amp;&amp;</span>
+<span class="nc bnc" id="L283" title="All 2 branches missed.">        Objects.equals(this.tags, pet.tags) &amp;&amp;</span>
+<span class="nc bnc" id="L284" title="All 2 branches missed.">        Objects.equals(this.status, pet.status);</span>
   }
 
   @Override
   public int hashCode() {
-<span class="nc" id="L294">    return Objects.hash(id, category, name, photoUrls, tags, status);</span>
+<span class="nc" id="L289">    return Objects.hash(id, category, name, photoUrls, tags, status);</span>
   }
 
   @Override
   public String toString() {
-<span class="nc" id="L299">    StringBuilder sb = new StringBuilder();</span>
-<span class="nc" id="L300">    sb.append(&quot;class Pet {\n&quot;);</span>
-<span class="nc" id="L301">    sb.append(&quot;    id: &quot;).append(toIndentedString(id)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L302">    sb.append(&quot;    category: &quot;).append(toIndentedString(category)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L303">    sb.append(&quot;    name: &quot;).append(toIndentedString(name)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L304">    sb.append(&quot;    photoUrls: &quot;).append(toIndentedString(photoUrls)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L305">    sb.append(&quot;    tags: &quot;).append(toIndentedString(tags)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L306">    sb.append(&quot;    status: &quot;).append(toIndentedString(status)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L307">    sb.append(&quot;}&quot;);</span>
-<span class="nc" id="L308">    return sb.toString();</span>
+<span class="nc" id="L294">    StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L295">    sb.append(&quot;class Pet {\n&quot;);</span>
+<span class="nc" id="L296">    sb.append(&quot;    id: &quot;).append(toIndentedString(id)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L297">    sb.append(&quot;    category: &quot;).append(toIndentedString(category)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L298">    sb.append(&quot;    name: &quot;).append(toIndentedString(name)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L299">    sb.append(&quot;    photoUrls: &quot;).append(toIndentedString(photoUrls)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L300">    sb.append(&quot;    tags: &quot;).append(toIndentedString(tags)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L301">    sb.append(&quot;    status: &quot;).append(toIndentedString(status)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L302">    sb.append(&quot;}&quot;);</span>
+<span class="nc" id="L303">    return sb.toString();</span>
   }
 
   /**
@@ -313,10 +308,10 @@ public class Pet {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-<span class="nc bnc" id="L316" title="All 2 branches missed.">    if (o == null) {</span>
-<span class="nc" id="L317">      return &quot;null&quot;;</span>
+<span class="nc bnc" id="L311" title="All 2 branches missed.">    if (o == null) {</span>
+<span class="nc" id="L312">      return &quot;null&quot;;</span>
     }
-<span class="nc" id="L319">    return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</span>
+<span class="nc" id="L314">    return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</span>
   }
 
 
@@ -325,123 +320,131 @@ public class Pet {
 
   static {
     // a set of all properties/fields (JSON key names)
-<span class="nc" id="L328">    openapiFields = new HashSet&lt;String&gt;(Arrays.asList(&quot;id&quot;, &quot;category&quot;, &quot;name&quot;, &quot;photoUrls&quot;, &quot;tags&quot;, &quot;status&quot;));</span>
+<span class="nc" id="L323">    openapiFields = new HashSet&lt;String&gt;();</span>
+<span class="nc" id="L324">    openapiFields.add(&quot;id&quot;);</span>
+<span class="nc" id="L325">    openapiFields.add(&quot;category&quot;);</span>
+<span class="nc" id="L326">    openapiFields.add(&quot;name&quot;);</span>
+<span class="nc" id="L327">    openapiFields.add(&quot;photoUrls&quot;);</span>
+<span class="nc" id="L328">    openapiFields.add(&quot;tags&quot;);</span>
+<span class="nc" id="L329">    openapiFields.add(&quot;status&quot;);</span>
 
     // a set of required properties/fields (JSON key names)
-<span class="nc" id="L331">    openapiRequiredFields = new HashSet&lt;String&gt;(Arrays.asList(&quot;name&quot;, &quot;photoUrls&quot;));</span>
-<span class="nc" id="L332">  }</span>
+<span class="nc" id="L332">    openapiRequiredFields = new HashSet&lt;String&gt;();</span>
+<span class="nc" id="L333">    openapiRequiredFields.add(&quot;name&quot;);</span>
+<span class="nc" id="L334">    openapiRequiredFields.add(&quot;photoUrls&quot;);</span>
+<span class="nc" id="L335">  }</span>
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to Pet
-   */
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to Pet
+  */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-<span class="nc bnc" id="L341" title="All 2 branches missed.">      if (jsonElement == null) {</span>
-<span class="nc bnc" id="L342" title="All 2 branches missed.">        if (!Pet.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null</span>
-<span class="nc" id="L343">          throw new IllegalArgumentException(String.format(&quot;The required field(s) %s in Pet is not found in the empty JSON string&quot;, Pet.openapiRequiredFields.toString()));</span>
+<span class="nc bnc" id="L344" title="All 2 branches missed.">      if (jsonElement == null) {</span>
+<span class="nc bnc" id="L345" title="All 2 branches missed.">        if (!Pet.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null</span>
+<span class="nc" id="L346">          throw new IllegalArgumentException(String.format(&quot;The required field(s) %s in Pet is not found in the empty JSON string&quot;, Pet.openapiRequiredFields.toString()));</span>
         }
       }
 
-<span class="nc" id="L347">      Set&lt;Map.Entry&lt;String, JsonElement&gt;&gt; entries = jsonElement.getAsJsonObject().entrySet();</span>
+<span class="nc" id="L350">      Set&lt;Map.Entry&lt;String, JsonElement&gt;&gt; entries = jsonElement.getAsJsonObject().entrySet();</span>
       // check to see if the JSON string contains additional fields
-<span class="nc bnc" id="L349" title="All 2 branches missed.">      for (Map.Entry&lt;String, JsonElement&gt; entry : entries) {</span>
-<span class="nc bnc" id="L350" title="All 2 branches missed.">        if (!Pet.openapiFields.contains(entry.getKey())) {</span>
-<span class="nc" id="L351">          throw new IllegalArgumentException(String.format(&quot;The field `%s` in the JSON string is not defined in the `Pet` properties. JSON: %s&quot;, entry.getKey(), jsonElement.toString()));</span>
+<span class="nc bnc" id="L352" title="All 2 branches missed.">      for (Map.Entry&lt;String, JsonElement&gt; entry : entries) {</span>
+<span class="nc bnc" id="L353" title="All 2 branches missed.">        if (!Pet.openapiFields.contains(entry.getKey())) {</span>
+<span class="nc" id="L354">          throw new IllegalArgumentException(String.format(&quot;The field `%s` in the JSON string is not defined in the `Pet` properties. JSON: %s&quot;, entry.getKey(), jsonElement.toString()));</span>
         }
-<span class="nc" id="L353">      }</span>
+<span class="nc" id="L356">      }</span>
 
       // check to make sure all required properties/fields are present in the JSON string
-<span class="nc bnc" id="L356" title="All 2 branches missed.">      for (String requiredField : Pet.openapiRequiredFields) {</span>
-<span class="nc bnc" id="L357" title="All 2 branches missed.">        if (jsonElement.getAsJsonObject().get(requiredField) == null) {</span>
-<span class="nc" id="L358">          throw new IllegalArgumentException(String.format(&quot;The required field `%s` is not found in the JSON string: %s&quot;, requiredField, jsonElement.toString()));</span>
+<span class="nc bnc" id="L359" title="All 2 branches missed.">      for (String requiredField : Pet.openapiRequiredFields) {</span>
+<span class="nc bnc" id="L360" title="All 2 branches missed.">        if (jsonElement.getAsJsonObject().get(requiredField) == null) {</span>
+<span class="nc" id="L361">          throw new IllegalArgumentException(String.format(&quot;The required field `%s` is not found in the JSON string: %s&quot;, requiredField, jsonElement.toString()));</span>
         }
-<span class="nc" id="L360">      }</span>
-<span class="nc" id="L361">        JsonObject jsonObj = jsonElement.getAsJsonObject();</span>
+<span class="nc" id="L363">      }</span>
+<span class="nc" id="L364">        JsonObject jsonObj = jsonElement.getAsJsonObject();</span>
       // validate the optional field `category`
-<span class="nc bnc" id="L363" title="All 4 branches missed.">      if (jsonObj.get(&quot;category&quot;) != null &amp;&amp; !jsonObj.get(&quot;category&quot;).isJsonNull()) {</span>
-<span class="nc" id="L364">        Category.validateJsonElement(jsonObj.get(&quot;category&quot;));</span>
+<span class="nc bnc" id="L366" title="All 4 branches missed.">      if (jsonObj.get(&quot;category&quot;) != null &amp;&amp; !jsonObj.get(&quot;category&quot;).isJsonNull()) {</span>
+<span class="nc" id="L367">        Category.validateJsonElement(jsonObj.get(&quot;category&quot;));</span>
       }
-<span class="nc bnc" id="L366" title="All 2 branches missed.">      if (!jsonObj.get(&quot;name&quot;).isJsonPrimitive()) {</span>
-<span class="nc" id="L367">        throw new IllegalArgumentException(String.format(&quot;Expected the field `name` to be a primitive type in the JSON string but got `%s`&quot;, jsonObj.get(&quot;name&quot;).toString()));</span>
+<span class="nc bnc" id="L369" title="All 2 branches missed.">      if (!jsonObj.get(&quot;name&quot;).isJsonPrimitive()) {</span>
+<span class="nc" id="L370">        throw new IllegalArgumentException(String.format(&quot;Expected the field `name` to be a primitive type in the JSON string but got `%s`&quot;, jsonObj.get(&quot;name&quot;).toString()));</span>
       }
       // ensure the required json array is present
-<span class="nc bnc" id="L370" title="All 2 branches missed.">      if (jsonObj.get(&quot;photoUrls&quot;) == null) {</span>
-<span class="nc" id="L371">        throw new IllegalArgumentException(&quot;Expected the field `linkedContent` to be an array in the JSON string but got `null`&quot;);</span>
-<span class="nc bnc" id="L372" title="All 2 branches missed.">      } else if (!jsonObj.get(&quot;photoUrls&quot;).isJsonArray()) {</span>
-<span class="nc" id="L373">        throw new IllegalArgumentException(String.format(&quot;Expected the field `photoUrls` to be an array in the JSON string but got `%s`&quot;, jsonObj.get(&quot;photoUrls&quot;).toString()));</span>
+<span class="nc bnc" id="L373" title="All 2 branches missed.">      if (jsonObj.get(&quot;photoUrls&quot;) == null) {</span>
+<span class="nc" id="L374">        throw new IllegalArgumentException(&quot;Expected the field `linkedContent` to be an array in the JSON string but got `null`&quot;);</span>
+<span class="nc bnc" id="L375" title="All 2 branches missed.">      } else if (!jsonObj.get(&quot;photoUrls&quot;).isJsonArray()) {</span>
+<span class="nc" id="L376">        throw new IllegalArgumentException(String.format(&quot;Expected the field `photoUrls` to be an array in the JSON string but got `%s`&quot;, jsonObj.get(&quot;photoUrls&quot;).toString()));</span>
       }
-<span class="nc bnc" id="L375" title="All 4 branches missed.">      if (jsonObj.get(&quot;tags&quot;) != null &amp;&amp; !jsonObj.get(&quot;tags&quot;).isJsonNull()) {</span>
-<span class="nc" id="L376">        JsonArray jsonArraytags = jsonObj.getAsJsonArray(&quot;tags&quot;);</span>
-<span class="nc bnc" id="L377" title="All 2 branches missed.">        if (jsonArraytags != null) {</span>
+<span class="nc bnc" id="L378" title="All 4 branches missed.">      if (jsonObj.get(&quot;tags&quot;) != null &amp;&amp; !jsonObj.get(&quot;tags&quot;).isJsonNull()) {</span>
+<span class="nc" id="L379">        JsonArray jsonArraytags = jsonObj.getAsJsonArray(&quot;tags&quot;);</span>
+<span class="nc bnc" id="L380" title="All 2 branches missed.">        if (jsonArraytags != null) {</span>
           // ensure the json data is an array
-<span class="nc bnc" id="L379" title="All 2 branches missed.">          if (!jsonObj.get(&quot;tags&quot;).isJsonArray()) {</span>
-<span class="nc" id="L380">            throw new IllegalArgumentException(String.format(&quot;Expected the field `tags` to be an array in the JSON string but got `%s`&quot;, jsonObj.get(&quot;tags&quot;).toString()));</span>
+<span class="nc bnc" id="L382" title="All 2 branches missed.">          if (!jsonObj.get(&quot;tags&quot;).isJsonArray()) {</span>
+<span class="nc" id="L383">            throw new IllegalArgumentException(String.format(&quot;Expected the field `tags` to be an array in the JSON string but got `%s`&quot;, jsonObj.get(&quot;tags&quot;).toString()));</span>
           }
 
           // validate the optional field `tags` (array)
-<span class="nc bnc" id="L384" title="All 2 branches missed.">          for (int i = 0; i &lt; jsonArraytags.size(); i++) {</span>
-<span class="nc" id="L385">            Tag.validateJsonElement(jsonArraytags.get(i));</span>
+<span class="nc bnc" id="L387" title="All 2 branches missed.">          for (int i = 0; i &lt; jsonArraytags.size(); i++) {</span>
+<span class="nc" id="L388">            Tag.validateJsonElement(jsonArraytags.get(i));</span>
           };
         }
       }
-<span class="nc bnc" id="L389" title="All 6 branches missed.">      if ((jsonObj.get(&quot;status&quot;) != null &amp;&amp; !jsonObj.get(&quot;status&quot;).isJsonNull()) &amp;&amp; !jsonObj.get(&quot;status&quot;).isJsonPrimitive()) {</span>
-<span class="nc" id="L390">        throw new IllegalArgumentException(String.format(&quot;Expected the field `status` to be a primitive type in the JSON string but got `%s`&quot;, jsonObj.get(&quot;status&quot;).toString()));</span>
+<span class="nc bnc" id="L392" title="All 6 branches missed.">      if ((jsonObj.get(&quot;status&quot;) != null &amp;&amp; !jsonObj.get(&quot;status&quot;).isJsonNull()) &amp;&amp; !jsonObj.get(&quot;status&quot;).isJsonPrimitive()) {</span>
+<span class="nc" id="L393">        throw new IllegalArgumentException(String.format(&quot;Expected the field `status` to be a primitive type in the JSON string but got `%s`&quot;, jsonObj.get(&quot;status&quot;).toString()));</span>
       }
       // validate the optional field `status`
-<span class="nc bnc" id="L393" title="All 4 branches missed.">      if (jsonObj.get(&quot;status&quot;) != null &amp;&amp; !jsonObj.get(&quot;status&quot;).isJsonNull()) {</span>
-<span class="nc" id="L394">        StatusEnum.validateJsonElement(jsonObj.get(&quot;status&quot;));</span>
+<span class="nc bnc" id="L396" title="All 4 branches missed.">      if (jsonObj.get(&quot;status&quot;) != null &amp;&amp; !jsonObj.get(&quot;status&quot;).isJsonNull()) {</span>
+<span class="nc" id="L397">        StatusEnum.validateJsonElement(jsonObj.get(&quot;status&quot;));</span>
       }
-<span class="nc" id="L396">  }</span>
+<span class="nc" id="L399">  }</span>
 
-<span class="nc" id="L398">  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {</span>
+<span class="nc" id="L401">  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {</span>
     @SuppressWarnings(&quot;unchecked&quot;)
     @Override
     public &lt;T&gt; TypeAdapter&lt;T&gt; create(Gson gson, TypeToken&lt;T&gt; type) {
-<span class="nc bnc" id="L402" title="All 2 branches missed.">       if (!Pet.class.isAssignableFrom(type.getRawType())) {</span>
-<span class="nc" id="L403">         return null; // this class only serializes 'Pet' and its subtypes</span>
+<span class="nc bnc" id="L405" title="All 2 branches missed.">       if (!Pet.class.isAssignableFrom(type.getRawType())) {</span>
+<span class="nc" id="L406">         return null; // this class only serializes 'Pet' and its subtypes</span>
        }
-<span class="nc" id="L405">       final TypeAdapter&lt;JsonElement&gt; elementAdapter = gson.getAdapter(JsonElement.class);</span>
-<span class="nc" id="L406">       final TypeAdapter&lt;Pet&gt; thisAdapter</span>
-<span class="nc" id="L407">                        = gson.getDelegateAdapter(this, TypeToken.get(Pet.class));</span>
+<span class="nc" id="L408">       final TypeAdapter&lt;JsonElement&gt; elementAdapter = gson.getAdapter(JsonElement.class);</span>
+<span class="nc" id="L409">       final TypeAdapter&lt;Pet&gt; thisAdapter</span>
+<span class="nc" id="L410">                        = gson.getDelegateAdapter(this, TypeToken.get(Pet.class));</span>
 
-<span class="nc" id="L409">       return (TypeAdapter&lt;T&gt;) new TypeAdapter&lt;Pet&gt;() {</span>
+<span class="nc" id="L412">       return (TypeAdapter&lt;T&gt;) new TypeAdapter&lt;Pet&gt;() {</span>
            @Override
            public void write(JsonWriter out, Pet value) throws IOException {
-<span class="nc" id="L412">             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();</span>
-<span class="nc" id="L413">             elementAdapter.write(out, obj);</span>
-<span class="nc" id="L414">           }</span>
+<span class="nc" id="L415">             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();</span>
+<span class="nc" id="L416">             elementAdapter.write(out, obj);</span>
+<span class="nc" id="L417">           }</span>
 
            @Override
            public Pet read(JsonReader in) throws IOException {
-<span class="nc" id="L418">             JsonElement jsonElement = elementAdapter.read(in);</span>
-<span class="nc" id="L419">             validateJsonElement(jsonElement);</span>
-<span class="nc" id="L420">             return thisAdapter.fromJsonTree(jsonElement);</span>
+<span class="nc" id="L421">             JsonElement jsonElement = elementAdapter.read(in);</span>
+<span class="nc" id="L422">             validateJsonElement(jsonElement);</span>
+<span class="nc" id="L423">             return thisAdapter.fromJsonTree(jsonElement);</span>
            }
 
-<span class="nc" id="L423">       }.nullSafe();</span>
+<span class="nc" id="L426">       }.nullSafe();</span>
     }
   }
 
-  /**
-   * Create an instance of Pet given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of Pet
-   * @throws IOException if the JSON string is invalid with respect to Pet
-   */
+ /**
+  * Create an instance of Pet given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of Pet
+  * @throws IOException if the JSON string is invalid with respect to Pet
+  */
   public static Pet fromJson(String jsonString) throws IOException {
-<span class="nc" id="L435">    return JSON.getGson().fromJson(jsonString, Pet.class);</span>
+<span class="nc" id="L438">    return JSON.getGson().fromJson(jsonString, Pet.class);</span>
   }
 
-  /**
-   * Convert an instance of Pet to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of Pet to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
-<span class="nc" id="L444">    return JSON.getGson().toJson(this);</span>
+<span class="nc" id="L447">    return JSON.getGson().toJson(this);</span>
   }
 }
 
